@@ -7,7 +7,7 @@ import * as ethers from "ethers";
 import Web3 from "web3";
 import moment from "moment";
 
-import { ETH_DECIMAL, defaultEthInfuraRpcUrl } from "./const";
+import { ETH_DECIMAL } from "./const";
 import {
   EthTransferParams,
   EthTxData,
@@ -29,7 +29,7 @@ import {
 } from "../swap_utils";
 
 export type EthRpcParams = {
-  rpcUrl?: string;
+  rpcUrl: string;
   infuraApiKey?: string;
 };
 
@@ -44,7 +44,7 @@ class EthereumClient {
   constructor({
     phrase,
     network = Network.Mainnet,
-    rpcUrl = defaultEthInfuraRpcUrl,
+    rpcUrl,
     infuraApiKey = "",
   }: ChainClientParams & EthRpcParams) {
     if (phrase) {
@@ -54,20 +54,21 @@ class EthereumClient {
       this.phrase = phrase;
     }
     this.network = network;
-    if (this.network === Network.Testnet && rpcUrl === defaultEthInfuraRpcUrl) {
-      throw Error(`'rpcUrl' param can't be empty for testnet`);
-    }
-    if (
-      (this.network === Network.Mainnet || this.network === Network.Stagenet) &&
-      infuraApiKey === ""
-    ) {
-      throw Error(`infuraApiKey can't be empty for mainnet`);
-    }
+    // if (this.network === Network.Testnet && rpcUrl === defaultEthInfuraRpcUrl) {
+    //   throw Error(`'rpcUrl' param can't be empty for testnet`);
+    // }
+    // if (
+    //   (this.network === Network.Mainnet || this.network === Network.Stagenet) &&
+    //   infuraApiKey === ""
+    // ) {
+    //   throw Error(`infuraApiKey can't be empty for mainnet`);
+    // }
     if (this.network === Network.Testnet) {
       this.rpcUrl = rpcUrl;
       this.web3 = new Web3(this.rpcUrl);
     } else {
-      this.rpcUrl = `${rpcUrl}${infuraApiKey}`;
+      // this.rpcUrl = `${rpcUrl}${infuraApiKey}`;
+      this.rpcUrl = rpcUrl;
       this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
     }
     this.account = ethers.Wallet.fromMnemonic(this.phrase);

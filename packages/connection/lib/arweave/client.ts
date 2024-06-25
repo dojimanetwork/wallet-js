@@ -17,7 +17,7 @@ import {
 } from "./types";
 import {
   AR_DECIMAL,
-  defaultArMainnetConfig,
+  // defaultArMainnetConfig,
   // defaultArTestnetConfig,
 } from "./utils";
 import {
@@ -43,7 +43,7 @@ export interface ArweaveChainClient {
 }
 
 export type ChainConfigParams = {
-  config?: ApiConfig;
+  config: ApiConfig;
 };
 
 class ArweaveClient extends ArweaveTxClient implements ArweaveChainClient {
@@ -54,7 +54,7 @@ class ArweaveClient extends ArweaveTxClient implements ArweaveChainClient {
   constructor({
     phrase,
     network = Network.Mainnet,
-    config = defaultArMainnetConfig,
+    config,
   }: ChainClientParams & ChainConfigParams) {
     super();
     if (phrase) {
@@ -68,12 +68,12 @@ class ArweaveClient extends ArweaveTxClient implements ArweaveChainClient {
     // if (this.network === Network.Testnet || this.network === Network.Stagenet) {
     //   this.apiConfig = defaultArTestnetConfig;
     // }
-    if (
-      this.network === Network.Testnet &&
-      this.apiConfig === defaultArMainnetConfig
-    ) {
-      throw Error(`'config' params can't be empty for 'testnet'`);
-    }
+    // if (
+    //   this.network === Network.Testnet &&
+    //   this.apiConfig === defaultArMainnetConfig
+    // ) {
+    //   throw Error(`'config' params can't be empty for 'testnet'`);
+    // }
     this.arweave = Arweave.init(this.apiConfig);
   }
 

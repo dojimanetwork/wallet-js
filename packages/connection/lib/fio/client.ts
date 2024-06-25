@@ -29,7 +29,7 @@ class FioClient {
       }
       this.phrase = phrase;
     }
-    this.apiUrl = "https://fio.blockpane.com/v1/";
+    this.apiUrl = apiUrl;
   }
 
   private async generateKeysFromMnemonic(): Promise<GenerateKeysType> {
@@ -81,6 +81,20 @@ class FioClient {
       );
     } catch (err) {
       return `Unable to check handle availability`;
+    }
+  }
+
+  async getFee(handle: string): Promise<{ fee: number } | string> {
+    try {
+      return await this.postRequest<{ fee: number }>(
+        `${this.apiUrl}chain/get_fee`,
+        {
+          end_point: "transfer_tokens_pub_key",
+          fio_address: handle ? handle : "",
+        }
+      );
+    } catch (err) {
+      return `Unable to get fee`;
     }
   }
 

@@ -47,7 +47,6 @@ class DojimaClient {
     // }
     this.rpcUrl = rpcUrl;
     this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
-    // this.account = ethers.Wallet.fromMnemonic(this.phrase);
     this.provider = new ethers.providers.JsonRpcProvider(this.rpcUrl);
     const accountData = ethers.Wallet.fromMnemonic(this.phrase);
     this.account = new ethers.Wallet(accountData.privateKey).connect(

@@ -123,9 +123,9 @@ class HermesClient
     apiUrl,
     rpcUrl,
     rootDerivationPaths = {
-      [Network.Mainnet]: "44'/1401'/0'/0/",
-      [Network.Stagenet]: "44'/1401'/0'/0/",
-      [Network.Testnet]: "44'/1001'/0'/0/",
+      [Network.Mainnet]: "44'/187'/0'/0/",
+      [Network.Stagenet]: "44'/187'/0'/0/",
+      [Network.Testnet]: "44'/184'/0'/0/",
     },
   }: ChainClientParams & HermeschainClientParams) {
     super(Chain.Cosmos, { network, rootDerivationPaths, phrase });
@@ -153,11 +153,12 @@ class HermesClient
    * */
   getDefaultChainIds(): ChainIds {
     return {
-      [Network.Mainnet]: "hermeschain-mainnet",
-      [Network.Stagenet]: "hermeschain-stagenet",
+      [Network.Mainnet]: "h4s-187-d11k",
+      [Network.Stagenet]: "h4s-187-d11k",
+      // [Network.Testnet]: 'h4s-184-d11k',
       [Network.Testnet]: this.apiUrl.includes("localhost")
         ? "hermeschain"
-        : "hermes-testnet-v2",
+        : "h4s-184-d11k",
     };
   }
 

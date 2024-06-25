@@ -8,7 +8,7 @@ export default class EthereumInit {
       this.ethConnect = new EthereumClient({
         phrase: mnemonic,
         network: network,
-        rpcUrl: "https://eth-test.h4s.dojima.network/",
+        rpcUrl: "https://eth-test-h4s.dojima.network/",
       });
       // } else if (network === Network.Stagenet) {
       //   this.ethConnect = new EthereumClient({
@@ -20,7 +20,9 @@ export default class EthereumInit {
       this.ethConnect = new EthereumClient({
         phrase: mnemonic,
         network: network,
-        infuraApiKey: apiKey,
+        rpcUrl:
+          "https://eth-mainnet.g.alchemy.com/v2/GRyJOApwSFYywXEVFY4wiOgSLGMTv8qV",
+        // infuraApiKey: apiKey,
       });
     }
     // if (network === Network.Testnet) {

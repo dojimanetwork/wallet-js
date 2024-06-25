@@ -8,7 +8,7 @@ export default class SolanaInit {
       this.solConnect = new SolanaClient({
         phrase: mnemonic,
         network: network,
-        endpoint: "https://sol-test.h4s.dojima.network",
+        endpoint: "https://sol-test-h4s.dojima.network",
       });
       // } else if (network === Network.Stagenet) {
       //   this.solConnect = new SolanaClient({
@@ -20,7 +20,9 @@ export default class SolanaInit {
       this.solConnect = new SolanaClient({
         phrase: mnemonic,
         network: network,
-        apiKey: apiKey,
+        endpoint:
+          "https://solana-mainnet.g.alchemy.com/v2/GRyJOApwSFYywXEVFY4wiOgSLGMTv8qV",
+        // apiKey: apiKey,
       });
     }
   }

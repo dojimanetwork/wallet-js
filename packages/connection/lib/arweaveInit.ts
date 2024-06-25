@@ -9,7 +9,7 @@ export default class ArweaveInit {
         phrase: mnemonic,
         network: network,
         config: {
-          host: "ar-test.h4s.dojima.network",
+          host: "ar-test-h4s.dojima.network",
           protocol: "https",
           timeout: 100000,
         },
@@ -34,6 +34,11 @@ export default class ArweaveInit {
       this.arConnect = new ArweaveClient({
         phrase: mnemonic,
         network: network,
+        config: {
+          host: "arweave.net",
+          protocol: "https",
+          timeout: 100000,
+        },
       });
     }
   }

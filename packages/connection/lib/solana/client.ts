@@ -37,7 +37,7 @@ export interface SolanaChainClient {
 }
 
 export type ChainEndpointParams = {
-  endpoint?: string;
+  endpoint: string;
   apiKey?: string;
 };
 
@@ -54,7 +54,7 @@ class SolanaClient implements SolanaChainClient {
   constructor({
     phrase,
     network = Network.Mainnet,
-    endpoint = alchemySolRpcUrl,
+    endpoint,
     apiKey = "",
   }: ChainClientParams & ChainEndpointParams) {
     if (phrase) {
@@ -65,12 +65,12 @@ class SolanaClient implements SolanaChainClient {
     }
     this.network = network;
     this.cluster = this.getCluster();
-    if (this.network === Network.Testnet && endpoint === alchemySolRpcUrl) {
-      throw Error(`'endpoint' params can't be empty for testnet`);
-    }
-    if (this.network === Network.Mainnet && apiKey === "") {
-      throw Error(`apiKey can't be empty for mainnet`);
-    }
+    // if (this.network === Network.Testnet && endpoint === alchemySolRpcUrl) {
+    //   throw Error(`'endpoint' params can't be empty for testnet`);
+    // }
+    // if (this.network === Network.Mainnet && apiKey === "") {
+    //   throw Error(`apiKey can't be empty for mainnet`);
+    // }
     if (this.network === Network.Testnet) {
       this.connection = new web3.Connection(endpoint, "confirmed");
     } else {
@@ -79,7 +79,8 @@ class SolanaClient implements SolanaChainClient {
       //   "confirmed"
       // );
       this.connection = new web3.Connection(
-        `${alchemySolRpcUrl}${apiKey}`,
+        // `${endpoint}${apiKey}`,
+        endpoint,
         "confirmed"
       );
     }
