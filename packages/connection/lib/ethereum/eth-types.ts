@@ -27,7 +27,6 @@ export type SortType = "desc" | "asc";
 
 export type EthTxHistoryParams = {
   address: string;
-  apiKey: string;
   page?: number;
   limit?: number;
   sort?: SortType;

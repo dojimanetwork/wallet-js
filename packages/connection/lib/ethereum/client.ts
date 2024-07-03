@@ -30,7 +30,7 @@ import {
 
 export type EthRpcParams = {
   rpcUrl: string;
-  infuraApiKey?: string;
+  etherscanKey?: string;
 };
 
 class EthereumClient {
@@ -40,12 +40,13 @@ class EthereumClient {
   protected account: ethers.ethers.Wallet;
   protected phrase = "";
   protected api = "";
+  private etherscanApiKey = "";
 
   constructor({
     phrase,
     network = Network.Mainnet,
     rpcUrl,
-    infuraApiKey = "",
+    etherscanKey = "",
   }: ChainClientParams & EthRpcParams) {
     if (phrase) {
       if (!validatePhrase(phrase)) {
@@ -63,17 +64,21 @@ class EthereumClient {
     // ) {
     //   throw Error(`infuraApiKey can't be empty for mainnet`);
     // }
-    if (this.network === Network.Testnet) {
-      this.rpcUrl = rpcUrl;
-      this.web3 = new Web3(this.rpcUrl);
-    } else {
-      // this.rpcUrl = `${rpcUrl}${infuraApiKey}`;
-      this.rpcUrl = rpcUrl;
-      this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
-    }
+    // if (this.network === Network.Testnet) {
+    //   this.rpcUrl = rpcUrl;
+    //   this.web3 = new Web3(this.rpcUrl);
+    // } else {
+    //   // this.rpcUrl = `${rpcUrl}${infuraApiKey}`;
+    //   this.rpcUrl = rpcUrl;
+    //   this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
+    // }
+    this.rpcUrl = rpcUrl;
+    this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
     this.account = ethers.Wallet.fromMnemonic(this.phrase);
+    this.etherscanApiKey = etherscanKey;
     if (this.network === Network.Mainnet || this.network === Network.Stagenet)
-      this.api = "https://api.etherscan.io/api";
+      this.api = "https://api.etherscan.io/api?";
+    else this.api = "https://api-holesky.etherscan.io/api";
   }
 
   getAddress(): string {
@@ -166,81 +171,75 @@ class EthereumClient {
   }
 
   async getTransactionsHistory(params: EthTxHistoryParams) {
-    if (this.network === Network.Testnet) return null;
-    else {
-      let requestUrl = `${this.api}?module=account&action=txlist`;
+    let requestUrl = `${this.api}?module=account&action=txlist&api=${this.etherscanApiKey}`;
 
-      if (params.address) requestUrl += `&address=${params.address}`;
-      if (params.apiKey) requestUrl += `&api=${params.apiKey}`;
-      if (params.limit) requestUrl += `&offset=${params.limit}`;
-      else requestUrl += `&offset=10`;
-      if (params.page) requestUrl += `&page=${params.page}`;
-      else requestUrl += `&page=1`;
-      if (params.sort) requestUrl += `&sort=${params.sort}`;
-      else requestUrl += `&sort=desc`;
-      if (params.startBlock) requestUrl += `&startblock=${params.startBlock}`;
-      else requestUrl += `&startblock=0`;
-      if (params.endBlock) requestUrl += `&endblock=${params.endBlock}`;
-      else requestUrl += `&endblock=99999999`;
-      const convertTimestampToDate = (timestamp: number) => {
-        const date = moment(timestamp).toDate().toUTCString();
-        return date;
-      };
+    if (params.address) requestUrl += `&address=${params.address}`;
+    if (params.limit) requestUrl += `&offset=${params.limit}`;
+    else requestUrl += `&offset=10`;
+    if (params.page) requestUrl += `&page=${params.page}`;
+    else requestUrl += `&page=1`;
+    if (params.sort) requestUrl += `&sort=${params.sort}`;
+    else requestUrl += `&sort=desc`;
+    if (params.startBlock) requestUrl += `&startblock=${params.startBlock}`;
+    else requestUrl += `&startblock=0`;
+    if (params.endBlock) requestUrl += `&endblock=${params.endBlock}`;
+    else requestUrl += `&endblock=99999999`;
+    const convertTimestampToDate = (timestamp: number) => {
+      const date = moment(timestamp).toDate().toUTCString();
+      return date;
+    };
 
-      const convertISOtoUTC = (date: string) => {
-        const utcDate = new Date(date).toUTCString();
-        return utcDate;
-      };
+    const convertISOtoUTC = (date: string) => {
+      const utcDate = new Date(date).toUTCString();
+      return utcDate;
+    };
 
-      try {
-        let response: TransactionHistoryResult = await (
-          await axios.get(requestUrl)
-        ).data;
-        if (response.status === "1") {
-          let result: EthTxDetailsResult[] = response.result;
-          if (result !== undefined) {
-            const resultTxs: EthTxs = {
-              total: result.length,
-              txs: result.map((res) => ({
-                block: Number(res.blockNumber),
-                date: moment(
-                  convertISOtoUTC(
-                    convertTimestampToDate(Number(res.timeStamp) * 1000)
-                  )
-                ).format("DD/MM/YYYY"),
-                time: moment(
-                  convertISOtoUTC(
-                    convertTimestampToDate(Number(res.timeStamp) * 1000)
-                  )
-                ).format("HH:mm:ss"),
-                transaction_hash: res.hash,
-                contract_address:
-                  res.contractAddress !== "" ? res.contractAddress : "NA",
-                value: Number(res.value) / Math.pow(10, 18),
-                gas_price: (Number(res.gasPrice) / Math.pow(10, 18)).toFixed(
-                  18
-                ),
-                from: res.from,
-                to: res.to,
-                transaction_type:
-                  res.from === params.address.toLowerCase()
-                    ? "Send | ETH"
-                    : "Receive | ETH",
-              })),
-            };
-            return resultTxs;
-          } else {
-            return {
-              total: 0,
-              txs: [],
-            };
-          }
+    try {
+      let response: TransactionHistoryResult = await (
+        await axios.get(requestUrl)
+      ).data;
+      if (response.status === "1") {
+        let result: EthTxDetailsResult[] = response.result;
+        if (result !== undefined) {
+          const resultTxs: EthTxs = {
+            total: result.length,
+            txs: result.map((res) => ({
+              block: Number(res.blockNumber),
+              date: moment(
+                convertISOtoUTC(
+                  convertTimestampToDate(Number(res.timeStamp) * 1000)
+                )
+              ).format("DD/MM/YYYY"),
+              time: moment(
+                convertISOtoUTC(
+                  convertTimestampToDate(Number(res.timeStamp) * 1000)
+                )
+              ).format("HH:mm:ss"),
+              transaction_hash: res.hash,
+              contract_address:
+                res.contractAddress !== "" ? res.contractAddress : "NA",
+              value: Number(res.value) / Math.pow(10, 18),
+              gas_price: (Number(res.gasPrice) / Math.pow(10, 18)).toFixed(18),
+              from: res.from,
+              to: res.to,
+              transaction_type:
+                res.from === params.address.toLowerCase()
+                  ? "Send | ETH"
+                  : "Receive | ETH",
+            })),
+          };
+          return resultTxs;
         } else {
-          throw Error(`Failed to get txs list`);
+          return {
+            total: 0,
+            txs: [],
+          };
         }
-      } catch (error) {
+      } else {
         throw Error(`Failed to get txs list`);
       }
+    } catch (error) {
+      throw Error(`Failed to get txs list`);
     }
   }
 

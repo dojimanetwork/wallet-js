@@ -32,7 +32,7 @@ import {
   MsgSetPubkeysTx,
   MsgSetVersionTx,
 } from "./messages";
-import types from "./proto/MsgCompiled";
+import { hermes } from "./proto/MsgCompiled";
 import { ChainId, ExplorerUrls, NodeInfoResponse, TxData } from "./types";
 
 export const DOJ_DECIMAL = 8;
@@ -127,8 +127,8 @@ export const getPrefix = (network: Network) => {
  */
 export const registerSetVersionCodecs = () => {
   cosmosclient.codec.register(
-    "/types.MsgSetVersion",
-    types.types.MsgSetVersion
+    "/hermes.hermes.v1beta1.types.MsgSetVersion",
+    hermes.hermes.v1beta1.types.MsgSetVersion
   );
 };
 
@@ -137,8 +137,8 @@ export const registerSetVersionCodecs = () => {
  */
 export const registerSetNodePubkeysCodecs = () => {
   cosmosclient.codec.register(
-    "/types.MsgSetNodeKeys",
-    types.types.MsgSetNodeKeys
+    "/hermes.hermes.v1beta1.types.MsgSetNodeKeys",
+    hermes.hermes.v1beta1.types.MsgSetNodeKeys
   );
 };
 
@@ -146,14 +146,20 @@ export const registerSetNodePubkeysCodecs = () => {
  * Register type for encoding `MsgDeposit` messages
  */
 export const registerDepositCodecs = () => {
-  cosmosclient.codec.register("/types.MsgDeposit", types.types.MsgDeposit);
+  cosmosclient.codec.register(
+    "/hermes.hermes.v1beta1.types.MsgDeposit",
+    hermes.hermes.v1beta1.types.MsgDeposit
+  );
 };
 
 /**
  * Register type for encoding `MsgSend` messages
  */
 export const registerSendCodecs = () => {
-  cosmosclient.codec.register("/types.MsgSend", types.types.MsgSend);
+  cosmosclient.codec.register(
+    "/hermes.hermes.v1beta1.types.MsgSend",
+    hermes.hermes.v1beta1.types.MsgSend
+  );
 };
 
 /**
@@ -161,8 +167,8 @@ export const registerSendCodecs = () => {
  */
 export const registerSetIpAddrCodecs = () => {
   cosmosclient.codec.register(
-    "/types.MsgSetIPAddress",
-    types.types.MsgSetIPAddress
+    "/hermes.hermes.v1beta1.types.MsgSetIPAddress",
+    hermes.hermes.v1beta1.types.MsgSetIPAddress
   );
 };
 
@@ -391,7 +397,8 @@ export const buildDepositTx = async ({
     signer: signerDecoded.data,
   };
 
-  const depositMsg = types.types.MsgDeposit.fromObject(msgDepositObj);
+  const depositMsg =
+    hermes.hermes.v1beta1.types.MsgDeposit.fromObject(msgDepositObj);
 
   return new proto.cosmos.tx.v1beta1.TxBody({
     messages: [cosmosclient.codec.instanceToProtoAny(depositMsg)],
@@ -434,7 +441,8 @@ export const buildSetVersionTx = async ({
     signer: signerDecoded.data,
   };
 
-  const versionMsg = types.types.MsgSetVersion.fromObject(msgSetVersionObj);
+  const versionMsg =
+    hermes.hermes.v1beta1.types.MsgSetVersion.fromObject(msgSetVersionObj);
 
   return new proto.cosmos.tx.v1beta1.TxBody({
     messages: [cosmosclient.codec.instanceToProtoAny(versionMsg)],
@@ -481,7 +489,7 @@ export const buildSetPubkeysTx = async ({
   };
 
   const nodePubkeysMsg =
-    types.types.MsgSetNodeKeys.fromObject(msgSetNodePubkeysObj);
+    hermes.hermes.v1beta1.types.MsgSetNodeKeys.fromObject(msgSetNodePubkeysObj);
   return new proto.cosmos.tx.v1beta1.TxBody({
     messages: [cosmosclient.codec.instanceToProtoAny(nodePubkeysMsg)],
   });
@@ -523,7 +531,7 @@ export const buildSetIpAddressTx = async ({
   };
 
   const ipAddressMsg =
-    types.types.MsgSetIPAddress.fromObject(msgSetIpAddressObj);
+    hermes.hermes.v1beta1.types.MsgSetIPAddress.fromObject(msgSetIpAddressObj);
 
   return new proto.cosmos.tx.v1beta1.TxBody({
     messages: [cosmosclient.codec.instanceToProtoAny(ipAddressMsg)],
@@ -579,7 +587,8 @@ export const buildTransferTx = async ({
     ],
   };
 
-  const transferMsg = types.types.MsgSend.fromObject(transferObj);
+  const transferMsg =
+    hermes.hermes.v1beta1.types.MsgSend.fromObject(transferObj);
 
   return new proto.cosmos.tx.v1beta1.TxBody({
     messages: [cosmosclient.codec.instanceToProtoAny(transferMsg)],
