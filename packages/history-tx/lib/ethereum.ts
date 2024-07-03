@@ -5,11 +5,11 @@ import { EthTxDataType, EthTxs } from "./types";
 // import axios from "axios";
 
 export default class EthereumTxs extends EthereumInit {
-  protected isTestnet = false;
+  // protected isTestnet = false;
   // protected isStagenet = false;
   constructor(mnemonic: string, network: Network, apiKey?: string) {
     super(mnemonic, network, apiKey);
-    if (network === Network.Testnet) this.isTestnet = true;
+    // if (network === Network.Testnet) this.isTestnet = true;
     // if (network === Network.Stagenet) this.isStagenet = true;
   }
 
@@ -43,22 +43,17 @@ export default class EthereumTxs extends EthereumInit {
     startBlock?: number,
     endBlock?: number
   ): Promise<EthTxs> {
-    if (this.isTestnet) {
-      return null;
-    } else {
-      try {
-        const txs = await this.ethConnect.getTransactionsHistory({
-          address,
-          apiKey: "J19V58VEVM69RDGJHNH69M42F2J4BFDVIV",
-          limit: limit ? limit : undefined,
-          page: offset ? offset : undefined,
-          startBlock: startBlock ? startBlock : undefined,
-          endBlock: endBlock ? endBlock : undefined,
-        });
-        return txs;
-      } catch (e) {
-        throw Error(`Unable to retrieve txs`);
-      }
+    try {
+      const txs = await this.ethConnect.getTransactionsHistory({
+        address,
+        limit: limit ? limit : undefined,
+        page: offset ? offset : undefined,
+        startBlock: startBlock ? startBlock : undefined,
+        endBlock: endBlock ? endBlock : undefined,
+      });
+      return txs;
+    } catch (e) {
+      throw Error(`Unable to retrieve txs`);
     }
   }
 
