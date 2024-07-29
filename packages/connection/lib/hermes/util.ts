@@ -37,7 +37,7 @@ import { ChainId, ExplorerUrls, NodeInfoResponse, TxData } from "./types";
 
 export const DOJ_DECIMAL = 8;
 export const DEFAULT_GAS_ADJUSTMENT = 2;
-export const DEFAULT_GAS_LIMIT_VALUE = "4000000";
+export const DEFAULT_GAS_LIMIT_VALUE = "8000000";
 export const DEPOSIT_GAS_LIMIT_VALUE = "600000000";
 export const MAX_TX_COUNT = 100;
 
