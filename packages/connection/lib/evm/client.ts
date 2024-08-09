@@ -18,7 +18,7 @@ class EvmChainClient {
   protected config: EvmChainConfigParams;
   protected provider: ethers.ethers.providers.JsonRpcProvider;
   protected account: ethers.ethers.Wallet;
-  protected phrase = "";
+  private phrase = "";
 
   constructor({ phrase, network, config }: ChainClientParams & EvmChainParams) {
     if (phrase) {

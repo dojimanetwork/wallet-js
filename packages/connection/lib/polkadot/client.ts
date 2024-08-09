@@ -38,7 +38,7 @@ export interface PolkaChainClient {
 class PolkadotClient implements PolkaChainClient {
   protected network: Network;
   protected provider: string;
-  protected phrase = "";
+  private phrase = "";
 
   constructor({
     phrase,

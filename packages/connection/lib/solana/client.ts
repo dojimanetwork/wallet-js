@@ -49,7 +49,7 @@ class SolanaClient implements SolanaChainClient {
   protected network: Network;
   protected cluster: web3.Cluster;
   protected connection: web3.Connection;
-  protected phrase = "";
+  private phrase = "";
 
   constructor({
     phrase,

@@ -38,7 +38,7 @@ class EthereumClient {
   protected web3: Web3;
   protected rpcUrl: string;
   protected account: ethers.ethers.Wallet;
-  protected phrase = "";
+  private phrase = "";
   protected api = "";
   private etherscanApiKey = "";
 

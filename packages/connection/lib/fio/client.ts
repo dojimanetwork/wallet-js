@@ -15,7 +15,7 @@ const { FIOSDK } = require("@fioprotocol/fiosdk");
 
 class FioClient {
   protected network: Network;
-  protected phrase = "";
+  private phrase = "";
   private accountDetails: GenerateKeysType | null = null;
   private readonly fetchJson = async (uri: string, opts = {}) =>
     fetch(uri, opts);
@@ -288,7 +288,7 @@ export { FioClient };
 // export default class FioClient {
 //     protected network: Network;
 //     protected rpcUrl: string;
-//     protected phrase = "";
+//     private phrase = "";
 //
 //     constructor({phrase, network, rpcUrl}: FioClientParams) {
 //         this.network = network;

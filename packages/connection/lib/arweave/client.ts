@@ -49,7 +49,7 @@ export type ChainConfigParams = {
 class ArweaveClient extends ArweaveTxClient implements ArweaveChainClient {
   protected network: Network;
   protected arweave: Arweave;
-  protected phrase = "";
+  private phrase = "";
   protected apiConfig: ApiConfig;
   constructor({
     phrase,

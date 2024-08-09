@@ -29,7 +29,7 @@ class DojimaClient {
   protected rpcUrl: string;
   protected provider: ethers.ethers.providers.JsonRpcProvider;
   protected account: ethers.ethers.Wallet;
-  protected phrase = "";
+  private phrase = "";
 
   constructor({ phrase, network, rpcUrl }: ChainClientParams & DojRpcParams) {
     if (phrase) {
