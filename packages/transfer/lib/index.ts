@@ -1,5 +1,4 @@
 import ArweaveChain from "./chains/arweave";
-// import BinanceBeaconChain from "./chains/binanceBeacon";
 // import BitcoinChain from "./chains/bitcoin";
 import DojimaChain from "./chains/dojima";
 import EthereumChain from "./chains/ethereum";
@@ -22,5 +21,4 @@ export {
   HermesChain,
   // BitcoinChain,
   PolkadotChain,
-  // BinanceBeaconChain,
 };
