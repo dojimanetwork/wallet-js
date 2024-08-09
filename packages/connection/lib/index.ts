@@ -3,6 +3,7 @@ import ArweaveInit from "./arweaveInit";
 // import BitcoinInit from "./bitcoinInit";
 import DojimaInit from "./dojimaInit";
 import EthereumInit from "./ethereumInit";
+import EvmInit from "./evmInit";
 import FioInit from "./fioInit";
 import HermesInit from "./hermesInit";
 import SolanaInit from "./solanaInit";
@@ -23,6 +24,7 @@ export {
   // BitcoinInit,
   DojimaInit,
   EthereumInit,
+  EvmInit,
   FioInit,
   HermesInit,
   SolanaInit,

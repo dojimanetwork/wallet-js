@@ -10,7 +10,7 @@ export async function getTestnetTokenPoolData(
   token: SwapAssetList
 ): Promise<PoolData> {
   const response = await axios.get(
-    `https://api-dev.h4s.dojima.network/hermeschain/pool/${token}`
+    `https://api-test-h4s.dojima.network/hermeschain/pool/${token}`
   );
   // const response = await axios.get(
   //   `http://localhost:1317/hermeschain/pool/${token}`
@@ -29,7 +29,7 @@ export async function getStagenetTokenPoolData(
   token: SwapAssetList
 ): Promise<PoolData> {
   const response = await axios.get(
-    `https://api.h4s.dojima.network/hermeschain/pool/${token}`
+    `https://api-h4s.dojima.network/hermeschain/pool/${token}`
   );
   // const response = await axios.get(
   //   `http://localhost:1317/hermeschain/pool/${token}`
@@ -48,7 +48,7 @@ export async function getTestnetInboundObject(
   chain: string
 ): Promise<TestnetInboundAddressResult> {
   const response = await axios.get(
-    "https://api-dev.h4s.dojima.network/hermeschain/inbound_addresses"
+    "https://api-test-h4s.dojima.network/hermeschain/inbound_addresses"
   );
   if (response.status !== 200) {
     throw new Error(
@@ -67,7 +67,7 @@ export async function getStagenetInboundObject(
   chain: string
 ): Promise<StagenetInboundAddressResult> {
   const response = await axios.get(
-    "https://api.h4s.dojima.network/hermeschain/inbound_addresses"
+    "https://api-h4s.dojima.network/hermeschain/inbound_addresses"
   );
   if (response.status !== 200) {
     throw new Error(
