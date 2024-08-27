@@ -38,6 +38,7 @@ class EthereumClient {
   protected web3: Web3;
   protected rpcUrl: string;
   protected account: ethers.ethers.Wallet;
+  protected provider: ethers.ethers.providers.JsonRpcProvider;
   private phrase = "";
   protected api = "";
   private etherscanApiKey = "";
@@ -74,6 +75,7 @@ class EthereumClient {
     // }
     this.rpcUrl = rpcUrl;
     this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
+    this.provider = new ethers.providers.JsonRpcProvider(this.rpcUrl);
     this.account = ethers.Wallet.fromMnemonic(this.phrase);
     this.etherscanApiKey = etherscanKey;
     if (this.network === Network.Mainnet || this.network === Network.Stagenet)
@@ -118,27 +120,56 @@ class EthereumClient {
     };
   }
 
-  async transfer(params: EthTransferParams): Promise<string> {
-    const transaction = await this.web3.eth.accounts.signTransaction(
-      {
-        from: this.getAddress(),
-        to: params.recipient,
-        value: params.amount * Math.pow(10, ETH_DECIMAL),
-        gas: params.fee
-          ? params.fee * Math.pow(10, 9)
-          : await this.estimateGasFee(
-              params.amount,
-              params.memo ? params.memo : undefined
-            ),
-        data: params.memo ? this.web3.utils.toHex(params.memo) : undefined,
-      },
-      this.account.privateKey
-    );
+  // Function to estimate gas limit
+  async estimateGasLimit(
+    tx: ethers.providers.TransactionRequest
+  ): Promise<ethers.BigNumber> {
+    return await this.provider.estimateGas(tx);
+  }
 
-    const transactionResult = await this.web3.eth.sendSignedTransaction(
-      transaction.rawTransaction as string
-    );
-    return transactionResult.transactionHash;
+  // Function to get the current gas price
+  async getCurrentGasPrice(): Promise<ethers.BigNumber> {
+    return await this.provider.getGasPrice();
+  }
+
+  async transfer(params: EthTransferParams): Promise<string> {
+    // const transaction = await this.web3.eth.accounts.signTransaction(
+    //   {
+    //     from: this.getAddress(),
+    //     to: params.recipient,
+    //     value: params.amount * Math.pow(10, ETH_DECIMAL),
+    //     gas: params.fee
+    //       ? params.fee * Math.pow(10, 9)
+    //       : await this.estimateGasFee(
+    //           params.amount,
+    //           params.memo ? params.memo : undefined
+    //         ),
+    //     data: params.memo ? this.web3.utils.toHex(params.memo) : undefined,
+    //   },
+    //   this.account.privateKey
+    // );
+    //
+    // const transactionResult = await this.web3.eth.sendSignedTransaction(
+    //   transaction.rawTransaction as string
+    // );
+    // return transactionResult.transactionHash;
+    const tx = {
+      to: params.recipient,
+      value: ethers.utils.parseEther(`${params.amount}`),
+      data: params.memo ? ethers.utils.toUtf8Bytes(params.memo) : undefined,
+    };
+
+    // Send transaction with gas limit and gas price
+    const gasLimit = await this.estimateGasLimit(tx);
+    const gasPrice = await this.getCurrentGasPrice();
+
+    const transactionResponse = await this.account.sendTransaction({
+      ...tx,
+      gasLimit,
+      gasPrice,
+    });
+
+    return transactionResponse.hash;
   }
 
   async dummyTx(recipient: string, amount: number): Promise<string> {
@@ -152,18 +183,39 @@ class EthereumClient {
   }
 
   async getTransactionData(hash: string): Promise<EthTxData> {
-    const data = await this.web3.eth.getTransaction(hash);
-    if (data) {
+    // const data = await this.web3.eth.getTransaction(hash);
+    // if (data) {
+    //   return {
+    //     transaction_hash: data.hash,
+    //     from: data.from,
+    //     to: data.to as string,
+    //     amount: Number(data.value) / Math.pow(10, ETH_DECIMAL),
+    //     gasFee: data.gas / Math.pow(10, 9),
+    //     block_number: data.blockNumber as number,
+    //     block_hash: data.blockHash as string,
+    //     gasPrice: data.gasPrice,
+    //     nonce: data.nonce,
+    //   };
+    // } else {
+    //   throw new Error(`Failed to get transaction data (tx-hash: ${hash})`);
+    // }
+    const tx = await this.provider.getTransaction(hash);
+    const receipt = await this.provider.getTransactionReceipt(hash);
+    if (tx && receipt) {
+      const amount = ethers.utils.formatEther(tx.value);
+      const gasUsed = ethers.utils.formatUnits(receipt.gasUsed, "gwei");
+      const gasPrice = ethers.utils.formatUnits(tx.gasPrice, "gwei");
       return {
-        transaction_hash: data.hash,
-        from: data.from,
-        to: data.to as string,
-        amount: Number(data.value) / Math.pow(10, ETH_DECIMAL),
-        gasFee: data.gas / Math.pow(10, 9),
-        block_number: data.blockNumber as number,
-        block_hash: data.blockHash as string,
-        gasPrice: data.gasPrice,
-        nonce: data.nonce,
+        transaction_hash: tx.hash,
+        from: tx.from,
+        to: tx.to as string,
+        amount: parseFloat(amount),
+        gasFee: parseFloat(gasPrice) * parseFloat(gasUsed),
+        block_number: receipt.blockNumber as number,
+        block_hash: receipt.blockHash as string,
+        gasPrice: gasPrice,
+        transaction_status: receipt.status,
+        nonce: tx.nonce,
       };
     } else {
       throw new Error(`Failed to get transaction data (tx-hash: ${hash})`);

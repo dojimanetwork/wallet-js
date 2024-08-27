@@ -185,6 +185,7 @@ class DojimaClient {
         block_number: receipt.blockNumber as number,
         block_hash: receipt.blockHash as string,
         gasPrice: gasPrice,
+        transaction_status: receipt.status,
         nonce: tx.nonce,
       };
     } else {

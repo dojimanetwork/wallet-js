@@ -13,6 +13,7 @@ export type DojTxData = {
   block_number: number;
   block_hash: string;
   gasPrice: string;
+  transaction_status: number;
   nonce: number;
 };
 
