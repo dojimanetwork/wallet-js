@@ -8,8 +8,7 @@ export default class SolanaInit {
       this.solConnect = new SolanaClient({
         phrase: mnemonic,
         network: network,
-        endpoint:
-          "https://solana-devnet.g.alchemy.com/v2/GRyJOApwSFYywXEVFY4wiOgSLGMTv8qV",
+        endpoint: `https://solana-devnet.g.alchemy.com/v2/${apiKey}`,
       });
       // } else if (network === Network.Stagenet) {
       //   this.solConnect = new SolanaClient({
@@ -21,8 +20,7 @@ export default class SolanaInit {
       this.solConnect = new SolanaClient({
         phrase: mnemonic,
         network: network,
-        endpoint:
-          "https://solana-mainnet.g.alchemy.com/v2/GRyJOApwSFYywXEVFY4wiOgSLGMTv8qV",
+        endpoint: `https://solana-mainnet.g.alchemy.com/v2/${apiKey}`,
         // apiKey: apiKey,
       });
     }

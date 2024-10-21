@@ -3,13 +3,12 @@ import { Network } from "@dojima-wallet/types";
 
 export default class EthereumInit {
   ethConnect: EthereumClient;
-  constructor(mnemonic: string, network: Network, apiKey?: string) {
+  constructor(mnemonic: string, network: Network, apiKey: string) {
     if (network === Network.Testnet) {
       this.ethConnect = new EthereumClient({
         phrase: mnemonic,
         network: network,
-        rpcUrl:
-          "https://eth-holesky.g.alchemy.com/v2/GRyJOApwSFYywXEVFY4wiOgSLGMTv8qV",
+        rpcUrl: `https://eth-holesky.g.alchemy.com/v2/${apiKey}`,
         etherscanKey: "VDEEGKUUYSSMICHFRF42UKUWZXNECJAW9I",
       });
       // } else if (network === Network.Stagenet) {
@@ -22,8 +21,7 @@ export default class EthereumInit {
       this.ethConnect = new EthereumClient({
         phrase: mnemonic,
         network: network,
-        rpcUrl:
-          "https://eth-mainnet.g.alchemy.com/v2/GRyJOApwSFYywXEVFY4wiOgSLGMTv8qV",
+        rpcUrl: `https://eth-mainnet.g.alchemy.com/v2/${apiKey}`,
         etherscanKey: "VDEEGKUUYSSMICHFRF42UKUWZXNECJAW9I",
       });
     }
