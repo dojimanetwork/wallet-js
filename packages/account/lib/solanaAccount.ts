@@ -2,7 +2,7 @@ import { SolanaInit } from "@dojima-wallet/connection";
 import { Network } from "@dojima-wallet/types";
 
 export default class SolanaAccount extends SolanaInit {
-  constructor(mnemonic: string, network: Network, apiKey?: string) {
+  constructor(mnemonic: string, network: Network, apiKey: string) {
     super(mnemonic, network, apiKey);
   }
 
