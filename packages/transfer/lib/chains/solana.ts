@@ -5,7 +5,7 @@ import { getUsdtTokenPriceResult } from "./utils";
 import { SwapAssetList } from "@dojima-wallet/utils";
 
 export default class SolanaChain extends SolanaInit {
-  constructor(mnemonic: string, network: Network, apiKey?: string) {
+  constructor(mnemonic: string, network: Network, apiKey: string) {
     super(mnemonic, network, apiKey);
   }
 
