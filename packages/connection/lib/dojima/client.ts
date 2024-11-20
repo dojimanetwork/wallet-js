@@ -70,14 +70,14 @@ class DojimaClient {
   //     .toNumber();
   // }
   //
-  // async estimateGasFee(amount: number, memo?: string): Promise<number> {
-  //   return await this.web3.eth.estimateGas({
-  //     from: this.getAddress(),
-  //     to: this.getAddress(),
-  //     value: amount * Math.pow(10, DOJ_DECIMAL),
-  //     data: memo ? this.web3.utils.toHex(memo) : undefined,
-  //   });
-  // }
+  async estimateGasFee(amount: number, memo?: string): Promise<number> {
+    return await this.web3.eth.estimateGas({
+      from: this.getAddress(),
+      to: this.getAddress(),
+      value: amount * Math.pow(10, DOJ_DECIMAL),
+      data: memo ? this.web3.utils.toHex(memo) : undefined,
+    });
+  }
   //
   // async getFees(amount: number, memo?: string): Promise<GasfeeResult> {
   //   const estimateGas = await this.estimateGasFee(
@@ -120,43 +120,46 @@ class DojimaClient {
   }
 
   async transfer(params: DojTransferParams): Promise<string> {
-    const tx = {
-      to: params.recipient,
-      value: ethers.utils.parseEther(`${params.amount}`),
-      data: params.memo ? ethers.utils.toUtf8Bytes(params.memo) : undefined,
-    };
+    if (this.network === Network.Testnet) {
+      const transaction = await this.web3.eth.accounts.signTransaction(
+        {
+          from: this.getAddress(),
+          to: params.recipient,
+          value: params.amount * Math.pow(10, DOJ_DECIMAL),
+          gas: params.fee
+            ? params.fee * Math.pow(10, 9)
+            : await this.estimateGasFee(
+                params.amount,
+                params.memo ? params.memo : undefined
+              ),
+          data: params.memo ? this.web3.utils.toHex(params.memo) : undefined,
+        },
+        this.account.privateKey
+      );
 
-    // Send transaction with gas limit and gas price
-    const gasLimit = await this.estimateGasLimit(tx);
-    const gasPrice = await this.getCurrentGasPrice();
+      const transactionResult = await this.web3.eth.sendSignedTransaction(
+        transaction.rawTransaction as string
+      );
+      return transactionResult.transactionHash;
+    } else {
+      const tx = {
+        to: params.recipient,
+        value: ethers.utils.parseEther(`${params.amount}`),
+        data: params.memo ? ethers.utils.toUtf8Bytes(params.memo) : undefined,
+      };
 
-    const transactionResponse = await this.account.sendTransaction({
-      ...tx,
-      gasLimit,
-      gasPrice,
-    });
+      // Send transaction with gas limit and gas price
+      const gasLimit = await this.estimateGasLimit(tx);
+      const gasPrice = await this.getCurrentGasPrice();
 
-    return transactionResponse.hash;
-    // const transaction = await this.web3.eth.accounts.signTransaction(
-    //   {
-    //     from: this.getAddress(),
-    //     to: params.recipient,
-    //     value: params.amount * Math.pow(10, DOJ_DECIMAL),
-    //     gas: params.fee
-    //       ? params.fee * Math.pow(10, 9)
-    //       : await this.estimateGasFee(
-    //           params.amount,
-    //           params.memo ? params.memo : undefined
-    //         ),
-    //     data: params.memo ? this.web3.utils.toHex(params.memo) : undefined,
-    //   },
-    //   this.account.privateKey
-    // );
-    //
-    // const transactionResult = await this.web3.eth.sendSignedTransaction(
-    //   transaction.rawTransaction as string
-    // );
-    // return transactionResult.transactionHash;
+      const transactionResponse = await this.account.sendTransaction({
+        ...tx,
+        gasLimit,
+        gasPrice,
+      });
+
+      return transactionResponse.hash;
+    }
   }
 
   async dummyTx(recipient: string, amount: number): Promise<string> {
