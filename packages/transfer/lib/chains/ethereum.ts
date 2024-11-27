@@ -61,9 +61,12 @@ export default class EthereumChain extends EthereumInit {
     return this.ethConnect.getDoubleSwapSlip(amount, pool1, pool2) * 100;
   }
 
-  async getDefaultLiquidityPoolGasFee(): Promise<UsdtTokenGasFeeResult> {
-    const LPDefaultGasFee =
-      await this.ethConnect.getDefaultLiquidityPoolGasFee();
+  async getDefaultLiquidityPoolGasFee(
+    hermesApiUrl: string
+  ): Promise<UsdtTokenGasFeeResult> {
+    const LPDefaultGasFee = await this.ethConnect.getDefaultLiquidityPoolGasFee(
+      hermesApiUrl
+    );
     const eth_LPgasfee = {
       slow: LPDefaultGasFee,
       average: LPDefaultGasFee,
@@ -75,14 +78,17 @@ export default class EthereumChain extends EthereumInit {
 
   async addLiquidityPool(
     amount: number,
-    dojimaAddress?: string
+    hermesApiUrl: string,
+    hermesAddress?: string
   ): Promise<string> {
     try {
-      const inboundAddress = await this.ethConnect.getEthereumInboundAddress();
+      const inboundAddress = await this.ethConnect.getEthereumInboundAddress(
+        hermesApiUrl
+      );
       const liquidityPoolHash = await this.ethConnect.addLiquidityPool(
         amount,
         inboundAddress,
-        dojimaAddress
+        hermesAddress
       );
       return liquidityPoolHash;
     } catch (error) {
@@ -90,9 +96,16 @@ export default class EthereumChain extends EthereumInit {
     }
   }
 
-  async swap(amount: number, recipient: string, token: SwapAssetList) {
+  async swap(
+    amount: number,
+    recipient: string,
+    token: SwapAssetList,
+    hermesApiUrl: string
+  ) {
     try {
-      const inboundAddress = await this.ethConnect.getEthereumInboundAddress();
+      const inboundAddress = await this.ethConnect.getEthereumInboundAddress(
+        hermesApiUrl
+      );
       const swapHash = await this.ethConnect.swap(
         amount,
         token,

@@ -66,9 +66,12 @@ export default class DojimaChain extends DojimaInit {
     return this.dojConnect.getDoubleSwapSlip(amount, pool1, pool2) * 100;
   }
 
-  async getDefaultLiquidityPoolGasFee(): Promise<UsdtTokenGasFeeResult> {
-    const LPDefaultGasFee =
-      await this.dojConnect.getDefaultLiquidityPoolGasFee();
+  async getDefaultLiquidityPoolGasFee(
+    hermesApiUrl: string
+  ): Promise<UsdtTokenGasFeeResult> {
+    const LPDefaultGasFee = await this.dojConnect.getDefaultLiquidityPoolGasFee(
+      hermesApiUrl
+    );
     const eth_LPgasfee = {
       slow: LPDefaultGasFee,
       average: LPDefaultGasFee,
@@ -80,14 +83,17 @@ export default class DojimaChain extends DojimaInit {
 
   async addLiquidityPool(
     amount: number,
-    dojimaAddress?: string
+    hermesApiUrl: string,
+    hermesAddress?: string
   ): Promise<string> {
     try {
-      const inboundAddress = await this.dojConnect.getDojimaInboundAddress();
+      const inboundAddress = await this.dojConnect.getDojimaInboundAddress(
+        hermesApiUrl
+      );
       const liquidityPoolHash = await this.dojConnect.addLiquidityPool(
         amount,
         inboundAddress,
-        dojimaAddress
+        hermesAddress
       );
       return liquidityPoolHash;
     } catch (error) {
@@ -95,9 +101,16 @@ export default class DojimaChain extends DojimaInit {
     }
   }
 
-  async swap(amount: number, recipient: string, token: SwapAssetList) {
+  async swap(
+    amount: number,
+    recipient: string,
+    token: SwapAssetList,
+    hermesApiUrl: string
+  ) {
     try {
-      const inboundAddress = await this.dojConnect.getDojimaInboundAddress();
+      const inboundAddress = await this.dojConnect.getDojimaInboundAddress(
+        hermesApiUrl
+      );
       const swapHash = await this.dojConnect.swap(
         amount,
         token,

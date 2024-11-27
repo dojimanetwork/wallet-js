@@ -52,9 +52,12 @@ export default class SolanaChain extends SolanaInit {
     return this.solConnect.getDoubleSwapSlip(amount, pool1, pool2) * 100;
   }
 
-  async getDefaultLiquidityPoolGasFee(): Promise<UsdtTokenGasFeeResult> {
-    const LPDefaultGasFee =
-      await this.solConnect.getDefaultLiquidityPoolGasFee();
+  async getDefaultLiquidityPoolGasFee(
+    hermesApiUrl: string
+  ): Promise<UsdtTokenGasFeeResult> {
+    const LPDefaultGasFee = await this.solConnect.getDefaultLiquidityPoolGasFee(
+      hermesApiUrl
+    );
     const sol_LPgasfee = {
       slow: LPDefaultGasFee,
       average: LPDefaultGasFee,
@@ -66,14 +69,17 @@ export default class SolanaChain extends SolanaInit {
 
   async addLiquidityPool(
     amount: number,
-    dojimaAddress?: string
+    hermesApiUrl: string,
+    hermesAddress?: string
   ): Promise<string> {
     try {
-      const inboundAddress = await this.solConnect.getSolanaInboundAddress();
+      const inboundAddress = await this.solConnect.getSolanaInboundAddress(
+        hermesApiUrl
+      );
       const liquidityPoolHash = await this.solConnect.addLiquidityPool(
         amount,
         inboundAddress,
-        dojimaAddress
+        hermesAddress
       );
       return liquidityPoolHash;
     } catch (error) {
@@ -81,9 +87,16 @@ export default class SolanaChain extends SolanaInit {
     }
   }
 
-  async swap(amount: number, recipient: string, token: SwapAssetList) {
+  async swap(
+    amount: number,
+    recipient: string,
+    token: SwapAssetList,
+    hermesApiUrl: string
+  ) {
     try {
-      const inboundAddress = await this.solConnect.getSolanaInboundAddress();
+      const inboundAddress = await this.solConnect.getSolanaInboundAddress(
+        hermesApiUrl
+      );
       const swapHash = await this.solConnect.swap(
         amount,
         token,
