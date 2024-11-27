@@ -178,14 +178,14 @@ class PolkadotClient implements PolkaChainClient {
     return;
   }
 
-  async getPolkadotInboundAddress(): Promise<string> {
+  async getPolkadotInboundAddress(hermesApiUrl: string): Promise<string> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("DOT");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "DOT");
         return inboundObj.address;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("DOT");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "DOT");
         return inboundObj.address;
       }
       case Network.Mainnet: {
@@ -194,10 +194,10 @@ class PolkadotClient implements PolkaChainClient {
     }
   }
 
-  async getDefaultLiquidityPoolGasFee(): Promise<number> {
+  async getDefaultLiquidityPoolGasFee(hermesApiUrl: string): Promise<number> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("DOT");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "DOT");
 
         const gasFee =
           Number(inboundObj.gas_rate) /
@@ -206,7 +206,7 @@ class PolkadotClient implements PolkaChainClient {
         return gasFee;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("DOT");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "DOT");
 
         const gasFee =
           Number(inboundObj.gas_rate) /
@@ -241,10 +241,10 @@ class PolkadotClient implements PolkaChainClient {
   async addLiquidityPool(
     amount: number,
     inboundAddress: string,
-    dojAddress?: string
+    hermesAddress?: string
   ): Promise<string> {
-    const memo = dojAddress
-      ? `memo:ADD:DOT.DOT:${dojAddress}`
+    const memo = hermesAddress
+      ? `memo:ADD:DOT.DOT:${hermesAddress}`
       : `memo:ADD:DOT.DOT`;
 
     const txHash = await this.polkaBatchTxsToHermes(

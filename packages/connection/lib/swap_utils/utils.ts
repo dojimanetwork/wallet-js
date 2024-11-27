@@ -7,10 +7,13 @@ import {
 } from "@dojima-wallet/utils";
 
 export async function getTestnetTokenPoolData(
+  hermesApiUrl: string,
   token: SwapAssetList
 ): Promise<PoolData> {
   const response = await axios.get(
-    `https://api-test-h4s.dojima.network/hermeschain/pool/${token}`
+    `${hermesApiUrl}${
+      hermesApiUrl.endsWith("/") ? "" : "/"
+    }hermeschain/pool/${token}`
   );
   // const response = await axios.get(
   //   `http://localhost:1317/hermeschain/pool/${token}`
@@ -26,10 +29,13 @@ export async function getTestnetTokenPoolData(
 }
 
 export async function getStagenetTokenPoolData(
+  hermesApiUrl: string,
   token: SwapAssetList
 ): Promise<PoolData> {
   const response = await axios.get(
-    `https://api-h4s.dojima.network/hermeschain/pool/${token}`
+    `${hermesApiUrl}${
+      hermesApiUrl.endsWith("/") ? "" : "/"
+    }hermeschain/pool/${token}`
   );
   // const response = await axios.get(
   //   `http://localhost:1317/hermeschain/pool/${token}`
@@ -45,10 +51,13 @@ export async function getStagenetTokenPoolData(
 }
 
 export async function getTestnetInboundObject(
+  hermesApiUrl: string,
   chain: string
 ): Promise<TestnetInboundAddressResult> {
   const response = await axios.get(
-    "https://api-test-h4s.dojima.network/hermeschain/inbound_addresses"
+    `${hermesApiUrl}${
+      hermesApiUrl.endsWith("/") ? "" : "/"
+    }hermeschain/inbound_addresses`
   );
   if (response.status !== 200) {
     throw new Error(
@@ -64,10 +73,13 @@ export async function getTestnetInboundObject(
 }
 
 export async function getStagenetInboundObject(
+  hermesApiUrl: string,
   chain: string
 ): Promise<StagenetInboundAddressResult> {
   const response = await axios.get(
-    "https://api-h4s.dojima.network/hermeschain/inbound_addresses"
+    `${hermesApiUrl}${
+      hermesApiUrl.endsWith("/") ? "" : "/"
+    }hermeschain/inbound_addresses`
   );
   if (response.status !== 200) {
     throw new Error(

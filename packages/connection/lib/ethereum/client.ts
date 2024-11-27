@@ -327,14 +327,14 @@ class EthereumClient {
     return;
   }
 
-  async getEthereumInboundAddress(): Promise<string> {
+  async getEthereumInboundAddress(hermesApiUrl: string): Promise<string> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("ETH");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "ETH");
         return inboundObj.address;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("ETH");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "ETH");
         return inboundObj.address;
       }
       case Network.Mainnet: {
@@ -343,17 +343,17 @@ class EthereumClient {
     }
   }
 
-  async getDefaultLiquidityPoolGasFee(): Promise<number> {
+  async getDefaultLiquidityPoolGasFee(hermesApiUrl: string): Promise<number> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("ETH");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "ETH");
 
         const gasFee = Number(inboundObj.gas_rate) / Math.pow(10, ETH_DECIMAL);
 
         return gasFee;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("ETH");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "ETH");
 
         const gasFee = Number(inboundObj.gas_rate) / Math.pow(10, ETH_DECIMAL);
 
@@ -368,9 +368,9 @@ class EthereumClient {
   async addLiquidityPool(
     amount: number,
     inboundAddress: string,
-    dojAddress?: string
+    hermesAddress?: string
   ): Promise<string> {
-    const memo = dojAddress ? `ADD:ETH.ETH:${dojAddress}` : `ADD:ETH.ETH`;
+    const memo = hermesAddress ? `ADD:ETH.ETH:${hermesAddress}` : `ADD:ETH.ETH`;
 
     const txHash = await this.transfer({
       amount,

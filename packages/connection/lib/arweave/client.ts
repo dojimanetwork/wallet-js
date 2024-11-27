@@ -226,14 +226,14 @@ class ArweaveClient extends ArweaveTxClient implements ArweaveChainClient {
     return;
   }
 
-  async getArweaveInboundAddress(): Promise<string> {
+  async getArweaveInboundAddress(hermesApiUrl: string): Promise<string> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("AR");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "AR");
         return inboundObj.address;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("AR");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "AR");
         return inboundObj.address;
       }
       case Network.Mainnet: {
@@ -242,10 +242,10 @@ class ArweaveClient extends ArweaveTxClient implements ArweaveChainClient {
     }
   }
 
-  async getDefaultLiquidityPoolGasFee(): Promise<number> {
+  async getDefaultLiquidityPoolGasFee(hermesApiUrl: string): Promise<number> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("AR");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "AR");
 
         /** Convert from Winston to Ar. (1 Ar = 10^12) */
         const arGasFee = this.arweave.ar.winstonToAr(inboundObj.gas_rate);
@@ -253,7 +253,7 @@ class ArweaveClient extends ArweaveTxClient implements ArweaveChainClient {
         return Number(arGasFee);
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("AR");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "AR");
 
         /** Convert from Winston to Ar. (1 Ar = 10^12) */
         const arGasFee = this.arweave.ar.winstonToAr(inboundObj.gas_rate);
@@ -269,12 +269,12 @@ class ArweaveClient extends ArweaveTxClient implements ArweaveChainClient {
   async addLiquidityPool(
     amount: number,
     inboundAddress: string,
-    dojAddress?: string
+    hermesAddress?: string
   ): Promise<string> {
-    const tag = dojAddress
+    const tag = hermesAddress
       ? new Tag(
           this.arweave.utils.stringToB64Url("memo"),
-          this.arweave.utils.stringToB64Url(`ADD:AR.AR:${dojAddress}`)
+          this.arweave.utils.stringToB64Url(`ADD:AR.AR:${hermesAddress}`)
         )
       : new Tag(
           this.arweave.utils.stringToB64Url("memo"),

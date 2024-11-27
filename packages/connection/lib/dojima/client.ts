@@ -244,14 +244,14 @@ class DojimaClient {
     return;
   }
 
-  async getDojimaInboundAddress(): Promise<string> {
+  async getDojimaInboundAddress(hermesApiUrl: string): Promise<string> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("DOJ");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "DOJ");
         return inboundObj.address;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("DOJ");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "DOJ");
         return inboundObj.address;
       }
       case Network.Mainnet: {
@@ -260,17 +260,17 @@ class DojimaClient {
     }
   }
 
-  async getDefaultLiquidityPoolGasFee(): Promise<number> {
+  async getDefaultLiquidityPoolGasFee(hermesApiUrl: string): Promise<number> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("DOJ");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "DOJ");
 
         const gasFee = Number(inboundObj.gas_rate) / Math.pow(10, DOJ_DECIMAL);
 
         return gasFee;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("DOJ");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "DOJ");
 
         const gasFee = Number(inboundObj.gas_rate) / Math.pow(10, DOJ_DECIMAL);
 
@@ -285,9 +285,9 @@ class DojimaClient {
   async addLiquidityPool(
     amount: number,
     inboundAddress: string,
-    dojAddress?: string
+    hermesAddress?: string
   ): Promise<string> {
-    const memo = dojAddress ? `ADD:DOJ.DOJ:${dojAddress}` : `ADD:DOJ.DOJ`;
+    const memo = hermesAddress ? `ADD:DOJ.DOJ:${hermesAddress}` : `ADD:DOJ.DOJ`;
 
     const txHash = await this.transfer({
       amount,

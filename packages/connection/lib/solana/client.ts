@@ -333,14 +333,14 @@ class SolanaClient implements SolanaChainClient {
     return;
   }
 
-  async getSolanaInboundAddress(): Promise<string> {
+  async getSolanaInboundAddress(hermesApiUrl: string): Promise<string> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("SOL");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "SOL");
         return inboundObj.address;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("SOL");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "SOL");
         return inboundObj.address;
       }
       case Network.Mainnet: {
@@ -349,17 +349,17 @@ class SolanaClient implements SolanaChainClient {
     }
   }
 
-  async getDefaultLiquidityPoolGasFee(): Promise<number> {
+  async getDefaultLiquidityPoolGasFee(hermesApiUrl: string): Promise<number> {
     switch (this.network) {
       case Network.Testnet: {
-        const inboundObj = await getTestnetInboundObject("SOL");
+        const inboundObj = await getTestnetInboundObject(hermesApiUrl, "SOL");
 
         const gasFee = Number(inboundObj.gas_rate) / Math.pow(10, SOL_DECIMAL);
 
         return gasFee;
       }
       case Network.Stagenet: {
-        const inboundObj = await getStagenetInboundObject("SOL");
+        const inboundObj = await getStagenetInboundObject(hermesApiUrl, "SOL");
 
         const gasFee = Number(inboundObj.gas_rate) / Math.pow(10, SOL_DECIMAL);
 
@@ -408,10 +408,10 @@ class SolanaClient implements SolanaChainClient {
   async addLiquidityPool(
     amount: number,
     inboundAddress: string,
-    dojAddress?: string
+    hermesAddress?: string
   ) {
     const toAmount = baseToLamports(amount, SOL_DECIMAL);
-    const memo = dojAddress ? `ADD:SOL.SOL:${dojAddress}` : `ADD:SOL.SOL`;
+    const memo = hermesAddress ? `ADD:SOL.SOL:${hermesAddress}` : `ADD:SOL.SOL`;
     const poolHash = await this.solanaBatchTxsToHermes(
       toAmount,
       inboundAddress,
