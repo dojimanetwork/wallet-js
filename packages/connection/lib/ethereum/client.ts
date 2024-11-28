@@ -29,6 +29,7 @@ import {
 } from "../swap_utils";
 
 export type EthRpcParams = {
+  privateKey: string;
   rpcUrl: string;
   etherscanKey?: string;
 };
@@ -42,41 +43,36 @@ class EthereumClient {
   private phrase = "";
   protected api = "";
   private etherscanApiKey = "";
+  private privateKey = "";
 
   constructor({
     phrase,
+    privateKey,
     network = Network.Mainnet,
     rpcUrl,
     etherscanKey = "",
   }: ChainClientParams & EthRpcParams) {
+    this.network = network;
+    this.rpcUrl = rpcUrl;
+    this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
+    this.provider = new ethers.providers.JsonRpcProvider(this.rpcUrl);
+    if ((!phrase && !privateKey) || (phrase && privateKey)) {
+      throw new Error("Any one of phrase or privateKey should be provided");
+    }
     if (phrase) {
       if (!validatePhrase(phrase)) {
         throw new Error("Invalid phrase");
       }
       this.phrase = phrase;
+      const accountData = ethers.Wallet.fromMnemonic(this.phrase);
+      this.account = new ethers.Wallet(accountData.privateKey).connect(
+        this.provider
+      );
     }
-    this.network = network;
-    // if (this.network === Network.Testnet && rpcUrl === defaultEthInfuraRpcUrl) {
-    //   throw Error(`'rpcUrl' param can't be empty for testnet`);
-    // }
-    // if (
-    //   (this.network === Network.Mainnet || this.network === Network.Stagenet) &&
-    //   infuraApiKey === ""
-    // ) {
-    //   throw Error(`infuraApiKey can't be empty for mainnet`);
-    // }
-    // if (this.network === Network.Testnet) {
-    //   this.rpcUrl = rpcUrl;
-    //   this.web3 = new Web3(this.rpcUrl);
-    // } else {
-    //   // this.rpcUrl = `${rpcUrl}${infuraApiKey}`;
-    //   this.rpcUrl = rpcUrl;
-    //   this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
-    // }
-    this.rpcUrl = rpcUrl;
-    this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
-    this.provider = new ethers.providers.JsonRpcProvider(this.rpcUrl);
-    this.account = ethers.Wallet.fromMnemonic(this.phrase);
+    if (privateKey) {
+      this.privateKey = privateKey;
+      this.account = new ethers.Wallet(this.privateKey).connect(this.provider);
+    }
     this.etherscanApiKey = etherscanKey;
     if (this.network === Network.Mainnet || this.network === Network.Stagenet)
       this.api = "https://api.etherscan.io/api?";

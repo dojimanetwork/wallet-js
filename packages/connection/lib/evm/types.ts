@@ -1,6 +1,7 @@
 import { Network } from "@dojima-wallet/types";
 
 export type EvmChainParams = {
+  privateKey: string;
   config: EvmChainConfigParams;
 };
 

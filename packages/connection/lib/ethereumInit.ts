@@ -3,10 +3,16 @@ import { Network } from "@dojima-wallet/types";
 
 export default class EthereumInit {
   ethConnect: EthereumClient;
-  constructor(mnemonic: string, network: Network, apiKey: string) {
+  constructor(
+    mnemonic: string,
+    privateKey: string,
+    network: Network,
+    apiKey: string
+  ) {
     if (network === Network.Testnet) {
       this.ethConnect = new EthereumClient({
         phrase: mnemonic,
+        privateKey: privateKey,
         network: network,
         rpcUrl: `https://eth-holesky.g.alchemy.com/v2/${apiKey}`,
         etherscanKey: "VDEEGKUUYSSMICHFRF42UKUWZXNECJAW9I",
@@ -20,6 +26,7 @@ export default class EthereumInit {
     } else {
       this.ethConnect = new EthereumClient({
         phrase: mnemonic,
+        privateKey: privateKey,
         network: network,
         rpcUrl: `https://eth-mainnet.g.alchemy.com/v2/${apiKey}`,
         etherscanKey: "VDEEGKUUYSSMICHFRF42UKUWZXNECJAW9I",

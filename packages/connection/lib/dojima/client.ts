@@ -19,6 +19,7 @@ import {
 import { SwapAssetList } from "@dojima-wallet/utils";
 
 export type DojRpcParams = {
+  privateKey: string;
   rpcUrl: string;
   infuraApiKey?: string;
 };
@@ -30,28 +31,35 @@ class DojimaClient {
   protected provider: ethers.ethers.providers.JsonRpcProvider;
   protected account: ethers.ethers.Wallet;
   private phrase = "";
+  private privateKey = "";
 
-  constructor({ phrase, network, rpcUrl }: ChainClientParams & DojRpcParams) {
+  constructor({
+    phrase,
+    privateKey,
+    network,
+    rpcUrl,
+  }: ChainClientParams & DojRpcParams) {
+    this.network = network;
+    this.rpcUrl = rpcUrl;
+    this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
+    this.provider = new ethers.providers.JsonRpcProvider(this.rpcUrl);
+    if ((!phrase && !privateKey) || (phrase && privateKey)) {
+      throw new Error("Any one of phrase or privateKey should be provided");
+    }
     if (phrase) {
       if (!validatePhrase(phrase)) {
         throw new Error("Invalid phrase");
       }
       this.phrase = phrase;
+      const accountData = ethers.Wallet.fromMnemonic(this.phrase);
+      this.account = new ethers.Wallet(accountData.privateKey).connect(
+        this.provider
+      );
     }
-    this.network = network;
-    // if (
-    //   (this.network === Network.Testnet || this.network === Network.Stagenet) &&
-    //   rpcUrl === defaultDojRpcUrl
-    // ) {
-    //   throw Error(`'rpcUrl' param can't be empty for 'testnet' or 'stagenet`);
-    // }
-    this.rpcUrl = rpcUrl;
-    this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
-    this.provider = new ethers.providers.JsonRpcProvider(this.rpcUrl);
-    const accountData = ethers.Wallet.fromMnemonic(this.phrase);
-    this.account = new ethers.Wallet(accountData.privateKey).connect(
-      this.provider
-    );
+    if (privateKey) {
+      this.privateKey = privateKey;
+      this.account = new ethers.Wallet(this.privateKey).connect(this.provider);
+    }
   }
 
   getAddress(): string {

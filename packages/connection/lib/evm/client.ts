@@ -19,23 +19,36 @@ class EvmChainClient {
   protected provider: ethers.ethers.providers.JsonRpcProvider;
   protected account: ethers.ethers.Wallet;
   private phrase = "";
+  private privateKey = "";
 
-  constructor({ phrase, network, config }: ChainClientParams & EvmChainParams) {
-    if (phrase) {
-      if (!validatePhrase(phrase)) {
-        throw new Error("Invalid phrase");
-      }
-      this.phrase = phrase;
-    }
+  constructor({
+    phrase,
+    privateKey,
+    network,
+    config,
+  }: ChainClientParams & EvmChainParams) {
     this.network = network;
     this.config = config;
     this.rpcUrl = config.rpcUrl;
     this.web3 = new Web3(new Web3.providers.HttpProvider(this.rpcUrl));
     this.provider = new ethers.providers.JsonRpcProvider(this.rpcUrl);
-    const accountData = ethers.Wallet.fromMnemonic(this.phrase);
-    this.account = new ethers.Wallet(accountData.privateKey).connect(
-      this.provider
-    );
+    if ((!phrase && !privateKey) || (phrase && privateKey)) {
+      throw new Error("Any one of phrase or privateKey should be provided");
+    }
+    if (phrase) {
+      if (!validatePhrase(phrase)) {
+        throw new Error("Invalid phrase");
+      }
+      this.phrase = phrase;
+      const accountData = ethers.Wallet.fromMnemonic(this.phrase);
+      this.account = new ethers.Wallet(accountData.privateKey).connect(
+        this.provider
+      );
+    }
+    if (privateKey) {
+      this.privateKey = privateKey;
+      this.account = new ethers.Wallet(this.privateKey).connect(this.provider);
+    }
   }
 
   getAddress(): string {
