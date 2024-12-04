@@ -1,7 +1,7 @@
-import { Chain } from "../chain";
+import { ChainTicker } from "../chain";
 
 export type Asset = {
-  chain: Chain;
+  chain: ChainTicker;
   symbol: string;
   ticker: string;
   synth: boolean;

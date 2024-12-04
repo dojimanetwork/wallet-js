@@ -1,7 +1,7 @@
 import BigNumber from "bignumber.js";
 
 import { fixedBN, formatBN } from "./bn";
-import { Chain, isChain } from "./chain";
+import { ChainTicker, isChainTicker } from "./chain";
 import { trimZeros as trimZerosHelper } from "./string";
 import { Amount, Asset, AssetAmount, BaseAmount, Denomination } from "./types";
 
@@ -196,7 +196,7 @@ export const formatBaseAmount = (amount: BaseAmount) =>
  *
  */
 export const AssetAVAX: Asset = {
-  chain: Chain.Avalanche,
+  chain: ChainTicker.AVAX,
   symbol: "AVAX",
   ticker: "AVAX",
   synth: false,
@@ -208,7 +208,7 @@ export const AssetAVAX: Asset = {
  * Based on definition in hermeschain `common`
  */
 export const AssetBNB: Asset = {
-  chain: Chain.Binance,
+  chain: ChainTicker.BNB,
   symbol: "BNB",
   ticker: "BNB",
   synth: false,
@@ -220,7 +220,7 @@ export const AssetBNB: Asset = {
  * Based on definition in hermeschain `common`
  */
 export const AssetBTC: Asset = {
-  chain: Chain.Bitcoin,
+  chain: ChainTicker.BTC,
   symbol: "BTC",
   ticker: "BTC",
   synth: false,
@@ -234,7 +234,7 @@ export const DOJ_TICKER = "DOJ";
  * Based on definition in hermeschain `common`
  */
 export const AssetETH: Asset = {
-  chain: Chain.Ethereum,
+  chain: ChainTicker.ETH,
   symbol: "ETH",
   ticker: "ETH",
   synth: false,
@@ -246,7 +246,7 @@ export const AssetETH: Asset = {
  * Based on definition in hermeschain `common`
  */
 export const AssetDOJ67C: Asset = {
-  chain: Chain.Binance,
+  chain: ChainTicker.BNB,
   symbol: "DOJ-67C",
   ticker: DOJ_TICKER,
   synth: false,
@@ -258,7 +258,7 @@ export const AssetDOJ67C: Asset = {
  * Based on definition in hermeschain `common`
  */
 export const AssetDOJB1A: Asset = {
-  chain: Chain.Binance,
+  chain: ChainTicker.BNB,
   symbol: "DOJ-B1A",
   ticker: DOJ_TICKER,
   synth: false,
@@ -270,7 +270,7 @@ export const AssetDOJB1A: Asset = {
  * Based on definition in hermeschain `common`
  */
 export const AssetDOJNative: Asset = {
-  chain: Chain.Hermes,
+  chain: ChainTicker.Hermes,
   symbol: DOJ_TICKER,
   ticker: DOJ_TICKER,
   synth: false,
@@ -282,7 +282,7 @@ export const AssetDOJNative: Asset = {
  * Based on definition in hermeschain `common`
  */
 export const AssetDOJERC20: Asset = {
-  chain: Chain.Ethereum,
+  chain: ChainTicker.ETH,
   symbol: `${DOJ_TICKER}-0x3155ba85d5f96b2d030a4966af206230e46849cb`,
   ticker: DOJ_TICKER,
   synth: false,
@@ -294,14 +294,14 @@ export const AssetDOJERC20: Asset = {
  * Based on definition in hermeschain `common`
  */
 export const AssetDOJERC20Testnet: Asset = {
-  chain: Chain.Ethereum,
+  chain: ChainTicker.ETH,
   symbol: `${DOJ_TICKER}-0xd601c6A3a36721320573885A8d8420746dA3d7A0`,
   ticker: DOJ_TICKER,
   synth: false,
 };
 
 export const AssetAtom: Asset = {
-  chain: Chain.Cosmos,
+  chain: ChainTicker.COSMOS,
   symbol: "ATOM",
   ticker: "ATOM",
   synth: false,
@@ -353,7 +353,7 @@ export const assetFromString = (s: string): Asset | null => {
 
   const chain = data[0];
   // filter out not supported string of chains
-  if (!chain || !isChain(chain)) return null;
+  if (!chain || !isChainTicker(chain)) return null;
 
   const symbol = data[1];
   const ticker = symbol.split("-")[0];
