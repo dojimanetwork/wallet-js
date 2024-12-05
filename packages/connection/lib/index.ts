@@ -37,3 +37,5 @@ export {
   DOT_DECIMAL,
   SOL_DECIMAL,
 };
+
+export type { ComputeUnits } from "./hermes/util";

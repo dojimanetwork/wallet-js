@@ -42,7 +42,7 @@
     "@binance-chain/javascript-sdk": "^4.2.0",
     "@cosmos-client/core": "0.45.13",
     "@dojima-wallet/types": "^0.0.1-alpha.8",
-    "@dojima-wallet/utils": "^0.0.1-alpha.7",
+    "@dojima-wallet/utils": "0.0.1-alpha.8",
     "@fioprotocol/fiosdk": "^1.8.0",
     "@polkadot/api": "^9.10.2",
     "@project-serum/anchor": "0.23.0",
@@ -79,5 +79,9 @@
     "uuid": "^8.3.2",
     "web3": "^1.8.1",
     "wif": "^2.0.6"
+  },
+  "devDependencies": {
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
   }
 }

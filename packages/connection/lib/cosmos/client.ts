@@ -19,7 +19,7 @@ import {
   Asset,
   AssetAtom,
   BaseAmount,
-  Chain,
+  CosmosChain,
   assetToString,
   baseAmount,
   eqAsset,
@@ -72,7 +72,7 @@ class Client extends BaseChainClient implements CosmosClient, ChainClient {
     chainIds = getDefaultChainIds(),
     rootDerivationPaths = getDefaultRootDerivationPaths(),
   }: ChainClientParams & CosmosClientParams) {
-    super(Chain.Cosmos, { network, rootDerivationPaths, phrase });
+    super(CosmosChain, { network, rootDerivationPaths, phrase });
 
     this.clientUrls = clientUrls;
     this.chainIds = chainIds;

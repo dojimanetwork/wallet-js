@@ -4,7 +4,7 @@ import {
   Asset,
   AssetETH,
   BaseAmount,
-  Chain,
+  EthChain,
   assetAmount,
   assetFromString,
   assetToBase,
@@ -150,7 +150,7 @@ export const getTxFromTokenTransaction = (
   const address = tx.contractAddress;
   if (validateSymbol(symbol) && validateAddress(address)) {
     const tokenAsset = assetFromString(
-      `${Chain.Ethereum}.${symbol}-${address}`
+      `${EthChain.ticker}.${symbol}-${address}`
     );
     if (tokenAsset) {
       return {
@@ -217,7 +217,7 @@ export const getTxFromEthplorerTokenOperation = (
   const { symbol, address } = operation.tokenInfo;
   if (validateSymbol(symbol) && validateAddress(address)) {
     const tokenAsset = assetFromString(
-      `${Chain.Ethereum}.${symbol}-${address}`
+      `${EthChain.ticker}.${symbol}-${address}`
     );
     if (tokenAsset) {
       return {
@@ -575,7 +575,7 @@ export const getTokenBalances = (tokenBalances: TokenBalance[]): Balance[] => {
     ) {
       const decimals = parseInt(cur.tokenInfo.decimals, 10);
       const tokenAsset = assetFromString(
-        `${Chain.Ethereum}.${symbol}-${ethers.utils.getAddress(tokenAddress)}`
+        `${EthChain.ticker}.${symbol}-${ethers.utils.getAddress(tokenAddress)}`
       );
       if (tokenAsset) {
         return [

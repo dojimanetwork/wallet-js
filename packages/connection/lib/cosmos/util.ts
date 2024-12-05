@@ -74,7 +74,7 @@ export const getAsset = (denom: string): Asset | null => {
   if (denom.startsWith("ibc/"))
     // Note: Don't use `assetFromString` here, it will interpret `/` as synth
     return {
-      chain: CosmosChain,
+      chain: CosmosChain.ticker,
       symbol: denom,
       // At the meantime ticker will be empty
       ticker: "",

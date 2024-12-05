@@ -13,3 +13,4 @@ export * from "./chain";
 export * from "./string";
 export * from "./types";
 export * from "./moment";
+export * from "./compute_units";
