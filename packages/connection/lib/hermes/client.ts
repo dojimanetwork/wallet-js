@@ -23,7 +23,7 @@ import {
   Asset,
   AssetDOJNative,
   BaseAmount,
-  Chain,
+  CosmosChain,
   assetFromString,
   assetToString,
   baseAmount,
@@ -49,6 +49,8 @@ import {
   VersionParam,
   IpAddressParam,
   NodePubkeyParam,
+  CreateOperatorParam,
+  RegisterChainParam,
 } from "./types";
 import {
   DEFAULT_GAS_LIMIT_VALUE,
@@ -62,6 +64,8 @@ import {
   getExplorerAddressUrl,
   getExplorerTxUrl,
   getPrefix,
+  registerCreateOperatorCodecs,
+  registerRegisterChainCodecs,
   registerDepositCodecs,
   registerSendCodecs,
   buildSetVersionTx,
@@ -70,6 +74,8 @@ import {
   registerSetIpAddrCodecs,
   buildSetPubkeysTx,
   registerSetNodePubkeysCodecs,
+  buildCreateOperatorTx,
+  buildRegisterChainTx,
 } from "./util";
 import {
   calcDoubleSwapOutput,
@@ -90,6 +96,8 @@ export interface HermeschainClient {
   getCosmosClient(): CosmosSDKClient;
 
   deposit(params: DepositParam): Promise<TxHash>;
+  createOperator(params: CreateOperatorParam): Promise<TxHash>;
+  registerChain(params: RegisterChainParam): Promise<TxHash>;
   transferOffline(params: TxOfflineParams): Promise<string>;
 }
 
@@ -128,7 +136,7 @@ class HermesClient
       [Network.Testnet]: "44'/184'/0'/0/",
     },
   }: ChainClientParams & HermeschainClientParams) {
-    super(Chain.Cosmos, { network, rootDerivationPaths, phrase });
+    super(CosmosChain, { network, rootDerivationPaths, phrase });
     this.apiUrl = apiUrl;
     this.rpcUrl = rpcUrl;
     this.clientUrl = this.getDefaultClientUrls();
@@ -136,6 +144,8 @@ class HermesClient
     this.chainIds = this.getDefaultChainIds();
 
     registerSendCodecs();
+    registerCreateOperatorCodecs();
+    registerRegisterChainCodecs();
     registerDepositCodecs();
     registerSetVersionCodecs();
     registerSetNodePubkeysCodecs();
@@ -541,6 +551,134 @@ class HermesClient
       type: TxType.Transfer,
       hash: txId,
     };
+  }
+
+  async createOperator({
+    walletIndex = 0,
+    serverAddress,
+    stakeAmount,
+    gasLimit = new BigNumber(DEPOSIT_GAS_LIMIT_VALUE),
+  }: CreateOperatorParam): Promise<TxHash> {
+    const balances = await this.getBalance(this.getAddress(walletIndex));
+    const dojBalance: BaseAmount =
+      balances.filter(({ asset }) => isAssetDOJNative(asset))[0]?.amount ??
+      baseAmount(0, DOJ_DECIMAL);
+    const asset = AssetDOJNative;
+    const assetBalance: BaseAmount =
+      balances.filter(
+        ({ asset: assetInList }) =>
+          assetToString(assetInList) === assetToString(asset)
+      )[0]?.amount ?? baseAmount(0, DOJ_DECIMAL);
+
+    const { average: fee } = await this.getFees();
+
+    if (isAssetDOJNative(asset)) {
+      // amount + fee < dojBalance
+      if (dojBalance.lt(stakeAmount.plus(fee))) {
+        throw new Error("insufficient funds");
+      }
+    } else {
+      // amount < assetBalances && dojBalance < fee
+      if (assetBalance.lt(stakeAmount) || dojBalance.lt(fee)) {
+        throw new Error("insufficient funds");
+      }
+    }
+
+    const privKey = this.getPrivateKey(walletIndex);
+    const signerPubkey = privKey.pubKey();
+
+    const fromAddress = this.getAddress(walletIndex);
+    const fromAddressAcc = cosmosclient.AccAddress.fromString(fromAddress);
+
+    const createOperatorTxBody = await buildCreateOperatorTx({
+      msgCreateOperator: {
+        signer: fromAddressAcc,
+        stakeAmount: stakeAmount.amount().toString(),
+        serverAddress: serverAddress,
+      },
+      nodeUrl: this.getClientUrl().node,
+      chainId: this.getChainId(),
+    });
+
+    const account = await this.getCosmosClient().getAccount(fromAddressAcc);
+    const { account_number: accountNumber } = account;
+    if (!accountNumber) {
+      throw Error(
+        `Create operator failed - could not get account number ${accountNumber}`
+      );
+    }
+
+    const txBuilder = buildUnsignedTx({
+      cosmosSdk: this.getCosmosClient().sdk,
+      txBody: createOperatorTxBody,
+      signerPubkey: cosmosclient.codec.instanceToProtoAny(signerPubkey),
+      gasLimit: Long.fromString(gasLimit.toFixed(0)),
+      sequence: account.sequence || Long.ZERO,
+    });
+
+    const txHash = await this.getCosmosClient().signAndBroadcast(
+      txBuilder,
+      privKey,
+      accountNumber
+    );
+
+    if (!txHash) throw Error(`Invalid transaction hash: ${txHash}`);
+
+    return txHash;
+  }
+
+  async registerChain({
+    walletIndex = 0,
+    chain,
+    cmpUnits,
+    gasLimit = new BigNumber(DEPOSIT_GAS_LIMIT_VALUE),
+  }: RegisterChainParam): Promise<TxHash> {
+    const privKey = this.getPrivateKey(walletIndex);
+    const signerPubkey = privKey.pubKey();
+
+    const fromAddress = this.getAddress(walletIndex);
+    const fromAddressAcc = cosmosclient.AccAddress.fromString(fromAddress);
+
+    // if chain. id is not defined, throw error
+    if (!chain.chainId) {
+      throw new Error("chain id is not defined");
+    }
+
+    const registerChainTxBody = await buildRegisterChainTx({
+      msgRegisterChain: {
+        chain: chain,
+        computeUnits: cmpUnits,
+        signer: fromAddressAcc,
+      },
+      nodeUrl: this.getClientUrl().node,
+      chainId: this.getChainId(),
+    });
+
+    const account = await this.getCosmosClient().getAccount(fromAddressAcc);
+    const { account_number: accountNumber } = account;
+    if (!accountNumber) {
+      throw Error(
+        `Create operator failed - could not get account number ${accountNumber}`
+      );
+    }
+
+    const txBuilder = buildUnsignedTx({
+      cosmosSdk: this.getCosmosClient().sdk,
+      txBody: registerChainTxBody,
+      signerPubkey: cosmosclient.codec.instanceToProtoAny(signerPubkey),
+      gasLimit: Long.fromString(gasLimit.toFixed(0)),
+      sequence: account.sequence || Long.ZERO,
+    });
+
+    const txHash = await this.getCosmosClient().signAndBroadcast(
+      txBuilder,
+      privKey,
+      accountNumber
+    );
+
+    if (!txHash) throw Error(`Invalid transaction hash: ${txHash}`);
+
+    return txHash;
   }
 
   /**

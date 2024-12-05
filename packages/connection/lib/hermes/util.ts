@@ -27,6 +27,8 @@ import * as bech32Buffer from "bech32-buffer";
 import Long from "long";
 
 import {
+  MsgCreateOperator,
+  MsgRegisterChain,
   MsgNativeTx,
   MsgSetIpAddressTx,
   MsgSetPubkeysTx,
@@ -139,6 +141,26 @@ export const registerSetNodePubkeysCodecs = () => {
   cosmosclient.codec.register(
     "/hermes.hermes.v1beta1.types.MsgSetNodeKeys",
     hermes.hermes.v1beta1.types.MsgSetNodeKeys
+  );
+};
+
+/**
+ * Register type for encoding `MsgCreateOperator` messages
+ */
+export const registerCreateOperatorCodecs = () => {
+  cosmosclient.codec.register(
+    "/hermes.operatorstaking.v1beta1.MsgCreateOperator",
+    hermes.operatorstaking.v1beta1.MsgCreateOperator
+  );
+};
+
+/**
+ * Register type for encoding `MsgRegisterChain` messages
+ */
+export const registerRegisterChainCodecs = () => {
+  cosmosclient.codec.register(
+    "/hermes.chainlist.v1beta1.MsgRegisterChainWithCU",
+    hermes.chainlist.v1beta1.MsgRegisterChainWithCU
   );
 };
 
@@ -361,6 +383,96 @@ export const getEstimatedGas = async ({
     multiplier || DEFAULT_GAS_ADJUSTMENT
   );
 };
+
+export const buildRegisterChainTx = async ({
+  msgRegisterChain,
+  nodeUrl,
+  chainId,
+}: {
+  msgRegisterChain: MsgRegisterChain;
+  nodeUrl: string;
+  chainId: ChainId;
+}): Promise<proto.cosmos.tx.v1beta1.TxBody> => {
+  const networkChainId = await getChainId(nodeUrl);
+  if (!networkChainId || chainId !== networkChainId) {
+    throw new Error(
+      `Invalid network (asked: ${chainId} / returned: ${networkChainId}`
+    );
+  }
+
+  const { chain, computeUnits, signer } = msgRegisterChain;
+
+  const signerAddr = signer.toString();
+  const signerDecoded = bech32Buffer.decode(signerAddr);
+
+  if (!chain.chainId) {
+    throw new Error("Chain id is not provided");
+  }
+
+  const registerChain = {
+    chain: {
+      name: chain.name,
+      ticker: chain.ticker,
+      id: chain.chainId || "",
+    },
+    cu: {
+      blockunits: computeUnits.blockUnits,
+      transactionunits: computeUnits.txnUnits,
+    },
+    signer: signerDecoded.data,
+  };
+
+  const registerChainMsg =
+    hermes.chainlist.v1beta1.MsgRegisterChainWithCU.fromObject(registerChain);
+
+  return new proto.cosmos.tx.v1beta1.TxBody({
+    messages: [cosmosclient.codec.instanceToProtoAny(registerChainMsg)],
+  });
+};
+
+/**
+ * Builds a create operator transaction
+ * @param {MsgCreateOperator} msgCreateOperator
+ * @param {string} nodeUrl
+ * @param {ChainId} chainId
+ */
+export const buildCreateOperatorTx = async ({
+  msgCreateOperator,
+  nodeUrl,
+  chainId,
+}: {
+  msgCreateOperator: MsgCreateOperator;
+  nodeUrl: string;
+  chainId: ChainId;
+}): Promise<proto.cosmos.tx.v1beta1.TxBody> => {
+  const networkChainId = await getChainId(nodeUrl);
+  if (!networkChainId || chainId !== networkChainId) {
+    throw new Error(
+      `Invalid network (asked: ${chainId} / returned: ${networkChainId}`
+    );
+  }
+
+  const { signer, stakeAmount, serverAddress } = msgCreateOperator;
+
+  const signerAddr = signer.toString();
+  const signerDecoded = bech32Buffer.decode(signerAddr);
+
+  const createOperatorMsg = {
+    stake: stakeAmount,
+    serverAddress: serverAddress,
+    signer: signerDecoded.data,
+  };
+
+  const operatorMsg =
+    hermes.operatorstaking.v1beta1.MsgCreateOperator.fromObject(
+      createOperatorMsg
+    );
+
+  return new proto.cosmos.tx.v1beta1.TxBody({
+    messages: [cosmosclient.codec.instanceToProtoAny(operatorMsg)],
+  });
+};
+
 /**
  * Structure a MsgDeposit
  *
@@ -706,4 +818,9 @@ export const getExplorerTxUrl = ({
     case Network.Testnet:
       return `${url}?network=testnet`;
   }
+};
+
+export type ComputeUnits = {
+  blockUnits: number;
+  txnUnits: number;
 };

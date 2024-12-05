@@ -1,10 +1,43 @@
 import { cosmosclient, proto } from "@cosmos-client/core";
-import { Asset } from "@dojima-wallet/utils";
+import { Asset, Chain } from "@dojima-wallet/utils";
+import { ComputeUnits } from "./util";
 
 export type MsgCoin = {
   asset: Asset;
   amount: string;
 };
+
+export class MsgCreateOperator {
+  signer: cosmosclient.AccAddress;
+  stakeAmount: string;
+  serverAddress: string;
+
+  constructor(
+    signer: cosmosclient.AccAddress,
+    stakeAmount: string,
+    serverAddress: string
+  ) {
+    this.signer = signer;
+    this.stakeAmount = stakeAmount;
+    this.serverAddress = serverAddress;
+  }
+}
+
+export class MsgRegisterChain {
+  chain: Chain;
+  computeUnits: ComputeUnits;
+  signer: cosmosclient.AccAddress;
+
+  constructor(
+    chain: Chain,
+    computeUnits: ComputeUnits,
+    signer: cosmosclient.AccAddress
+  ) {
+    this.chain = chain;
+    this.computeUnits = computeUnits;
+    this.signer = signer;
+  }
+}
 
 export class MsgNativeTx {
   coins: MsgCoin[];

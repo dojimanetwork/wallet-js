@@ -1,7 +1,8 @@
 import { Network, Tx, TxParams } from "../client";
-import { Asset, BaseAmount } from "@dojima-wallet/utils";
+import { Asset, BaseAmount, Chain } from "@dojima-wallet/utils";
 import BigNumber from "bignumber.js";
 import Long from "long";
+import { ComputeUnits } from "./util";
 
 export type NodeUrl = {
   node: string;
@@ -24,6 +25,20 @@ export type ChainIds = Record<Network, ChainId>;
 export type HermeschainClientParams = {
   apiUrl: string;
   rpcUrl: string;
+};
+
+export type CreateOperatorParam = {
+  walletIndex?: number;
+  serverAddress: string;
+  stakeAmount: BaseAmount;
+  gasLimit?: BigNumber;
+};
+
+export type RegisterChainParam = {
+  walletIndex?: number;
+  chain: Chain;
+  cmpUnits: ComputeUnits;
+  gasLimit?: BigNumber;
 };
 
 export type DepositParam = {
