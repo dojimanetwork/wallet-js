@@ -3,8 +3,13 @@ import { Network } from "@dojima-wallet/types";
 // import { baseToAsset } from "@dojima-wallet/utils";
 
 export default class EthereumAccount extends EthereumInit {
-  constructor(mnemonic: string, network: Network, apiKey: string) {
-    super(mnemonic, network, apiKey);
+  constructor(
+    mnemonic: string,
+    privateKey: string,
+    network: Network,
+    apiKey: string
+  ) {
+    super(mnemonic, privateKey, network, apiKey);
   }
 
   getAddress(): string {
