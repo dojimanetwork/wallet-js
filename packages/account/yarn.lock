@@ -125,7 +125,7 @@
   resolved "https://registry.npmjs.org/@dojima-wallet/types/-/types-0.0.1-alpha.8.tgz#9c346a0602f5da11fa2d80b7710ad1038125fac9"
   integrity sha512-ypvpAz+FLSPMjbtu9Onk1CKeKdCCuLmQAz+qvxL5a06JWy+cK/yx2GwabitokVATbpVs3A2ALowZr1rDVNTSDA==
 
-"@dojima-wallet/utils@0.0.1-alpha.9", "@dojima-wallet/utils@^0.0.1-alpha.7":
+"@dojima-wallet/utils@0.0.1-alpha.9", "@dojima-wallet/utils@^0.0.1-alpha.9":
   version "0.0.1-alpha.9"
   resolved "https://registry.npmjs.org/@dojima-wallet/utils/-/utils-0.0.1-alpha.9.tgz#40a348683b67af972b64b32be2e1b6d2073f8d3b"
   integrity sha512-SE2VATBYmb9ZZDhpexFXBGbwh+ShLdqKGx73l4dEBpySoRw25HXFW33n+BRw7Ic4xFHI+x2Hn9LK8YBc2MfmLg==
