@@ -5,8 +5,13 @@ import { getUsdtTokenPriceResult } from "./utils";
 import { SwapAssetList } from "@dojima-wallet/utils";
 
 export default class DojimaChain extends DojimaInit {
-  constructor(mnemonic: string, network: Network, rpcUrl: string) {
-    super(mnemonic, network, rpcUrl);
+  constructor(
+    mnemonic: string,
+    privateKey: string,
+    network: Network,
+    rpcUrl: string
+  ) {
+    super(mnemonic, privateKey, network, rpcUrl);
   }
 
   async getGasFee(
