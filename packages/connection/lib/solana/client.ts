@@ -147,15 +147,37 @@ class SolanaClient implements SolanaChainClient {
 
   // Calculate Gas fee based in recent block hash
   async getFees(): Promise<GasfeeResult> {
-    const { feeCalculator } = await this.connection.getRecentBlockhash();
-    const sol_gasFee = lamportsToBase(
-      feeCalculator.lamportsPerSignature,
-      SOL_DECIMAL
+    // Get the latest blockhash
+    const { blockhash } = await this.connection.getLatestBlockhash("finalized");
+
+    // Create a dummy transaction message
+    const message = new web3.TransactionMessage({
+      payerKey: (await this.getKeypair())[0].publicKey, // Replace with your wallet or any valid public key
+      recentBlockhash: blockhash,
+      instructions: [], // No instructions needed to calculate base fees
+    });
+
+    // Convert message to a VersionedTransaction
+    const versionedTx = new web3.VersionedTransaction(
+      message.compileToLegacyMessage()
     );
+
+    // Fetch the fee for the dummy message
+    const sol_gasFee = await this.connection.getFeeForMessage(
+      versionedTx.message,
+      "finalized"
+    );
+
+    if (!sol_gasFee) {
+      throw new Error("Failed to fetch fees");
+    }
+
+    const normalizedFee = lamportsToBase(sol_gasFee.value, SOL_DECIMAL);
+
     return {
-      slow: sol_gasFee,
-      average: sol_gasFee,
-      fast: sol_gasFee,
+      slow: normalizedFee,
+      average: normalizedFee,
+      fast: normalizedFee,
     };
   }
 
