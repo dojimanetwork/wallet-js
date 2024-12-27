@@ -110,7 +110,8 @@ export interface HermeschainClient {
  */
 class HermesClient
   extends BaseChainClient
-  implements HermeschainClient, ChainClient {
+  implements HermeschainClient, ChainClient
+{
   private clientUrl: ClientUrl;
   private explorerUrls: ExplorerUrls;
   private chainIds: ChainIds;
@@ -170,9 +171,10 @@ class HermesClient
       [Network.Mainnet]: "h4s-187-d11k",
       [Network.Stagenet]: "h4s-187-d11k",
       // [Network.Testnet]: 'h4s-184-d11k',
-      [Network.Testnet]: this.apiUrl.includes("localhost")
-        ? "hermeschain"
-        : "h4s-184-d11k",
+      [Network.Testnet]:
+        this.apiUrl.includes("api-test-h4s") || this.apiUrl.includes("api-h4s")
+          ? "h4s-184-d11k"
+          : "hermeschain",
     };
   }
 
@@ -740,7 +742,6 @@ class HermesClient
 
     return txHash;
   }
-
 
   /**
    * Transaction with MsgNativeTx.
