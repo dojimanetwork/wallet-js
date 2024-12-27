@@ -418,12 +418,12 @@ export const buildRegisterChainTx = async ({
   }
 
   const registerChain = {
-    chain: {
-      name: chain.name,
-      ticker: chain.ticker,
-      id: chain.chainId || "",
+    Chain: {
+      Name: chain.name.toString(),
+      Ticker: chain.ticker,
+      Id: chain.chainId || "",
     },
-    cu: {
+    Cu: {
       blockunits: computeUnits.blockUnits,
       transactionunits: computeUnits.txnUnits,
     },
@@ -463,13 +463,13 @@ export const buildCreateEndpointTx = async ({
   }
 
   const createEndpoint = {
-    chain: {
-      name: chain.name,
-      ticker: chain.ticker,
-      id: chain.chainId || "",
+    Chain: {
+      Name: chain.name,
+      Ticker: chain.ticker,
+      Id: chain.chainId || "",
     },
-    rpcUrl: rpcUrl,
-    wsUrl: wsUrl,
+    Rpc: rpcUrl,
+    Ws: wsUrl,
     signer: signerDecoded.data,
   };
 
@@ -510,7 +510,7 @@ export const buildCreateOperatorTx = async ({
 
   const createOperatorMsg = {
     stake: stakeAmount,
-    serverAddress: serverAddress,
+    server: serverAddress,
     signer: signerDecoded.data,
   };
 
