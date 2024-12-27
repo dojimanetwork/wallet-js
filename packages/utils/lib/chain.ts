@@ -4,11 +4,13 @@ import { Token } from "./tokens";
 export enum ChainTicker {
   AVAX = "AVAX",
   BNB = "BNB",
+  SOL = "SOL",
   BTC = "BTC",
   ETH = "ETH",
   D11K = "D11K",
   COSMOS = "GAIA",
   DOJ = "DOJ",
+  DOT = "DOT",
   Hermes = "D11K",
   EMPTY = "EMPTY",
 }
@@ -17,10 +19,12 @@ export enum ChainName {
   Avalanche = "Avalanche",
   Binance = "Binance Chain",
   Bitcoin = "Bitcoin",
-  Ethereum = "Ethereum",
+  Ethereum = "ethereum",
   Hermes = "Hermes",
   Cosmos = "Cosmos",
-  Dojima = "Dojima",
+  Dojima = "ethereum",
+  Solana = "solana",
+  Polkadot = "polkadot",
   Empty = "Empty",
 }
 
@@ -68,6 +72,16 @@ const CHAIN_CONFIGS: Readonly<Record<ChainTicker, Chain>> = {
     ticker: ChainTicker.DOJ,
     token: Token.DOJ,
     name: ChainName.Dojima,
+  },
+  [ChainTicker.DOT]: {
+    ticker: ChainTicker.DOT,
+    token: Token.Cosmos,
+    name: ChainName.Polkadot,
+  },
+  [ChainTicker.SOL]: {
+    ticker: ChainTicker.SOL,
+    token: Token.Cosmos,
+    name: ChainName.Solana,
   },
   [ChainTicker.EMPTY]: {
     ticker: ChainTicker.EMPTY,
