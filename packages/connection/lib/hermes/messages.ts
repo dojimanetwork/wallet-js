@@ -23,6 +23,25 @@ export class MsgCreateOperator {
   }
 }
 
+export class MsgCreateEndpoint {
+  chain: Chain;
+  rpcUrl: string;
+  wsUrl: string;
+  signer: cosmosclient.AccAddress;
+
+  constructor(
+    chain: Chain,
+    rpcUrl: string,
+    wsUrl: string,
+    signer: cosmosclient.AccAddress
+  ) {
+    this.chain = chain;
+    this.rpcUrl = rpcUrl;
+    this.wsUrl = wsUrl;
+    this.signer = signer;
+  }
+}
+
 export class MsgRegisterChain {
   chain: Chain;
   computeUnits: ComputeUnits;

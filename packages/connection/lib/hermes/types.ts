@@ -34,6 +34,14 @@ export type CreateOperatorParam = {
   gasLimit?: BigNumber;
 };
 
+export type CreateEndpointParam = {
+  walletIndex?: number;
+  chain: Chain;
+  rpcUrl: string;
+  wsUrl: string;
+  gasLimit?: BigNumber;
+};
+
 export type RegisterChainParam = {
   walletIndex?: number;
   chain: Chain;

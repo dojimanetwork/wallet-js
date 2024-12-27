@@ -51,6 +51,7 @@ import {
   NodePubkeyParam,
   CreateOperatorParam,
   RegisterChainParam,
+  CreateEndpointParam,
 } from "./types";
 import {
   DEFAULT_GAS_LIMIT_VALUE,
@@ -66,6 +67,7 @@ import {
   getPrefix,
   registerCreateOperatorCodecs,
   registerRegisterChainCodecs,
+  registerCreateEndpointCodecs,
   registerDepositCodecs,
   registerSendCodecs,
   buildSetVersionTx,
@@ -76,6 +78,7 @@ import {
   registerSetNodePubkeysCodecs,
   buildCreateOperatorTx,
   buildRegisterChainTx,
+  buildCreateEndpointTx,
 } from "./util";
 import {
   calcDoubleSwapOutput,
@@ -97,6 +100,7 @@ export interface HermeschainClient {
 
   deposit(params: DepositParam): Promise<TxHash>;
   createOperator(params: CreateOperatorParam): Promise<TxHash>;
+  createEndpoint(params: CreateEndpointParam): Promise<TxHash>;
   registerChain(params: RegisterChainParam): Promise<TxHash>;
   transferOffline(params: TxOfflineParams): Promise<string>;
 }
@@ -106,8 +110,7 @@ export interface HermeschainClient {
  */
 class HermesClient
   extends BaseChainClient
-  implements HermeschainClient, ChainClient
-{
+  implements HermeschainClient, ChainClient {
   private clientUrl: ClientUrl;
   private explorerUrls: ExplorerUrls;
   private chainIds: ChainIds;
@@ -146,6 +149,7 @@ class HermesClient
     registerSendCodecs();
     registerCreateOperatorCodecs();
     registerRegisterChainCodecs();
+    registerCreateEndpointCodecs();
     registerDepositCodecs();
     registerSetVersionCodecs();
     registerSetNodePubkeysCodecs();
@@ -658,7 +662,7 @@ class HermesClient
     const { account_number: accountNumber } = account;
     if (!accountNumber) {
       throw Error(
-        `Create operator failed - could not get account number ${accountNumber}`
+        `Register chain failed - could not get account number ${accountNumber}`
       );
     }
 
@@ -680,6 +684,63 @@ class HermesClient
 
     return txHash;
   }
+
+  async createEndpoint({
+    walletIndex = 0,
+    chain,
+    rpcUrl,
+    wsUrl,
+    gasLimit = new BigNumber(DEPOSIT_GAS_LIMIT_VALUE),
+  }: CreateEndpointParam): Promise<TxHash> {
+    const privKey = this.getPrivateKey(walletIndex);
+    const signerPubkey = privKey.pubKey();
+
+    const fromAddress = this.getAddress(walletIndex);
+    const fromAddressAcc = cosmosclient.AccAddress.fromString(fromAddress);
+
+    // if chain. id is not defined, throw error
+    if (!chain.chainId) {
+      throw new Error("chain id is not defined");
+    }
+
+    const createEndpointTxBody = await buildCreateEndpointTx({
+      msgCreateEndpoint: {
+        chain: chain,
+        rpcUrl: rpcUrl,
+        wsUrl: wsUrl,
+        signer: fromAddressAcc,
+      },
+      nodeUrl: this.getClientUrl().node,
+      chainId: this.getChainId(),
+    });
+
+    const account = await this.getCosmosClient().getAccount(fromAddressAcc);
+    const { account_number: accountNumber } = account;
+    if (!accountNumber) {
+      throw Error(
+        `Create endpoint failed - could not get account number ${accountNumber}`
+      );
+    }
+
+    const txBuilder = buildUnsignedTx({
+      cosmosSdk: this.getCosmosClient().sdk,
+      txBody: createEndpointTxBody,
+      signerPubkey: cosmosclient.codec.instanceToProtoAny(signerPubkey),
+      gasLimit: Long.fromString(gasLimit.toFixed(0)),
+      sequence: account.sequence || Long.ZERO,
+    });
+
+    const txHash = await this.getCosmosClient().signAndBroadcast(
+      txBuilder,
+      privKey,
+      accountNumber
+    );
+
+    if (!txHash) throw Error(`Invalid transaction hash: ${txHash}`);
+
+    return txHash;
+  }
+
 
   /**
    * Transaction with MsgNativeTx.

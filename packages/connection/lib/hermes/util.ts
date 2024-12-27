@@ -33,6 +33,7 @@ import {
   MsgSetIpAddressTx,
   MsgSetPubkeysTx,
   MsgSetVersionTx,
+  MsgCreateEndpoint,
 } from "./messages";
 import { hermes } from "./proto/MsgCompiled";
 import { ChainId, ExplorerUrls, NodeInfoResponse, TxData } from "./types";
@@ -161,6 +162,13 @@ export const registerRegisterChainCodecs = () => {
   cosmosclient.codec.register(
     "/hermes.chainlist.v1beta1.MsgRegisterChainWithCU",
     hermes.chainlist.v1beta1.MsgRegisterChainWithCU
+  );
+};
+
+export const registerCreateEndpointCodecs = () => {
+  cosmosclient.codec.register(
+    "/hermes.chainlist.v1beta1.MsgCreateEndpoint",
+    hermes.chainlist.v1beta1.MsgCreateEndpoint
   );
 };
 
@@ -427,6 +435,49 @@ export const buildRegisterChainTx = async ({
 
   return new proto.cosmos.tx.v1beta1.TxBody({
     messages: [cosmosclient.codec.instanceToProtoAny(registerChainMsg)],
+  });
+};
+
+export const buildCreateEndpointTx = async ({
+  msgCreateEndpoint,
+  nodeUrl,
+  chainId,
+}: {
+  msgCreateEndpoint: MsgCreateEndpoint;
+  nodeUrl: string;
+  chainId: ChainId;
+}): Promise<proto.cosmos.tx.v1beta1.TxBody> => {
+  const networkChainId = await getChainId(nodeUrl);
+  if (!networkChainId || chainId !== networkChainId) {
+    throw new Error(
+      `Invalid network (asked: ${chainId} / returned: ${networkChainId}`
+    );
+  }
+
+  const { chain, rpcUrl, wsUrl, signer } = msgCreateEndpoint;
+  const signerAddr = signer.toString();
+  const signerDecoded = bech32Buffer.decode(signerAddr);
+
+  if (!chain.chainId) {
+    throw new Error("Chain id is not provided");
+  }
+
+  const createEndpoint = {
+    chain: {
+      name: chain.name,
+      ticker: chain.ticker,
+      id: chain.chainId || "",
+    },
+    rpcUrl: rpcUrl,
+    wsUrl: wsUrl,
+    signer: signerDecoded.data,
+  };
+
+  const createEndpointMsg =
+    hermes.chainlist.v1beta1.MsgCreateEndpoint.fromObject(createEndpoint);
+
+  return new proto.cosmos.tx.v1beta1.TxBody({
+    messages: [cosmosclient.codec.instanceToProtoAny(createEndpointMsg)],
   });
 };
 
