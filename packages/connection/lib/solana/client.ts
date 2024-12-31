@@ -89,12 +89,12 @@ class SolanaClient implements SolanaChainClient {
   getCluster(): web3.Cluster {
     switch (this.network) {
       case Network.Mainnet:
-      case Network.Stagenet:
         return "mainnet-beta";
-      // case Network.Stagenet:
-      //   return "devnet";
+      case Network.Stagenet:
       case Network.Testnet:
-        return "testnet";
+        return "devnet";
+      // case Network.Testnet:
+      //   return "testnet";
     }
   }
 
@@ -181,57 +181,120 @@ class SolanaClient implements SolanaChainClient {
     };
   }
 
-  // Create transaction details based on user input
-  async createTransaction(
-    walletIndex = 0,
-    recipient: string,
-    amount: number
-  ): Promise<web3.Transaction> {
-    // Get account address
-    const fromPubkey = new web3.PublicKey(await this.getAddress(walletIndex));
-
-    // Convert recipient string to PublicKey
-    const toPubkey = new web3.PublicKey(recipient);
-
-    const toAmount = baseToLamports(amount, SOL_DECIMAL);
-
-    // Add transaction for the required amount
-    const rawTx = new web3.Transaction().add(
-      web3.SystemProgram.transfer({
-        fromPubkey,
-        toPubkey,
-        lamports: toAmount,
-      })
-    );
-
-    return rawTx;
-  }
-
-  async signAndSend(walletIndex = 0, rawTx: web3.Transaction): Promise<string> {
-    // Get account details
-    const account = await this.getKeypair();
-
-    // Sign the transaction
-    const signature = await web3.sendAndConfirmTransaction(
-      this.connection,
-      rawTx,
-      [account[walletIndex]]
-    );
-
-    return signature;
-  }
+  // // Create transaction details based on user input
+  // async createTransaction(
+  //   walletIndex = 0,
+  //   recipient: string,
+  //   amount: number
+  // ): Promise<web3.Transaction> {
+  //   // Get account address
+  //   const fromPubkey = new web3.PublicKey(await this.getAddress(walletIndex));
+  //
+  //   // Convert recipient string to PublicKey
+  //   const toPubkey = new web3.PublicKey(recipient);
+  //
+  //   const toAmount = baseToLamports(amount, SOL_DECIMAL);
+  //
+  //   // Add transaction for the required amount
+  //   const rawTx = new web3.Transaction().add(
+  //     web3.SystemProgram.transfer({
+  //       fromPubkey,
+  //       toPubkey,
+  //       lamports: toAmount,
+  //     })
+  //   );
+  //
+  //   return rawTx;
+  // }
+  //
+  // async signAndSend(walletIndex = 0, rawTx: web3.Transaction): Promise<string> {
+  //   // Get account details
+  //   const account = await this.getKeypair();
+  //
+  //   // Sign the transaction
+  //   const signature = await web3.sendAndConfirmTransaction(
+  //     this.connection,
+  //     rawTx,
+  //     [account[walletIndex]]
+  //   );
+  //
+  //   return signature;
+  // }
+  //
+  // async transfer({
+  //   walletIndex = 0,
+  //   recipient,
+  //   amount,
+  // }: SolTxParams): Promise<string> {
+  //   const rawTx = await this.createTransaction(walletIndex, recipient, amount);
+  //   const txHash = await this.signAndSend(walletIndex, rawTx);
+  //
+  //   if (!txHash) throw Error(`Invalid transaction hash: ${txHash}`);
+  //
+  //   return txHash;
+  // }
 
   async transfer({
     walletIndex = 0,
     recipient,
     amount,
   }: SolTxParams): Promise<string> {
-    const rawTx = await this.createTransaction(walletIndex, recipient, amount);
-    const txHash = await this.signAndSend(walletIndex, rawTx);
+    const AMOUNT_TO_TRANSFER = amount * web3.LAMPORTS_PER_SOL;
 
-    if (!txHash) throw Error(`Invalid transaction hash: ${txHash}`);
+    // Convert recipient string to PublicKey
+    const toPubkey = new web3.PublicKey(recipient);
 
-    return txHash;
+    // Get account details
+    const account = await this.getKeypair();
+
+    // Create instructions for the transaction
+    const instructions: web3.TransactionInstruction[] = [
+      web3.SystemProgram.transfer({
+        fromPubkey: account[0].publicKey,
+        toPubkey: toPubkey,
+        lamports: AMOUNT_TO_TRANSFER,
+      }),
+    ];
+
+    try {
+      // Get the latest blockhash
+      let latestBlockhash = await this.connection.getLatestBlockhash("recent");
+
+      // Generate the transaction message
+      const messageV0 = new web3.TransactionMessage({
+        payerKey: account[0].publicKey,
+        recentBlockhash: latestBlockhash.blockhash,
+        instructions: instructions,
+      }).compileToV0Message();
+
+      // Create a VersionedTransaction and sign it
+      const transaction = new web3.VersionedTransaction(messageV0);
+      transaction.sign([account[0]]);
+
+      // Send the transaction to the network
+      const txhash = await this.connection.sendTransaction(transaction, {
+        maxRetries: 15,
+        preflightCommitment: "finalized",
+      });
+
+      // Wait for 3 seconds before checking the transaction status
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+
+      // Fetch transaction details
+      const txResult = await this.connection.getTransaction(txhash, {
+        maxSupportedTransactionVersion: 0,
+      });
+      if (!txResult || !txResult.meta) {
+        throw Error("Transaction not confirmed within the expected time.");
+      }
+
+      // Return transaction hash on success
+      return txhash;
+    } catch (error) {
+      // Return error message or throw for higher-level handling
+      // return `Error: ${error.message}`;
+      throw Error(`Error during transaction: ${error.message}`);
+    }
   }
 
   async dummyTx(recipient: string, amount: number): Promise<string> {
