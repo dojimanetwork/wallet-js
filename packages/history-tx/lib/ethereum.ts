@@ -11,9 +11,9 @@ export default class EthereumTxs extends EthereumInit {
     mnemonic: string,
     privateKey: string,
     network: Network,
-    apiKey: string
+    rpcUrl: string
   ) {
-    super(mnemonic, privateKey, network, apiKey);
+    super(mnemonic, privateKey, network, rpcUrl);
     // if (network === Network.Testnet) this.isTestnet = true;
     // if (network === Network.Stagenet) this.isStagenet = true;
   }
