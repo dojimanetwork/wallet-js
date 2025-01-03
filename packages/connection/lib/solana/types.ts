@@ -12,7 +12,7 @@ export type SolTxData = {
   from: string;
   to: string;
   recentBlockHash: string;
-  instructionData: string;
+  instructionData: any;
 };
 export type SolTxsHistoryParams = {
   address: string;

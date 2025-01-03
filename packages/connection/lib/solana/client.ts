@@ -314,7 +314,7 @@ class SolanaClient implements SolanaChainClient {
     state?: web3.Finality
   ): Promise<SolTxData> {
     const txData = await this.connection.getTransaction(txId, {
-      commitment: state ? state : "confirmed",
+      maxSupportedTransactionVersion: 0,
     });
     if (txData !== null && txData.meta !== null) {
       const amount = txData.meta.postBalances[1] - txData.meta.preBalances[1];
@@ -338,6 +338,15 @@ class SolanaClient implements SolanaChainClient {
       //     ).format("HH:mm:ss");
       //     return date;
       // };
+      const message = txData.transaction.message;
+
+      // `from` address is typically the first required signature
+      const fromAddress = message.staticAccountKeys[0].toBase58();
+
+      // Decode the `to` address from the first instruction
+      const instruction = message.compiledInstructions[0]; // Assuming there's only one transfer
+      const toAddress =
+        message.staticAccountKeys[instruction.accountKeyIndexes[1]].toBase58();
 
       const resultData: SolTxData = {
         transaction_hash: txId,
@@ -345,10 +354,11 @@ class SolanaClient implements SolanaChainClient {
         gasFee: lamportsToBase(txData.meta.fee, SOL_DECIMAL),
         amount: lamportsToBase(amount, SOL_DECIMAL),
         block: txData.slot,
-        from: txData.transaction.message.accountKeys[0].toString(),
-        to: txData.transaction.message.accountKeys[1].toString(),
+        from: fromAddress,
+        to: toAddress,
         recentBlockHash: txData.transaction.message.recentBlockhash,
-        instructionData: txData.transaction.message.instructions[0].data,
+        instructionData:
+          txData.transaction.message.compiledInstructions[0].data,
       };
       return resultData;
     } else {
