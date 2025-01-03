@@ -274,11 +274,11 @@ class SolanaClient implements SolanaChainClient {
       // Send the transaction to the network
       const txhash = await this.connection.sendTransaction(transaction, {
         maxRetries: 15,
-        preflightCommitment: "finalized",
+        preflightCommitment: "processed",
       });
 
       // Wait for 3 seconds before checking the transaction status
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
 
       // Fetch transaction details
       const txResult = await this.connection.getTransaction(txhash, {
