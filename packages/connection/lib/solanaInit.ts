@@ -3,12 +3,12 @@ import { SolanaClient } from "./solana";
 
 export default class SolanaInit {
   solConnect: SolanaClient;
-  constructor(mnemonic: string, network: Network, apiKey?: string) {
+  constructor(mnemonic: string, network: Network, endpoint: string) {
     if (network === Network.Testnet) {
       this.solConnect = new SolanaClient({
         phrase: mnemonic,
         network: network,
-        endpoint: `https://solana-devnet.g.alchemy.com/v2/${apiKey}`,
+        endpoint: endpoint,
       });
       // } else if (network === Network.Stagenet) {
       //   this.solConnect = new SolanaClient({
@@ -20,8 +20,7 @@ export default class SolanaInit {
       this.solConnect = new SolanaClient({
         phrase: mnemonic,
         network: network,
-        endpoint: `https://solana-mainnet.g.alchemy.com/v2/${apiKey}`,
-        // apiKey: apiKey,
+        endpoint: endpoint,
       });
     }
   }

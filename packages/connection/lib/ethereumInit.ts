@@ -7,14 +7,14 @@ export default class EthereumInit {
     mnemonic: string,
     privateKey: string,
     network: Network,
-    apiKey: string
+    rpcUrl: string
   ) {
     if (network === Network.Testnet) {
       this.ethConnect = new EthereumClient({
         phrase: mnemonic,
         privateKey: privateKey,
         network: network,
-        rpcUrl: `https://eth-holesky.g.alchemy.com/v2/${apiKey}`,
+        rpcUrl: rpcUrl,
         etherscanKey: "VDEEGKUUYSSMICHFRF42UKUWZXNECJAW9I",
       });
       // } else if (network === Network.Stagenet) {
@@ -28,7 +28,7 @@ export default class EthereumInit {
         phrase: mnemonic,
         privateKey: privateKey,
         network: network,
-        rpcUrl: `https://eth-mainnet.g.alchemy.com/v2/${apiKey}`,
+        rpcUrl: rpcUrl,
         etherscanKey: "VDEEGKUUYSSMICHFRF42UKUWZXNECJAW9I",
       });
     }
