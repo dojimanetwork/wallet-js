@@ -10,9 +10,9 @@ export default class EthereumChain extends EthereumInit {
     mnemonic: string,
     privateKey: string,
     network: Network,
-    apiKey: string
+    rpcUrl: string
   ) {
-    super(mnemonic, privateKey, network, apiKey);
+    super(mnemonic, privateKey, network, rpcUrl);
   }
 
   async getGasFee(
