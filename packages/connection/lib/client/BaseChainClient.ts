@@ -173,7 +173,10 @@ export abstract class BaseChainClient implements ChainClient {
   }
   //individual clients will need to implement these
   abstract getFees(): Promise<Fees>;
-  abstract getAddress(walletIndex?: number): string;
+  abstract getAddress(
+    walletIndex?: number,
+    secondaryAccountIndex?: number
+  ): string;
   abstract getExplorerUrl(): string;
   abstract getExplorerAddressUrl(address: string): string;
   abstract getExplorerTxUrl(txID: string): string;

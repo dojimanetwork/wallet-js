@@ -374,16 +374,39 @@ class HermesClient
   }
 
   /**
+   * Get secondary root derivation path required for account retrieval instead of default
+   */
+  private getSecondaryAccountRootDerivationPath({
+    walletIndex = 0,
+    secondaryAccountIndex = 0,
+  }: {
+    walletIndex: number;
+    secondaryAccountIndex: number;
+  }): string {
+    const secondaryRootDerivationPaths = {
+      [Network.Mainnet]: `44'/187'/${secondaryAccountIndex}'/0/`,
+      [Network.Stagenet]: `44'/187'/${secondaryAccountIndex}'/0/`,
+      [Network.Testnet]: `44'/184'/${secondaryAccountIndex}'/0/`,
+    };
+    return `${secondaryRootDerivationPaths[this.network]}${walletIndex}`;
+  }
+
+  /**
    * Get the current address.
    *
    * @returns {Address} The current address.
    *
    * @throws {Error} Thrown if phrase has not been set before. A phrase is needed to create a wallet and to derive an address from it.
    */
-  getAddress(index = 0): string {
+  getAddress(index = 0, secondaryAccountIndex = 0): string {
     const address = this.cosmosClient.getAddressFromMnemonic(
       this.phrase,
-      this.getFullDerivationPath(index)
+      secondaryAccountIndex !== 0
+        ? this.getSecondaryAccountRootDerivationPath({
+            walletIndex: index,
+            secondaryAccountIndex,
+          })
+        : this.getFullDerivationPath(index)
     );
     if (!address) {
       throw new Error("address not defined");
