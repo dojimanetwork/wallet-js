@@ -16,16 +16,16 @@ export enum ChainTicker {
 }
 
 export enum ChainName {
-  Avalanche = "Avalanche",
-  Binance = "Binance Chain",
-  Bitcoin = "Bitcoin",
+  Avalanche = "avalanche",
+  Binance = "binance chain",
+  Bitcoin = "bitcoin",
   Ethereum = "ethereum",
-  Hermes = "Hermes",
-  Cosmos = "Cosmos",
+  Hermes = "hermes",
+  Cosmos = "cosmos",
   Dojima = "ethereum",
   Solana = "solana",
   Polkadot = "polkadot",
-  Empty = "Empty",
+  Empty = "empty",
 }
 
 // Types
