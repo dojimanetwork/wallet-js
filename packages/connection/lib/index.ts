@@ -5,6 +5,7 @@ import EthereumInit from "./ethereumInit";
 import EvmInit from "./evmInit";
 import FioInit from "./fioInit";
 import HermesInit from "./hermesInit";
+import OperatorInit from "./operatorInit";
 import SolanaInit from "./solanaInit";
 import PolkadotInit from "./polkadotInit";
 
@@ -26,6 +27,7 @@ export {
   HermesInit,
   SolanaInit,
   PolkadotInit,
+  OperatorInit,
 };
 
 export {
