@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 "use strict";
-var grpc = require("grpc");
+var grpc = require("@grpc/grpc-js");
 var operator_pb = require("./operator_pb.js");
 var query_pb = require("./query_pb.js");
 
