@@ -81,6 +81,9 @@
     "wif": "^2.0.6"
   },
   "devDependencies": {
+    "@grpc/grpc-js": "^1.12.5",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
+    "grpc-tools": "^1.12.4",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
   }

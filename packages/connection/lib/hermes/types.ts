@@ -27,6 +27,12 @@ export type HermeschainClientParams = {
   rpcUrl: string;
 };
 
+export type GRPCClientParams = {
+  server: string;
+  chainId?: string;
+  prefix?: string;
+};
+
 export type CreateOperatorParam = {
   walletIndex?: number;
   serverAddress: string;
