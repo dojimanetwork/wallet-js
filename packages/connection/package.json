@@ -1,6 +1,6 @@
 {
   "name": "@dojima-wallet/connection",
-  "version": "0.0.1-alpha.93",
+  "version": "0.0.1-alpha.94",
   "description": "Initialise and connection for layer 1&2 blockchain",
   "keywords": [
     "connection",
@@ -42,7 +42,7 @@
     "@binance-chain/javascript-sdk": "^4.2.0",
     "@cosmos-client/core": "0.45.13",
     "@dojima-wallet/types": "^0.0.1-alpha.8",
-    "@dojima-wallet/utils": "0.0.1-alpha.10",
+    "@dojima-wallet/utils": "0.0.1-alpha.11",
     "@fioprotocol/fiosdk": "^1.8.0",
     "@polkadot/api": "^9.10.2",
     "@project-serum/anchor": "0.23.0",
