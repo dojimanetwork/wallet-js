@@ -7,5 +7,6 @@ export enum Token {
   BTC = "BTC",
   Cosmos = "Atom",
   Hermes = "D11K",
+  Arthera = "AA",
   Empty = "EMPTY",
 }

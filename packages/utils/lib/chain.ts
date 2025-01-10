@@ -12,6 +12,7 @@ export enum ChainTicker {
   DOJ = "DOJ",
   DOT = "DOT",
   Hermes = "D11K",
+  ARTHERA = "AA",
   EMPTY = "EMPTY",
 }
 
@@ -25,6 +26,7 @@ export enum ChainName {
   Dojima = "ethereum",
   Solana = "solana",
   Polkadot = "polkadot",
+  Arthera = "arthera",
   Empty = "empty",
 }
 
@@ -82,6 +84,11 @@ const CHAIN_CONFIGS: Readonly<Record<ChainTicker, Chain>> = {
     ticker: ChainTicker.SOL,
     token: Token.Cosmos,
     name: ChainName.Solana,
+  },
+  [ChainTicker.ARTHERA]: {
+    ticker: ChainTicker.ARTHERA,
+    token: Token.Arthera,
+    name: ChainName.Arthera,
   },
   [ChainTicker.EMPTY]: {
     ticker: ChainTicker.EMPTY,
