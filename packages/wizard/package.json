@@ -1,0 +1,100 @@
+{
+  "name": "@dojima-wallet/wizard",
+  "version": "0.0.1-alpha.2",
+  "description": "Wizard is a magical toolkit for deploying, interacting, or testing evm smart contracts, solana rust programs and more",
+  "keywords": [
+    "dojima",
+    "evm",
+    "solana",
+    "polkadot",
+    "bitcoin"
+  ],
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/lib/index.d.ts",
+  "author": "yerramreddyuday <uday.prasad@dojima.network>",
+  "homepage": "https://github.com/dojimanetwork/wallet-js#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dojimanetwork/wallet-js.git"
+  },
+  "scripts": {
+    "compile": "rm -rf artifacts cache && hardhat compile",
+    "prebuild": "hardhat compile",
+    "build": "webpack --config webpack.config.js",
+    "build_rm:ylck": "rm -rf dist/ node_modules/ yarn.lock && yarn && yarn build",
+    "build_rm:nm": "rm -rf dist/ node_modules/ && yarn && yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "dist",
+    "hardhat.config.*",
+    "contracts",
+    "artifacts"
+  ],
+  "directories": {
+    "dist": "dist",
+    "src": "lib",
+    "contracts": "contracts",
+    "artifacts": "artifacts"
+  },
+  "bugs": {
+    "url": "https://github.com/dojimanetwork/wallet-js/issues"
+  },
+  "dependencies": {
+    "@dojimanetwork/dojima-contracts": "^0.1.1",
+    "@ethersproject/providers": "^5.7.2",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
+    "@nomicfoundation/hardhat-ethers": "^3.0.5",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.3",
+    "@nomiclabs/hardhat-solhint": "^3.0.1",
+    "@nomiclabs/hardhat-truffle5": "^2.0.7",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.5",
+    "@openzeppelin/hardhat-upgrades": "^3.0.0",
+    "@openzeppelin/test-helpers": "^0.5.16",
+    "@polkadot/util-crypto": "^12.6.1",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.7",
+    "commander": "^3.0.1",
+    "dotenv": "^16.3.1",
+    "ethereumjs-util": "^7.1.5",
+    "ethers": "^6.9.2",
+    "har-validator": "^5.1.5",
+    "hardhat": "^2.19.4",
+    "hardhat-deploy": "^0.11.43",
+    "hardhat-ethernal": "^3.2.3",
+    "hardhat-gas-reporter": "^1.0.8",
+    "hardhat-tracer": "^2.6.0",
+    "moment": "^2.29.4",
+    "nunjucks": "^3.2.4",
+    "prettier": "^2.8.8",
+    "prettier-plugin-solidity": "^1.1.3",
+    "readline-sync": "^1.4.10",
+    "request": "^2.88.2",
+    "solc": "^0.8.21",
+    "solhint": "^3.6.2",
+    "solhint-community": "^3.7.0-rc02",
+    "solhint-plugin-prettier": "^0.0.5",
+    "solidity-coverage": "^0.8.1",
+    "solidity-rlp": "^2.0.0",
+    "typechain": "^8.3.0",
+    "typescript": "^5.1.6",
+    "uuid": "^7.0.0",
+    "web3": "^1.10.1",
+    "web3-utils": "^4.0.3"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2"
+  }
+}

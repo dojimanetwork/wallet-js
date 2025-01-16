@@ -1,0 +1,5271 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/DojimaValidatorSet.sol": {
+      "lastModificationDate": 1736932889198,
+      "contentHash": "7b9e23ab7adbd19dd7318062b57c28f4",
+      "sourceName": "contracts/DojimaValidatorSet.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./common/misc/SafeMath.sol",
+        "solidity-rlp/contracts/RLPReader.sol",
+        "./common/misc/BytesLib.sol",
+        "./dojimachain/System.sol",
+        "./common/misc/ECVerify.sol",
+        "./ValidatorSet.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DojimaValidatorSet"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/BytesLib.sol": {
+      "lastModificationDate": 1736932889143,
+      "contentHash": "16313975883e2bb208d1590186cc7ac6",
+      "sourceName": "contracts/common/misc/BytesLib.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./SafeMath.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["BytesLib"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/System.sol": {
+      "lastModificationDate": 1736932889159,
+      "contentHash": "766c23485c50bedc4f5614c1ffcb4420",
+      "sourceName": "contracts/dojimachain/System.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["System"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/ValidatorSet.sol": {
+      "lastModificationDate": 1736932889204,
+      "contentHash": "75967d4d0130fbceadb5e28e264dd469",
+      "sourceName": "contracts/ValidatorSet.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ValidatorSet"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/ECVerify.sol": {
+      "lastModificationDate": 1736932889144,
+      "contentHash": "269fb7487479504e2d70b8f0dec862fd",
+      "sourceName": "contracts/common/misc/ECVerify.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ECVerify"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/SafeMath.sol": {
+      "lastModificationDate": 1736932889146,
+      "contentHash": "b2373c3e76ae0f239880f16f83443cb6",
+      "sourceName": "contracts/common/misc/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["SafeMath"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/solidity-rlp/contracts/RLPReader.sol": {
+      "lastModificationDate": 1736953673045,
+      "contentHash": "fa68ac0f995f49c72260e62952b2afff",
+      "sourceName": "solidity-rlp/contracts/RLPReader.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [">=0.5.10 <0.9.0"],
+      "artifacts": ["RLPReader"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/TestStateReceiver.sol": {
+      "lastModificationDate": 1736932889189,
+      "contentHash": "f080f572418088aebe3f8817f653fbe2",
+      "sourceName": "contracts/test/TestStateReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "solidity-rlp/contracts/RLPReader.sol",
+        "./TestSystem.sol",
+        "../interfaces/IStateReceiver.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestStateReceiver"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/interfaces/IStateReceiver.sol": {
+      "lastModificationDate": 1736932889171,
+      "contentHash": "a1b33f4d44929dfc7448ce7ac342799d",
+      "sourceName": "contracts/interfaces/IStateReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IStateExecutor", "IStateReceiver"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/TestSystem.sol": {
+      "lastModificationDate": 1736932889190,
+      "contentHash": "a2bbde9f9c4b3684bc413018dd80b989",
+      "sourceName": "contracts/test/TestSystem.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestSystem"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/account_based_contracts/TestAccountBasedToken.sol": {
+      "lastModificationDate": 1736932889191,
+      "contentHash": "3cd18168318d1442c3e7679e7a428e7a",
+      "sourceName": "contracts/test/account_based_contracts/TestAccountBasedToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "../../interfaces/IStateReceiver.sol",
+        "../../dojimachain/non_evm/AccountBasedBaseToken.sol",
+        "../../interfaces/IParentToken.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestAccountBasedToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/non_evm/AccountBasedBaseToken.sol": {
+      "lastModificationDate": 1736932889163,
+      "contentHash": "0a0f3e9f01fb251af5bc410fa1c806dc",
+      "sourceName": "contracts/dojimachain/non_evm/AccountBasedBaseToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "./AccountBasedChildToken.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["AccountBasedBaseToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/interfaces/IParentToken.sol": {
+      "lastModificationDate": 1736932889171,
+      "contentHash": "3dde4c817c11c8bbb8c74498ebb1f085",
+      "sourceName": "contracts/interfaces/IParentToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IParentToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1736953673839,
+      "contentHash": "3ae5166c6827a9cf1a7a462d1632b464",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1736953675635,
+      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../IERC20.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC20Metadata"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/non_evm/AccountBasedChildToken.sol": {
+      "lastModificationDate": 1736932889163,
+      "contentHash": "1b0e82fdf1f4e0ad07674bdbef824deb",
+      "sourceName": "contracts/dojimachain/non_evm/AccountBasedChildToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/math/SafeMath.sol",
+        "../../common/misc/OwnableV2.sol",
+        "../../common/misc/LibTokenTransferOrder.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["AccountBasedChildToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1736953673839,
+      "contentHash": "df36f7051335cd1e748b1b6463b7fdd3",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/OwnableV2.sol": {
+      "lastModificationDate": 1736932889145,
+      "contentHash": "50678e5f487190198347ab4b9195285b",
+      "sourceName": "contracts/common/misc/OwnableV2.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Ownable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/LibTokenTransferOrder.sol": {
+      "lastModificationDate": 1736932889145,
+      "contentHash": "e93355c41282bbb7af3bd7875ce968f6",
+      "sourceName": "contracts/common/misc/LibTokenTransferOrder.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./EIP712.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["LibTokenTransferOrder"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol": {
+      "lastModificationDate": 1736953673839,
+      "contentHash": "f6f4fda16c536e57069af40a245c985e",
+      "sourceName": "@openzeppelin/contracts/utils/math/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["SafeMath"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/EIP712.sol": {
+      "lastModificationDate": 1736932889145,
+      "contentHash": "7286516fb8f4505c7152ce728c604e8c",
+      "sourceName": "contracts/common/misc/EIP712.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../mixin/ChainIdMixin.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["LibEIP712Domain"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/mixin/ChainIdMixin.sol": {
+      "lastModificationDate": 1736932889147,
+      "contentHash": "aec6484de712db1acced09ec3ea29ea5",
+      "sourceName": "contracts/common/mixin/ChainIdMixin.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ChainIdMixin"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1736953671583,
+      "contentHash": "f07feb4a44b1a4872370da5aa70e8e46",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["Context"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+      "lastModificationDate": 1736953675636,
+      "contentHash": "1b5d667d3740d866eca0352758e59827",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol",
+        "../extensions/IERC20Permit.sol",
+        "../../../utils/Address.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["SafeERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1736953671582,
+      "contentHash": "211ffd288c1588ba8c10eae668ca3c66",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.1"],
+      "artifacts": ["Address"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+      "lastModificationDate": 1736953675636,
+      "contentHash": "525fcdad8d171312933f47baf01d1ed8",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC20Permit"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+      "lastModificationDate": 1736953673839,
+      "contentHash": "95602b04f0b53f1139f4668d123ddeb7",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721.sol",
+        "./IERC721Receiver.sol",
+        "./extensions/IERC721Metadata.sol",
+        "../../utils/Address.sol",
+        "../../utils/Context.sol",
+        "../../utils/Strings.sol",
+        "../../utils/introspection/ERC165.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ERC721"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+      "lastModificationDate": 1736953673839,
+      "contentHash": "c22d4395e33763de693fd440c6fd10e1",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC721Receiver"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+      "lastModificationDate": 1736953673839,
+      "contentHash": "48de4c9a3a4ae5ef66a2aa620843413f",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../utils/introspection/IERC165.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC721"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1736953671583,
+      "contentHash": "48686fc32a22a3754b8e63321857dd2a",
+      "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./math/Math.sol", "./math/SignedMath.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["Strings"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+      "lastModificationDate": 1736953673852,
+      "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./IERC165.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ERC165"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+      "lastModificationDate": 1736953675633,
+      "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../IERC721.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC721Metadata"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1736953673853,
+      "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC165"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol": {
+      "lastModificationDate": 1736953673839,
+      "contentHash": "9488ebd4daacfee8ad04811600d7d061",
+      "sourceName": "@openzeppelin/contracts/utils/math/SignedMath.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["SignedMath"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/math/Math.sol": {
+      "lastModificationDate": 1736953673839,
+      "contentHash": "fe63409d8a06818b926cf89e0ea88b1b",
+      "sourceName": "@openzeppelin/contracts/utils/math/Math.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["Math"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol": {
+      "lastModificationDate": 1736953675635,
+      "contentHash": "5a341bfc4fe3ee5357ccdebd3a78ad2c",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../ERC721.sol", "../../../utils/Context.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ERC721Burnable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol": {
+      "lastModificationDate": 1736953675635,
+      "contentHash": "a1c7f80ae26f5b2d7d563475627fbf25",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../ERC20.sol", "../../../utils/Context.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ERC20Burnable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/dojima_chain_contracts/TestDOJToken.sol": {
+      "lastModificationDate": 1736932889192,
+      "contentHash": "4a73fbca2abff2d7cf3096eeed94ba9d",
+      "sourceName": "contracts/test/dojima_chain_contracts/TestDOJToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IOutboundStateSender.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol",
+        "@dojimanetwork/dojima-contracts/contracts/dojimachain/StateSyncerVerifier.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestDOJ"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1736953671580,
+      "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../utils/Context.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["Ownable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+      "lastModificationDate": 1736953671581,
+      "contentHash": "1535f8c0c68463f8c1b5239f7584e71f",
+      "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ReentrancyGuard"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/access/AccessControl.sol": {
+      "lastModificationDate": 1736953671580,
+      "contentHash": "a2b1ec38a8dad325a596f926890772b8",
+      "sourceName": "@openzeppelin/contracts/access/AccessControl.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IAccessControl.sol",
+        "../utils/Context.sol",
+        "../utils/Strings.sol",
+        "../utils/introspection/ERC165.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["AccessControl"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1736953673854,
+      "contentHash": "b0970a564d121abf9adfff8d1a01eb16",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../utils/AddressUpgradeable.sol"],
+      "versionPragmas": ["^0.8.2"],
+      "artifacts": ["Initializable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@dojimanetwork/dojima-contracts/contracts/interfaces/IOutboundStateSender.sol": {
+      "lastModificationDate": 1736953673414,
+      "contentHash": "1826d82f4e6dce10b12173f5d3ef4688",
+      "sourceName": "@dojimanetwork/dojima-contracts/contracts/interfaces/IOutboundStateSender.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IOutboundStateSender"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol": {
+      "lastModificationDate": 1736953673414,
+      "contentHash": "b1aa6bf379d8f0c0636c1e0ffcb4fc60",
+      "sourceName": "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IStateExecutor", "IStateReceiver"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@dojimanetwork/dojima-contracts/contracts/dojimachain/StateSyncerVerifier.sol": {
+      "lastModificationDate": 1736953673417,
+      "contentHash": "ea5306fa339027351def7e444f5687df",
+      "sourceName": "@dojimanetwork/dojima-contracts/contracts/dojimachain/StateSyncerVerifier.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../common/misc/OwnableV2.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["StateSyncerVerifier"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/access/IAccessControl.sol": {
+      "lastModificationDate": 1736953671580,
+      "contentHash": "57c84298234411cea19c7c284d86be8b",
+      "sourceName": "@openzeppelin/contracts/access/IAccessControl.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IAccessControl"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1736953671595,
+      "contentHash": "c30c805386fda8a42ff515da963d3a95",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.1"],
+      "artifacts": ["AddressUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@dojimanetwork/dojima-contracts/contracts/common/misc/OwnableV2.sol": {
+      "lastModificationDate": 1736953675420,
+      "contentHash": "66a6ed9991a3c42c037b8de7fcb6b0e9",
+      "sourceName": "@dojimanetwork/dojima-contracts/contracts/common/misc/OwnableV2.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Ownable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/templates/omnichaintokens/OmniChainERC20.sol": {
+      "lastModificationDate": 1736932889185,
+      "contentHash": "83776bcba10ca8fce565b440eff36b36",
+      "sourceName": "contracts/templates/omnichaintokens/OmniChainERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IOutboundStateSender.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol",
+        "@dojimanetwork/dojima-contracts/contracts/dojimachain/StateSyncerVerifier.sol",
+        "./XTokenContract.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["OmniChainERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/templates/omnichaintokens/XTokenContract.sol": {
+      "lastModificationDate": 1736932889185,
+      "contentHash": "9906f9cf21686f4483083ddbc7fd065c",
+      "sourceName": "contracts/templates/omnichaintokens/XTokenContract.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["XTokenContract"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/templates/omnichainnft/OmniChainNFTContract.sol": {
+      "lastModificationDate": 1736932889183,
+      "contentHash": "51e049a375e5dc1f105b5654d829e667",
+      "sourceName": "contracts/templates/omnichainnft/OmniChainNFTContract.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IOutboundStateSender.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol",
+        "@dojimanetwork/dojima-contracts/contracts/dojimachain/StateSyncerVerifier.sol",
+        "./XNFTContract.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["OmniChainNFTContract"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/templates/omnichainnft/XNFTContract.sol": {
+      "lastModificationDate": 1736932889183,
+      "contentHash": "8c7b59613b0cbba0b059f871a6b52c77",
+      "sourceName": "contracts/templates/omnichainnft/XNFTContract.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["XNFTContract"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol": {
+      "lastModificationDate": 1736953671595,
+      "contentHash": "2c309ab8cb953d5db2a280f534c113cd",
+      "sourceName": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../proxy/utils/Initializable.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ReentrancyGuardUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol": {
+      "lastModificationDate": 1736953673854,
+      "contentHash": "c50df4f62eb9ef48d89b3a48a57e3bf5",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/draft-IERC1822Upgradeable.sol",
+        "../ERC1967/ERC1967UpgradeUpgradeable.sol",
+        "./Initializable.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["UUPSUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/interfaces/draft-IERC1822Upgradeable.sol": {
+      "lastModificationDate": 1736953671595,
+      "contentHash": "a6883cfd85607b16c121a02728369eb3",
+      "sourceName": "@openzeppelin/contracts-upgradeable/interfaces/draft-IERC1822Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC1822ProxiableUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
+      "lastModificationDate": 1736953673854,
+      "contentHash": "e186f91201ca317278fffbf1ea60cea0",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../beacon/IBeaconUpgradeable.sol",
+        "../../interfaces/IERC1967Upgradeable.sol",
+        "../../interfaces/draft-IERC1822Upgradeable.sol",
+        "../../utils/AddressUpgradeable.sol",
+        "../../utils/StorageSlotUpgradeable.sol",
+        "../utils/Initializable.sol"
+      ],
+      "versionPragmas": ["^0.8.2"],
+      "artifacts": ["ERC1967UpgradeUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol": {
+      "lastModificationDate": 1736953673854,
+      "contentHash": "21bffd733b4ca013e125a0ffe2e52254",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IBeaconUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/interfaces/IERC1967Upgradeable.sol": {
+      "lastModificationDate": 1736953671593,
+      "contentHash": "a5421a5e611067b9202e83329fbf6fc7",
+      "sourceName": "@openzeppelin/contracts-upgradeable/interfaces/IERC1967Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC1967Upgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol": {
+      "lastModificationDate": 1736953671595,
+      "contentHash": "02cf959b00ba5c650708472f195f8b29",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["StorageSlotUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol": {
+      "lastModificationDate": 1736953673856,
+      "contentHash": "cf4ee017d1c233e20dc46b40c0f570c1",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721Upgradeable.sol",
+        "./IERC721ReceiverUpgradeable.sol",
+        "./extensions/IERC721MetadataUpgradeable.sol",
+        "../../utils/AddressUpgradeable.sol",
+        "../../utils/ContextUpgradeable.sol",
+        "../../utils/StringsUpgradeable.sol",
+        "../../utils/introspection/ERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ERC721Upgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
+      "lastModificationDate": 1736953671596,
+      "contentHash": "c221361be1c4953f5b71f47475b90266",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./math/MathUpgradeable.sol",
+        "./math/SignedMathUpgradeable.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["StringsUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1736953671595,
+      "contentHash": "b6dfb72ff1fd764f725ec4db364b1b20",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../proxy/utils/Initializable.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ContextUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol": {
+      "lastModificationDate": 1736953673856,
+      "contentHash": "f6c6e71ba8413a4ba32871610dba0658",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../utils/introspection/IERC165Upgradeable.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC721Upgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
+      "lastModificationDate": 1736953673856,
+      "contentHash": "ba28cf60b52b00d2b3a190bcdf0952bd",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC721ReceiverUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol": {
+      "lastModificationDate": 1736953675638,
+      "contentHash": "76212ca0265501d1eb3dd1175e6afca4",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../IERC721Upgradeable.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC721MetadataUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
+      "lastModificationDate": 1736953673879,
+      "contentHash": "7cd9c9d1dccf4a894c0f6926f5b6ac3d",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165Upgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ERC165Upgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/utils/math/SignedMathUpgradeable.sol": {
+      "lastModificationDate": 1736953673880,
+      "contentHash": "2a6b819b2e241091ada6d645df3e3929",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/math/SignedMathUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["SignedMathUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol": {
+      "lastModificationDate": 1736953673880,
+      "contentHash": "5a2a749b45b6a8eb035f4bf75addcb27",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["MathUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol": {
+      "lastModificationDate": 1736953673879,
+      "contentHash": "d6ecf203a5e72c845be9bbf2f304a289",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC165Upgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol": {
+      "lastModificationDate": 1736953671592,
+      "contentHash": "e755cb2313878e08bcbc64c75b169c1e",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IAccessControlUpgradeable.sol",
+        "../utils/ContextUpgradeable.sol",
+        "../utils/StringsUpgradeable.sol",
+        "../utils/introspection/ERC165Upgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["AccessControlUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/access/IAccessControlUpgradeable.sol": {
+      "lastModificationDate": 1736953671592,
+      "contentHash": "21b43d1337ebc77c11da3cbe3fd65316",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/IAccessControlUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IAccessControlUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol": {
+      "lastModificationDate": 1736953673856,
+      "contentHash": "a7a59a8d3ad24a7b40ba5f34f0c1d47f",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20Upgradeable.sol",
+        "./extensions/IERC20MetadataUpgradeable.sol",
+        "../../utils/ContextUpgradeable.sol",
+        "../../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ERC20Upgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
+      "lastModificationDate": 1736953673856,
+      "contentHash": "9a9398a7dbda9d014f04d5eb0fb581fd",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC20Upgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol": {
+      "lastModificationDate": 1736953675640,
+      "contentHash": "9efcd5467a7f0bf533910ee8a267adb2",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../IERC20Upgradeable.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["IERC20MetadataUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/EthereumDOJToken.sol": {
+      "lastModificationDate": 1736932889161,
+      "contentHash": "5d1f55514413255b2882fde82fce6952",
+      "sourceName": "contracts/dojimachain/evm/EthereumDOJToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IInboundStateSender.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["EthereumDOJToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+      "lastModificationDate": 1736953671592,
+      "contentHash": "a70d53f7e468306c02c529ecaa1d59c5",
+      "sourceName": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["OwnableUpgradeable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@dojimanetwork/dojima-contracts/contracts/interfaces/IInboundStateSender.sol": {
+      "lastModificationDate": 1736953673414,
+      "contentHash": "ef1d394b605d38f7b1c19e92caed3693",
+      "sourceName": "@dojimanetwork/dojima-contracts/contracts/interfaces/IInboundStateSender.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IInboundStateSender"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/templates/omnichaintokens/crossChainERC20/EthereumCrossChainToken.sol": {
+      "lastModificationDate": 1736932889185,
+      "contentHash": "cd868d202ee9646c2f5e2ca5af754a84",
+      "sourceName": "contracts/templates/omnichaintokens/crossChainERC20/EthereumCrossChainToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IInboundStateSender.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["EthereumCrossChainToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/templates/omnichainnft/crossChainNFT/EthereumCrossChainNFT.sol": {
+      "lastModificationDate": 1736932889184,
+      "contentHash": "198466ff609eb5939f167509c12f5bf3",
+      "sourceName": "contracts/templates/omnichainnft/crossChainNFT/EthereumCrossChainNFT.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IInboundStateSender.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["EthereumCrossChainNFT"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/router/RouterUpgradable.sol": {
+      "lastModificationDate": 1736932889180,
+      "contentHash": "e0afcb360393bb9efe5fb05446de6532",
+      "sourceName": "contracts/router/RouterUpgradable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["RouterUpgradeable", "iDOJ", "iERC20", "iROUTER"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/router/OldROuterContract.sol": {
+      "lastModificationDate": 1736932889178,
+      "contentHash": "c24b1bcf52e7140b0ce06e27fa51be77",
+      "sourceName": "contracts/router/OldROuterContract.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["OldRouter", "iERC20", "iROUTER", "iRUNE"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/StateSender.sol": {
+      "lastModificationDate": 1736932889202,
+      "contentHash": "e4ef81fec8b1429916c12dd1e1000c9b",
+      "sourceName": "contracts/StateSender.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "./interfaces/IInboundStateSender.sol",
+        "./interfaces/IStateReceiver.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["StateSender"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/interfaces/IInboundStateSender.sol": {
+      "lastModificationDate": 1736932889170,
+      "contentHash": "9907822eab32480b93f268d5740e9388",
+      "sourceName": "contracts/interfaces/IInboundStateSender.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IInboundStateSender"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/rollupEndToEnd/CrossChainERC20Token.sol": {
+      "lastModificationDate": 1736932889175,
+      "contentHash": "62a8357d5df80d8f7520cff3e9bdb3b1",
+      "sourceName": "contracts/rollupEndToEnd/CrossChainERC20Token.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "../interfaces/IInboundStateSender.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["CrossChainERC20Token"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/router/RouterEVM.sol": {
+      "lastModificationDate": 1736932889179,
+      "contentHash": "c4aaa00214679218944671ab0827735c",
+      "sourceName": "contracts/router/RouterEVM.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/proxy/utils/Initializable.sol",
+        "../common/misc/OwnableV2.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["RouterEVM", "iDOJ", "iERC20", "iROUTER"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1736953673816,
+      "contentHash": "5efeb93e6b1c83c754da2846c2da51a7",
+      "sourceName": "@openzeppelin/contracts/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../utils/Address.sol"],
+      "versionPragmas": ["^0.8.2"],
+      "artifacts": ["Initializable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/TestOutboundStateSender.sol": {
+      "lastModificationDate": 1736932889189,
+      "contentHash": "c3d96b25d131528d0e962a825a3b6687",
+      "sourceName": "contracts/test/TestOutboundStateSender.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IOutboundStateSender.sol",
+        "@openzeppelin/contracts/proxy/utils/Initializable.sol",
+        "../common/misc/OwnableV2.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestOutboundStateSender"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/interfaces/IOutboundStateSender.sol": {
+      "lastModificationDate": 1736932889171,
+      "contentHash": "095717a3a801513b25cf0f5aef07a703",
+      "sourceName": "contracts/interfaces/IOutboundStateSender.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IOutboundStateSender"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/account_based_contracts/TestAccountBasedChildChain.sol": {
+      "lastModificationDate": 1736932889190,
+      "contentHash": "9f1093a898fa06e206766e7184618745",
+      "sourceName": "contracts/test/account_based_contracts/TestAccountBasedChildChain.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../common/misc/OwnableV2.sol",
+        "../../interfaces/IStateReceiver.sol",
+        "../../dojimachain/non_evm/AccountBasedChildToken.sol",
+        "./TestAccountBasedToken.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestAccountBasedChildChain"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/ChildToken.sol": {
+      "lastModificationDate": 1736932889161,
+      "contentHash": "a4fe612a66935ea3ecc9ac400f547870",
+      "sourceName": "contracts/dojimachain/evm/ChildToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../common/misc/SafeMath.sol",
+        "../../common/misc/OwnableV2.sol",
+        "../../common/misc/LibTokenTransferOrder.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ChildToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/ChildERC721.sol": {
+      "lastModificationDate": 1736932889161,
+      "contentHash": "bd1f15b9c43abf8a24a1b9750a200d68",
+      "sourceName": "contracts/dojimachain/evm/ChildERC721.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+        "./ChildToken.sol",
+        "../../interfaces/IParentToken.sol",
+        "../StateSyncerVerifier.sol",
+        "../../interfaces/IStateReceiver.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ChildERC721"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/StateSyncerVerifier.sol": {
+      "lastModificationDate": 1736932889159,
+      "contentHash": "ca0409e97b6a54439fa3a851596da290",
+      "sourceName": "contracts/dojimachain/StateSyncerVerifier.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../common/misc/OwnableV2.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["StateSyncerVerifier"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/non_evm/AccountBasedToken.sol": {
+      "lastModificationDate": 1736932889164,
+      "contentHash": "d7dd1f22484787c848bc1dd788e00769",
+      "sourceName": "contracts/dojimachain/non_evm/AccountBasedToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "../StateSyncerVerifier.sol",
+        "../../interfaces/IStateReceiver.sol",
+        "../../interfaces/IParentToken.sol",
+        "./AccountBasedBaseToken.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["AccountBasedToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/ChildERC20.sol": {
+      "lastModificationDate": 1736932889161,
+      "contentHash": "dcef07d413aa629127a11a319c0434d2",
+      "sourceName": "contracts/dojimachain/evm/ChildERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../StateSyncerVerifier.sol",
+        "../../interfaces/IStateReceiver.sol",
+        "./BaseERC20.sol",
+        "../../interfaces/IParentToken.sol",
+        "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ChildERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/BaseERC20.sol": {
+      "lastModificationDate": 1736932889160,
+      "contentHash": "c6c1a2ff1c3647782f6493f7b3bb0de4",
+      "sourceName": "contracts/dojimachain/evm/BaseERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ChildToken.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["BaseERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/proxifiedChildToken/ChildERC20Proxified.sol": {
+      "lastModificationDate": 1736932889162,
+      "contentHash": "783a2a4d9bbef8e041c588d85b6e1117",
+      "sourceName": "contracts/dojimachain/evm/proxifiedChildToken/ChildERC20Proxified.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../common/mixin/Initializable.sol",
+        "../ChildERC20.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ChildERC20Proxified"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/mixin/Initializable.sol": {
+      "lastModificationDate": 1736932889147,
+      "contentHash": "d97ce2865c49686edd55ee306ee01bb0",
+      "sourceName": "contracts/common/mixin/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Initializable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/account_based_contracts/TestAccountBasedChildProxy.sol": {
+      "lastModificationDate": 1736932889191,
+      "contentHash": "e3e6ba9ce68d7bb18b4aac5299e97bbb",
+      "sourceName": "contracts/test/account_based_contracts/TestAccountBasedChildProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../common/mixin/Initializable.sol",
+        "./TestAccountBasedToken.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestAccountBasedChildProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/non_evm/AccountBasedProxyChildToken/AccountBasedChildProxy.sol": {
+      "lastModificationDate": 1736932889164,
+      "contentHash": "1c28f60eb016f5c80b4f11820e6532a3",
+      "sourceName": "contracts/dojimachain/non_evm/AccountBasedProxyChildToken/AccountBasedChildProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../common/mixin/Initializable.sol",
+        "../AccountBasedToken.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["AccountBasedChildProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/ChildChain.sol": {
+      "lastModificationDate": 1736932889160,
+      "contentHash": "d1357edcfafc7671b255bde0a8cbb674",
+      "sourceName": "contracts/dojimachain/evm/ChildChain.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../common/misc/OwnableV2.sol",
+        "../StateSyncerVerifier.sol",
+        "../../interfaces/IStateReceiver.sol",
+        "./ChildToken.sol",
+        "./ChildERC20.sol",
+        "./ChildERC721.sol",
+        "../../interfaces/IOutboundStateSender.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ChildChain"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/rollupEndToEnd/WrappedCrossERC20Toke.sol": {
+      "lastModificationDate": 1736932889175,
+      "contentHash": "14dfdd9890f6fd8a7d0438ee2b101b6b",
+      "sourceName": "contracts/rollupEndToEnd/WrappedCrossERC20Toke.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "../interfaces/IOutboundStateSender.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol",
+        "@dojimanetwork/dojima-contracts/contracts/dojimachain/StateSyncerVerifier.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["WrappedCrossERC20Token"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/depositManager/DepositManager.sol": {
+      "lastModificationDate": 1736932889152,
+      "contentHash": "c0fd914afabaf14fd2b483d873cda7aa",
+      "sourceName": "contracts/depositManager/DepositManager.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "../common/misc/ContractReceiver.sol",
+        "../common/Registry.sol",
+        "../common/tokens/WETH.sol",
+        "./IDepositManager.sol",
+        "./DepositManagerStorage.sol",
+        "../interfaces/IInboundStateSender.sol",
+        "../common/mixin/GovernanceLockable.sol",
+        "../interfaces/IStateReceiver.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DepositManager"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/ContractReceiver.sol": {
+      "lastModificationDate": 1736932889144,
+      "contentHash": "58c357d9cab7b7946b70cfabc40bbfaa",
+      "sourceName": "contracts/common/misc/ContractReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ContractReceiver"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/Registry.sol": {
+      "lastModificationDate": 1736932889142,
+      "contentHash": "dcc2a2b4b44f003d3eaa59f034943072",
+      "sourceName": "contracts/common/Registry.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./governance/Governable.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Registry"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/tokens/WETH.sol": {
+      "lastModificationDate": 1736932889148,
+      "contentHash": "feb590218cd15e81302d2d6271b99b24",
+      "sourceName": "contracts/common/tokens/WETH.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["@openzeppelin/contracts/token/ERC20/ERC20.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["WETH"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/depositManager/IDepositManager.sol": {
+      "lastModificationDate": 1736932889153,
+      "contentHash": "cba638c28d773c7066336db631311cee",
+      "sourceName": "contracts/depositManager/IDepositManager.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IDepositManager"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/depositManager/DepositManagerStorage.sol": {
+      "lastModificationDate": 1736932889153,
+      "contentHash": "849ece96cce05d35e27a9e82e4fbba96",
+      "sourceName": "contracts/depositManager/DepositManagerStorage.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../common/Registry.sol",
+        "../common/misc/ProxyStorage.sol",
+        "../common/mixin/GovernanceLockable.sol",
+        "../interfaces/IInboundStateSender.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DepositManagerHeader", "DepositManagerStorage"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/mixin/GovernanceLockable.sol": {
+      "lastModificationDate": 1736932889147,
+      "contentHash": "7a1dda32a3065e7c8fc04000f888f7b7",
+      "sourceName": "contracts/common/mixin/GovernanceLockable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../governance/Governable.sol", "./Lockable.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["GovernanceLockable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/governance/Governable.sol": {
+      "lastModificationDate": 1736932889142,
+      "contentHash": "674b21c8a4f6a1304d834345f20f88bc",
+      "sourceName": "contracts/common/governance/Governable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./IGovernance.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Governable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/governance/IGovernance.sol": {
+      "lastModificationDate": 1736932889143,
+      "contentHash": "8b58a274aaa207b82891e6ea4cacf2f9",
+      "sourceName": "contracts/common/governance/IGovernance.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IGovernance"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/ProxyStorage.sol": {
+      "lastModificationDate": 1736932889146,
+      "contentHash": "49f98160f58efc68235220daece0db07",
+      "sourceName": "contracts/common/misc/ProxyStorage.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["@openzeppelin/contracts/access/Ownable.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ProxyStorage"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/mixin/Lockable.sol": {
+      "lastModificationDate": 1736932889147,
+      "contentHash": "3f7620af60a179de16514d2de910a68a",
+      "sourceName": "contracts/common/mixin/Lockable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Lockable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/depositManager/DepositManagerProxy.sol": {
+      "lastModificationDate": 1736932889153,
+      "contentHash": "a829d8e106a330fa5fa5eb64beb04969",
+      "sourceName": "contracts/depositManager/DepositManagerProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./DepositManagerStorage.sol",
+        "../common/misc/Proxy.sol",
+        "../common/Registry.sol",
+        "../common/mixin/GovernanceLockable.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DepositManagerProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/Proxy.sol": {
+      "lastModificationDate": 1736932889146,
+      "contentHash": "cb6fbed0e045bd3955c78a38f46a42b5",
+      "sourceName": "contracts/common/misc/Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./DelegateProxy.sol", "./ProxyStorage.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Proxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/DelegateProxy.sol": {
+      "lastModificationDate": 1736932889144,
+      "contentHash": "edb6a6a73fc2e12dca9334068f9cc386",
+      "sourceName": "contracts/common/misc/DelegateProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./ERCProxy.sol", "./DelegateProxyForwarder.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DelegateProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/ERCProxy.sol": {
+      "lastModificationDate": 1736932889145,
+      "contentHash": "3b0f9216744a2d0133afbb3b9a5af14f",
+      "sourceName": "contracts/common/misc/ERCProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ERCProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/DelegateProxyForwarder.sol": {
+      "lastModificationDate": 1736932889144,
+      "contentHash": "79568602ef1db8959ce17582924c3c75",
+      "sourceName": "contracts/common/misc/DelegateProxyForwarder.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DelegateProxyForwarder"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/DOJToken.sol": {
+      "lastModificationDate": 1736932889157,
+      "contentHash": "d512c02cb838bfb92f6d8492c5382421",
+      "sourceName": "contracts/dojimachain/DOJToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IOutboundStateSender.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol",
+        "@dojimanetwork/dojima-contracts/contracts/dojimachain/StateSyncerVerifier.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DOJToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/governance/Governance.sol": {
+      "lastModificationDate": 1736932889142,
+      "contentHash": "343196529d2303b31eee7c753bb9f955",
+      "sourceName": "contracts/common/governance/Governance.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../misc/ProxyStorage.sol", "./IGovernance.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Governance"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/UpgradableProxy.sol": {
+      "lastModificationDate": 1736932889146,
+      "contentHash": "5b96f802e17bf15f26ba602717d6cd7a",
+      "sourceName": "contracts/common/misc/UpgradableProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./DelegateProxy.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["UpgradableProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/non_evm/AccountBasedProxyChildToken/AccountBasedChildTokenProxy.sol": {
+      "lastModificationDate": 1736932889164,
+      "contentHash": "cb202aa77e8938bfd6b213a90edecb13",
+      "sourceName": "contracts/dojimachain/non_evm/AccountBasedProxyChildToken/AccountBasedChildTokenProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../../common/misc/UpgradableProxy.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["AccountBasedChildTokenProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/proxifiedChildToken/ChildTokenProxy.sol": {
+      "lastModificationDate": 1736932889162,
+      "contentHash": "cc1e0d7b79798236565b3902d37b9354",
+      "sourceName": "contracts/dojimachain/evm/proxifiedChildToken/ChildTokenProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../../common/misc/UpgradableProxy.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ChildTokenProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/governance/GovernanceProxy.sol": {
+      "lastModificationDate": 1736932889143,
+      "contentHash": "03f51a252b2c09cde6d8b1e1c14635d4",
+      "sourceName": "contracts/common/governance/GovernanceProxy.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../misc/Proxy.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["GovernanceProxy"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/tokens/DojimaWETH.sol": {
+      "lastModificationDate": 1736932889148,
+      "contentHash": "1ba3d980e3fabe27b1f2fe660733a6c3",
+      "sourceName": "contracts/common/tokens/DojimaWETH.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./WETH.sol",
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DojimaWeth"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+      "lastModificationDate": 1736953673842,
+      "contentHash": "d822a8a9468649cab463f29f5decf5cc",
+      "sourceName": "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../Strings.sol"],
+      "versionPragmas": ["^0.8.0"],
+      "artifacts": ["ECDSA"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/rollups/common/VotingContract.sol": {
+      "lastModificationDate": 1736932889165,
+      "contentHash": "c90ebabba89f61b13700f771f85b34ac",
+      "sourceName": "contracts/dojimachain/rollups/common/VotingContract.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IStateReceiver.sol",
+        "./RegistryContract.sol",
+        "../../../interfaces/IOutboundStateSender.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["VotingContract"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/rollups/common/RegistryContract.sol": {
+      "lastModificationDate": 1736932889165,
+      "contentHash": "e6078bcd339a7b1346ee39f5fa4eb551",
+      "sourceName": "contracts/dojimachain/rollups/common/RegistryContract.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["@openzeppelin/contracts/access/AccessControl.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["RegistryContract"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/rollup/TestVotingContract.sol": {
+      "lastModificationDate": 1736932889193,
+      "contentHash": "63034869c81d1a55951965a59d865def",
+      "sourceName": "contracts/test/rollup/TestVotingContract.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../dojimachain/rollups/common/VotingContract.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestVotingContract"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/OutboundStateSender.sol": {
+      "lastModificationDate": 1736932889159,
+      "contentHash": "1a028bdbb77c9c45e49ebbafe697067e",
+      "sourceName": "contracts/dojimachain/OutboundStateSender.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "../interfaces/IOutboundStateSender.sol",
+        "../common/misc/OwnableV2.sol",
+        "./rollups/common/RegistryContract.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["OutboundStateSender"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/non_evm/AccountBasedChildChain.sol": {
+      "lastModificationDate": 1736932889163,
+      "contentHash": "8bdd1023d9b193b03eb0de48097c1cb9",
+      "sourceName": "contracts/dojimachain/non_evm/AccountBasedChildChain.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../common/misc/OwnableV2.sol",
+        "../StateSyncerVerifier.sol",
+        "../../interfaces/IStateReceiver.sol",
+        "./AccountBasedToken.sol",
+        "./AccountBasedChildToken.sol",
+        "../../interfaces/IOutboundStateSender.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["AccountBasedChildChain"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/DRC20.sol": {
+      "lastModificationDate": 1736932889158,
+      "contentHash": "19d1a3e80e9d7c1120f760a05b764e25",
+      "sourceName": "contracts/dojimachain/DRC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "./evm/BaseERC20NoSig.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IOutboundStateSender.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "./StateSyncerVerifier.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DRC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/BaseERC20NoSig.sol": {
+      "lastModificationDate": 1736932889160,
+      "contentHash": "04773d113d3f1129e2a514be76aa87f1",
+      "sourceName": "contracts/dojimachain/evm/BaseERC20NoSig.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./ChildToken.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["BaseERC20NoSig"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/router/RouterDojima.sol": {
+      "lastModificationDate": 1736932889179,
+      "contentHash": "b64ab1979110f74b78a07f91551bbd28",
+      "sourceName": "contracts/router/RouterDojima.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/proxy/utils/Initializable.sol",
+        "../common/misc/OwnableV2.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "../dojimachain/DRC20.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["Router", "iDOJ", "iERC20", "iROUTER"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/DRC20_OLD.sol": {
+      "lastModificationDate": 1736932889158,
+      "contentHash": "a3efaecc15d2b319a3bb22c66311144c",
+      "sourceName": "contracts/dojimachain/DRC20_OLD.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./evm/BaseERC20NoSig.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["DRC20_OLD"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/router/Router.sol": {
+      "lastModificationDate": 1736932889178,
+      "contentHash": "52d64b47151be6109fea1c61b7c178db",
+      "sourceName": "contracts/router/Router.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/proxy/utils/Initializable.sol",
+        "../common/misc/OwnableV2.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["RouterThor", "iDOJ", "iERC20", "iROUTER"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/BridgeParent.sol": {
+      "lastModificationDate": 1736932889132,
+      "contentHash": "4982dfc4fe68b3625de422be0e2bd662",
+      "sourceName": "contracts/bridge/BridgeParent.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IBridgeStateSender.sol",
+        "../interfaces/IInboundStateSender.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["BridgeParent"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/interfaces/IBridgeStateSender.sol": {
+      "lastModificationDate": 1736932889170,
+      "contentHash": "f2d9097f3c564f489757683526ec83c3",
+      "sourceName": "contracts/interfaces/IBridgeStateSender.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["IBridgeStateSender"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/tunnel/BaseParentTunnel.sol": {
+      "lastModificationDate": 1736932889136,
+      "contentHash": "995b0ac60bd39315d0676c1c035c072a",
+      "sourceName": "contracts/bridge/tunnel/BaseParentTunnel.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../interfaces/IBridgeStateSender.sol"],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["BaseParentTunnel"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/erc20/ERC20ParentTunnel.sol": {
+      "lastModificationDate": 1736932889133,
+      "contentHash": "92567163a38b43d1c47be0db5d642aeb",
+      "sourceName": "contracts/bridge/erc20/ERC20ParentTunnel.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../tunnel/BaseParentTunnel.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+        "../lib/Create2.sol",
+        "../lib/ERC20.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["BridgeParentTunnel"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/lib/Create2.sol": {
+      "lastModificationDate": 1736932889134,
+      "contentHash": "b22b36a16e98d7524601d6c9fb7fe03c",
+      "sourceName": "contracts/bridge/lib/Create2.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["Create2"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/lib/ERC20.sol": {
+      "lastModificationDate": 1736932889134,
+      "contentHash": "d7253c2b13cf6445b3319175825a0b87",
+      "sourceName": "contracts/bridge/lib/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./IERC20.sol", "./Context.sol", "./IERC20Metadata.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/lib/IERC20.sol": {
+      "lastModificationDate": 1736932889135,
+      "contentHash": "238bec7d7801297e429b7d2208d8854a",
+      "sourceName": "contracts/bridge/lib/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/lib/IERC20Metadata.sol": {
+      "lastModificationDate": 1736932889135,
+      "contentHash": "298950cbeea2cee4e4b1de4bdd6546c8",
+      "sourceName": "contracts/bridge/lib/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./IERC20.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IERC20Metadata"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/lib/Context.sol": {
+      "lastModificationDate": 1736932889134,
+      "contentHash": "f5e67722165f8a6b10e1260b1863782d",
+      "sourceName": "contracts/bridge/lib/Context.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["Context"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/tokens/BridgeERC20.sol": {
+      "lastModificationDate": 1736932889135,
+      "contentHash": "36f261d0b7f1e708d1aac729b06e6e8a",
+      "sourceName": "contracts/bridge/tokens/BridgeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./IBridgeERC20.sol", "../lib/ERC20.sol"],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["BridgeERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/tokens/IBridgeERC20.sol": {
+      "lastModificationDate": 1736932889136,
+      "contentHash": "c369326d584d5b4c5ff6f4c5a9d733b0",
+      "sourceName": "contracts/bridge/tokens/IBridgeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../lib/IERC20.sol"],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["IBridgeERC20"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/erc20/ERC20ChildTunnle.sol": {
+      "lastModificationDate": 1736932889133,
+      "contentHash": "1719e67f1876d0151753ebb651af313b",
+      "sourceName": "contracts/bridge/erc20/ERC20ChildTunnle.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../tunnel/BaseChildTunnel.sol",
+        "../tokens/IBridgeERC20.sol",
+        "../lib/Create2.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["ERC20ChildTunnel"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/tunnel/BaseChildTunnel.sol": {
+      "lastModificationDate": 1736932889136,
+      "contentHash": "8088d3f7d4c983dd749e0bbded0370f6",
+      "sourceName": "contracts/bridge/tunnel/BaseChildTunnel.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../../interfaces/IBridgeMessageProcessor.sol"],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["BaseChildTunnel"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/interfaces/IBridgeMessageProcessor.sol": {
+      "lastModificationDate": 1736932889170,
+      "contentHash": "bc8aa5e0b7494e56c24b4a0c444a2c26",
+      "sourceName": "contracts/interfaces/IBridgeMessageProcessor.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["IBridgeMessageProcessor"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/bridge/BridgeChild.sol": {
+      "lastModificationDate": 1736932889132,
+      "contentHash": "9247e32b5a85448f9d0485caa3d26002",
+      "sourceName": "contracts/bridge/BridgeChild.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IStateReceiver.sol",
+        "../interfaces/IBridgeMessageProcessor.sol"
+      ],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["BridgeChild"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/templates/eth_wallet/ETHTokenWallet.sol": {
+      "lastModificationDate": 1736932889183,
+      "contentHash": "dbab18c921053c21816068357af30abd",
+      "sourceName": "contracts/templates/eth_wallet/ETHTokenWallet.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@dojimanetwork/dojima-contracts/contracts/interfaces/IInboundStateSender.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["ETHTokenWallet"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/tokens/TestToken.sol": {
+      "lastModificationDate": 1736932889148,
+      "contentHash": "2048bd8a7415c8050ca5f6ff9e8721c6",
+      "sourceName": "contracts/common/tokens/TestToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["@openzeppelin/contracts/token/ERC20/ERC20.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/StateReceiver.sol": {
+      "lastModificationDate": 1736932889159,
+      "contentHash": "922eade1ea8e2311b2e4f4bdb80101cb",
+      "sourceName": "contracts/dojimachain/StateReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [
+        "solidity-rlp/contracts/RLPReader.sol",
+        "./System.sol",
+        "../interfaces/IStateReceiver.sol"
+      ],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["StateReceiver"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/Ownable.sol": {
+      "lastModificationDate": 1736932889200,
+      "contentHash": "cd9c9ad393e2734f1c95a0b3a1c5c793",
+      "sourceName": "contracts/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["./interfaces/IOwnable.sol"],
+      "versionPragmas": ["0.8.19"],
+      "artifacts": ["Ownable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/interfaces/IOwnable.sol": {
+      "lastModificationDate": 1736932889171,
+      "contentHash": "5d998c8f5ef64c2b350d864d3b29a338",
+      "sourceName": "contracts/interfaces/IOwnable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IOwnable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/TestOwnable.sol": {
+      "lastModificationDate": 1736932889189,
+      "contentHash": "b3ba09fc7019385da93f16b856b6f898",
+      "sourceName": "contracts/test/TestOwnable.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": ["../Ownable.sol"],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestOwnable"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/common/misc/IParentToken.sol": {
+      "lastModificationDate": 1736932889145,
+      "contentHash": "0c9fb015e6c84a6e5debd04cf62fc053",
+      "sourceName": "contracts/common/misc/IParentToken.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["IParentToken"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/dojimachain/evm/proxifiedChildToken/ChildERC721Proxified.sol": {
+      "lastModificationDate": 1736932889162,
+      "contentHash": "f7849589c16a9869b5d1b607f4c7d9e2",
+      "sourceName": "contracts/dojimachain/evm/proxifiedChildToken/ChildERC721Proxified.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/TestCommitState.sol": {
+      "lastModificationDate": 1736932889188,
+      "contentHash": "c351a66dc08f5ecbd859e700d0d5bda3",
+      "sourceName": "contracts/test/TestCommitState.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.19"],
+      "artifacts": ["TestCommitState"]
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/beacon/TestChildBEP2.sol": {
+      "lastModificationDate": 1736932889191,
+      "contentHash": "70813636d8e0f514d8fb04138764918a",
+      "sourceName": "contracts/test/beacon/TestChildBEP2.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/beacon/TestChildBEP2Proxified.sol": {
+      "lastModificationDate": 1736932889192,
+      "contentHash": "46e6913638e6c6d3cb71f6c9ad2fe914",
+      "sourceName": "contracts/test/beacon/TestChildBEP2Proxified.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/beacon/TestChildChainBeacon.sol": {
+      "lastModificationDate": 1736932889192,
+      "contentHash": "911ac57fda8bc4baeffa16373a4e459e",
+      "sourceName": "contracts/test/beacon/TestChildChainBeacon.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/solana/TestChildChainSolana.sol": {
+      "lastModificationDate": 1736932889193,
+      "contentHash": "ac8b9912acb839d08dc8136d0e09d06c",
+      "sourceName": "contracts/test/solana/TestChildChainSolana.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/solana/TestChildSPL.sol": {
+      "lastModificationDate": 1736932889193,
+      "contentHash": "a71f32fc0d8ea5037741065b92ef2684",
+      "sourceName": "contracts/test/solana/TestChildSPL.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/udaybhanuprasad/dojima/wallet-repos/wallet-js/packages/wizard/contracts/test/solana/TestChildSPLProxified.sol": {
+      "lastModificationDate": 1736932889194,
+      "contentHash": "5c48ec2d64eb0319caa300e61e3729c5",
+      "sourceName": "contracts/test/solana/TestChildSPLProxified.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    }
+  }
+}

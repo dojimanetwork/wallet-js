@@ -1,0 +1,38 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Lockable",
+  "sourceName": "contracts/common/mixin/Lockable.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "lock",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "locked",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unlock",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608080604052346100155760ce908161001b8239f35b600080fdfe6080806040526004361015601257600080fd5b600090813560e01c908163a69df4b514607e578163cf30901214605d575063f83d08ba14603e57600080fd5b34605a5780600319360112605a57805460ff1916600117815580f35b80fd5b905034607a5781600319360112607a5760ff602092541615158152f35b5080fd5b8234605a5780600319360112605a57805460ff1916815580f3fea2646970667358221220b042e55f23b0c1a2e82aaef1dd61ed7c675f790d30a9b1eebb551d5b92ef30e964736f6c63430008130033",
+  "deployedBytecode": "0x6080806040526004361015601257600080fd5b600090813560e01c908163a69df4b514607e578163cf30901214605d575063f83d08ba14603e57600080fd5b34605a5780600319360112605a57805460ff1916600117815580f35b80fd5b905034607a5781600319360112607a5760ff602092541615158152f35b5080fd5b8234605a5780600319360112605a57805460ff1916815580f3fea2646970667358221220b042e55f23b0c1a2e82aaef1dd61ed7c675f790d30a9b1eebb551d5b92ef30e964736f6c63430008130033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
