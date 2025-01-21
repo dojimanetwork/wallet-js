@@ -1,6 +1,6 @@
 {
   "name": "@dojima-wallet/wizard",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "description": "Wizard is a magical toolkit for deploying, interacting, or testing evm smart contracts, solana rust programs and more",
   "keywords": [
     "dojima",
@@ -46,6 +46,7 @@
     "url": "https://github.com/dojimanetwork/wallet-js/issues"
   },
   "dependencies": {
+    "@arbitrum/sdk": "^v3.1.9",
     "@dojimanetwork/dojima-contracts": "^0.1.1",
     "@ethersproject/providers": "^5.7.2",
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
@@ -70,6 +71,7 @@
     "dotenv": "^16.3.1",
     "ethereumjs-util": "^7.1.5",
     "ethers": "^6.9.2",
+    "ethers5": "npm:ethers@5.1.2",
     "har-validator": "^5.1.5",
     "hardhat": "^2.19.4",
     "hardhat-deploy": "^0.11.43",

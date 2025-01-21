@@ -12,3 +12,8 @@ export { withdrawDojimaToEvm } from "./scripts/withdraw";
 export { getLastStateId } from "./scripts/getLastStateId";
 
 export { getEvmHermesTransactionDetails } from "./scripts/getTransactionDetails";
+
+export {
+  transferCrossChainToken,
+  transferWrappedToken,
+} from "./scripts/transferTokens";
