@@ -34,17 +34,11 @@ export async function transferCrossChainToken(
     }
 
     // Transfer CrossChain Token
-    console.log(
-      `Transferring ${amount} CrossChain tokens to ${recipientAddress}...`
-    );
     const crossChainTransferTx = await crossChainToken.transfer(
       recipientAddress,
       amountInWei
     );
     await crossChainTransferTx.wait();
-    console.log(
-      `CrossChain token transfer successful. Transaction hash: ${crossChainTransferTx.hash}`
-    );
 
     return crossChainTransferTx.hash;
   } catch (error) {
@@ -84,17 +78,11 @@ export async function transferWrappedToken(
     }
 
     // Transfer Wrapped Token
-    console.log(
-      `Transferring ${amount} Wrapped tokens to ${recipientAddress}...`
-    );
     const wrappedTransferTx = await wrappedToken.transfer(
       recipientAddress,
       amountInWei
     );
     await wrappedTransferTx.wait();
-    console.log(
-      `Wrapped token transfer successful. Transaction hash: ${wrappedTransferTx.hash}`
-    );
 
     return wrappedTransferTx.hash;
   } catch (error) {

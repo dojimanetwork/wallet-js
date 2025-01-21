@@ -11,7 +11,7 @@ export async function getLastStateId(dojimaUrl: string): Promise<number> {
 
     // Convert hex string to number
     const lastStateId = parseInt(rawValue, 16);
-    return lastStateId;
+    return lastStateId + 1;
   } catch (error) {
     throw new Error(`Failed to get last state ID: ${error.message}`);
   }
