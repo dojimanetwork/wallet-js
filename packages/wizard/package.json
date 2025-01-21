@@ -1,6 +1,6 @@
 {
   "name": "@dojima-wallet/wizard",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.4",
   "description": "Wizard is a magical toolkit for deploying, interacting, or testing evm smart contracts, solana rust programs and more",
   "keywords": [
     "dojima",

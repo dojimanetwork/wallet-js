@@ -25,7 +25,7 @@ export async function transferCrossChainToken(
 
     // Check balance before transfer
     const balance = await crossChainToken.balanceOf(wallet.address);
-    if (balance.lt(amountInWei)) {
+    if (balance < amountInWei) {
       throw new Error(
         `Insufficient CrossChain token balance. Available: ${ethers.formatUnits(
           balance
@@ -41,12 +41,12 @@ export async function transferCrossChainToken(
       recipientAddress,
       amountInWei
     );
-    const crossChainReceipt = await crossChainTransferTx.wait();
+    await crossChainTransferTx.wait();
     console.log(
-      `CrossChain token transfer successful. Transaction hash: ${crossChainReceipt.transactionHash}`
+      `CrossChain token transfer successful. Transaction hash: ${crossChainTransferTx.hash}`
     );
 
-    return crossChainReceipt.transactionHash;
+    return crossChainTransferTx.hash;
   } catch (error) {
     throw new Error(`CrossChain token transfer failed: ${error.message}`);
   }
@@ -75,7 +75,7 @@ export async function transferWrappedToken(
 
     // Check balance before transfer
     const balance = await wrappedToken.balanceOf(wallet.address);
-    if (balance.lt(amountInWei)) {
+    if (balance < amountInWei) {
       throw new Error(
         `Insufficient Wrapped token balance. Available: ${ethers.formatUnits(
           balance
@@ -91,12 +91,12 @@ export async function transferWrappedToken(
       recipientAddress,
       amountInWei
     );
-    const wrappedReceipt = await wrappedTransferTx.wait();
+    await wrappedTransferTx.wait();
     console.log(
-      `Wrapped token transfer successful. Transaction hash: ${wrappedReceipt.transactionHash}`
+      `Wrapped token transfer successful. Transaction hash: ${wrappedTransferTx.hash}`
     );
 
-    return wrappedReceipt.transactionHash;
+    return wrappedTransferTx.hash;
   } catch (error) {
     throw new Error(`Wrapped token transfer failed: ${error.message}`);
   }
