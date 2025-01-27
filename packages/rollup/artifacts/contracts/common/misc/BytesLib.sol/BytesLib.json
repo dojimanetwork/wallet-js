@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "BytesLib",
+  "sourceName": "contracts/common/misc/BytesLib.sol",
+  "abi": [],
+  "bytecode": "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea26469706673582212202a652fd7b5b75d264963f623434a77804f64eebde4b160564db87f3780bd182664736f6c63430008130033",
+  "deployedBytecode": "0x600080fdfea26469706673582212202a652fd7b5b75d264963f623434a77804f64eebde4b160564db87f3780bd182664736f6c63430008130033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,24 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "System",
+  "sourceName": "contracts/dojimachain/System.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "SYSTEM_ADDRESS",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60808060405234601457607f908161001a8239f35b600080fdfe6080806040526004361015601257600080fd5b600090813560e01c633434735f14602857600080fd5b34604557816003193601126045576002600160a01b038152602090f35b5080fdfea26469706673582212204442dffe3064030f1e22a6c2410fdb5f5512553e6e423aedba95f3c9bdff003364736f6c63430008130033",
+  "deployedBytecode": "0x6080806040526004361015601257600080fd5b600090813560e01c633434735f14602857600080fd5b34604557816003193601126045576002600160a01b038152602090f35b5080fdfea26469706673582212204442dffe3064030f1e22a6c2410fdb5f5512553e6e423aedba95f3c9bdff003364736f6c63430008130033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,74 @@
+{
+  "name": "@dojima-wallet/rollup",
+  "version": "0.0.1-alpha.1",
+  "description": "Interaction with different l2 rollups",
+  "keywords": [
+    "dojima",
+    "rollup",
+    "optimistic",
+    "zk",
+    "l2"
+  ],
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/lib/index.d.ts",
+  "author": "yerramreddyuday <uday.prasad@dojima.network>",
+  "homepage": "https://github.com/dojimanetwork/wallet-js#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dojimanetwork/wallet-js.git"
+  },
+  "scripts": {
+    "compile": "rm -rf artifacts cache && hardhat compile",
+    "prebuild": "hardhat compile",
+    "build": "webpack --config webpack.config.js",
+    "build_rm:ylck": "rm -rf dist/ node_modules/ yarn.lock && yarn && yarn build",
+    "build_rm:nm": "rm -rf dist/ node_modules/ && yarn && yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "dist",
+    "hardhat.config.*",
+    "contracts",
+    "artifacts"
+  ],
+  "directories": {
+    "dist": "dist",
+    "src": "lib",
+    "contracts": "contracts",
+    "artifacts": "artifacts"
+  },
+  "bugs": {
+    "url": "https://github.com/dojimanetwork/wallet-js/issues"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@openzeppelin/contracts": "^4.8.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.5",
+    "chai": "^4.3.4",
+    "copy-webpack-plugin": "^12.0.2",
+    "ethers": "^5.1.2",
+    "hardhat": "^2.2.0"
+  },
+  "dependencies": {
+    "@arbitrum/sdk": "^v3.1.9",
+    "@dojimanetwork/dojima-contracts": "^0.1.1",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/chai": "^4.2.0",
+    "@types/mocha": ">=9.1.0",
+    "dotenv": "^8.2.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.1",
+    "typechain": "^8.3.0"
+  }
+}

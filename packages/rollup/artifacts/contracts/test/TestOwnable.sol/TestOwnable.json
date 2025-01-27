@@ -1,0 +1,92 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "TestOwnable",
+  "sourceName": "contracts/test/TestOwnable.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "InvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotOwner",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "testIsOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "testOnlyOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080806040523461004f57600080546001600160a01b031916339081178255907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08180a361010c90816100558239f35b600080fdfe6080806040526004361015601257600080fd5b6000803560e01c91826325e7d9ee146073575081638da5cb5b14604c575080638f32d59b1460485763da0feb0214604857600080fd5b60ab565b3460705780600319360112607057546040516001600160a01b039091168152602090f35b80fd5b903460705780600319360112607057546001600160a01b03163303609c57602060405160018152f35b6330cd747160e01b8152600490fd5b3460d157600036600319011260d157602060018060a01b03600054163314604051908152f35b600080fdfea26469706673582212209e6b6f2c394ac8b41a0af93089c9a393a514b916255ea404a3ef19a97ae4d18764736f6c63430008130033",
+  "deployedBytecode": "0x6080806040526004361015601257600080fd5b6000803560e01c91826325e7d9ee146073575081638da5cb5b14604c575080638f32d59b1460485763da0feb0214604857600080fd5b60ab565b3460705780600319360112607057546040516001600160a01b039091168152602090f35b80fd5b903460705780600319360112607057546001600160a01b03163303609c57602060405160018152f35b6330cd747160e01b8152600490fd5b3460d157600036600319011260d157602060018060a01b03600054163314604051908152f35b600080fdfea26469706673582212209e6b6f2c394ac8b41a0af93089c9a393a514b916255ea404a3ef19a97ae4d18764736f6c63430008130033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
