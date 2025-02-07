@@ -1,0 +1,50 @@
+{
+  "name": "@dojima-wallet/operator-gateway",
+  "version": "0.0.1-alpha.1",
+  "description": "Operator gateway client involving dojima stack",
+  "keywords": [
+    "Dojima",
+    "Operator",
+    "Hermes"
+  ],
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/lib/index.d.ts",
+  "author": "yerramreddyuday <uday.prasad@dojima.network>",
+  "homepage": "https://github.com/dojimanetwork/wallet-js#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dojimanetwork/wallet-js.git"
+  },
+  "directories": {
+    "dist": "dist",
+    "src": "lib"
+  },
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "scripts": {
+    "build_rm:ylck": "rm -rf dist/ node_modules/ yarn.lock && yarn && webpack --config ../../webpack/webpack.config.js",
+    "build_rm:nm": "rm -rf dist/ node_modules/ && yarn && webpack --config ../../webpack/webpack.config.js",
+    "build": "webpack --config ../../webpack/webpack.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/dojimanetwork/wallet-js/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@grpc/grpc-js": "^1.12.5",
+    "google-protobuf": "^3.21.4",
+    "grpc-tools": "^1.12.4",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@dojima-wallet/utils": "^0.0.1-alpha.11"
+  }
+}
