@@ -1,6 +1,6 @@
 {
   "name": "@dojima-wallet/connection",
-  "version": "0.0.1-alpha.94",
+  "version": "0.0.1-alpha.95",
   "description": "Initialise and connection for layer 1&2 blockchain",
   "keywords": [
     "connection",
@@ -81,9 +81,6 @@
     "wif": "^2.0.6"
   },
   "devDependencies": {
-    "@grpc/grpc-js": "^1.12.5",
-    "grpc_tools_node_protoc_ts": "^5.3.3",
-    "grpc-tools": "^1.12.4",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
   }
