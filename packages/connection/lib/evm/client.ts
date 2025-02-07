@@ -10,6 +10,7 @@ import {
   EvmTransferParams,
   EvmTxData,
 } from "./types";
+import { SwapAssetList } from "@dojima-wallet/utils";
 
 class EvmChainClient {
   protected network: Network;
@@ -204,6 +205,42 @@ class EvmChainClient {
     // } else {
     //   throw new Error(`Failed to get transaction data (tx-hash: ${hash})`);
     // }
+  }
+
+  async addLiquidityPool(
+    amount: number,
+    asset: string,
+    inboundAddress: string,
+    hermesAddress?: string
+  ): Promise<string> {
+    const memo = hermesAddress
+      ? `ADD:${asset}.${asset}:${hermesAddress}`
+      : `ADD:${asset}.${asset}`;
+
+    const txHash = await this.transfer({
+      amount,
+      recipient: inboundAddress,
+      memo,
+    });
+
+    return txHash;
+  }
+
+  async swap(
+    amount: number,
+    token: SwapAssetList | string,
+    inboundAddress: string,
+    recipient: string
+  ): Promise<string> {
+    const memo = `SWAP:${token}:${recipient}`;
+
+    const txHash = await this.transfer({
+      amount,
+      recipient: inboundAddress,
+      memo,
+    });
+
+    return txHash;
   }
 }
 
