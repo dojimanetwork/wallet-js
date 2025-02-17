@@ -239,7 +239,7 @@ class SolanaClient implements SolanaChainClient {
     recipient,
     amount,
   }: SolTxParams): Promise<string> {
-    const AMOUNT_TO_TRANSFER = amount * web3.LAMPORTS_PER_SOL;
+    const AMOUNT_TO_TRANSFER = Math.floor(amount * web3.LAMPORTS_PER_SOL); // Use Math.floor to convert to an integer
 
     // Convert recipient string to PublicKey
     const toPubkey = new web3.PublicKey(recipient);
