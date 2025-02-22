@@ -15,7 +15,7 @@ interface TransactionInfo {
   is_xc_msg: boolean;
 }
 
-interface TransactionResponse {
+export interface TransactionResponse {
   tx: TransactionInfo;
   signer: string;
   destination_contract: string;
