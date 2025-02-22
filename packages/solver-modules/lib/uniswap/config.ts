@@ -93,4 +93,4 @@ export const CHAIN_CONFIG: Record<string, Config> = {
   // },
 };
 
-export const DEPRECATED_CHAIN_CONFIG: Record<string, Config> = {};
+// export const DEPRECATED_CHAIN_CONFIG: Record<string, Config> = {};

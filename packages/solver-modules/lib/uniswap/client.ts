@@ -4,12 +4,12 @@ import QUOTER_ABI from "./abis/quoter.json";
 import SWAP_ROUTER_ABI from "./abis/swaprouter.json";
 import POOL_ABI from "./abis/pool.json";
 import WETH_ABI from "./abis/weth.json";
-import { CHAIN_CONFIG, DEPRECATED_CHAIN_CONFIG } from "./config";
+import { CHAIN_CONFIG } from "./config";
 import { TOKENS } from "./tokens";
 import { ERC20_ABI } from "./basic-abis";
 import { Config, SwapParams, Token } from "./types";
 
-export default class UniswapV3Client {
+export class Client {
   private provider: ethers.JsonRpcProvider;
   private signer: ethers.Wallet;
   private chain: string;
@@ -262,19 +262,19 @@ export default class UniswapV3Client {
     console.log(`Added chain configuration for ${newChain}.`);
   }
 
-  // Delete Chain Config
-  deleteChainConfig(chain: string) {
-    if (!CHAIN_CONFIG[chain]) {
-      throw new Error(`Chain configuration for ${chain} does not exist.`);
-    }
-    // Move the deleted config to DEPRECATED_CHAIN_CONFIG
-    DEPRECATED_CHAIN_CONFIG[chain] = CHAIN_CONFIG[chain];
-    // Delete the config from CHAIN_CONFIG
-    delete CHAIN_CONFIG[chain];
-    console.log(
-      `Deleted chain configuration for ${chain} and moved it to DEPRECATED_CHAIN_CONFIG.`
-    );
-  }
+  // // Delete Chain Config
+  // deleteChainConfig(chain: string) {
+  //   if (!CHAIN_CONFIG[chain]) {
+  //     throw new Error(`Chain configuration for ${chain} does not exist.`);
+  //   }
+  //   // Move the deleted config to DEPRECATED_CHAIN_CONFIG
+  //   DEPRECATED_CHAIN_CONFIG[chain] = CHAIN_CONFIG[chain];
+  //   // Delete the config from CHAIN_CONFIG
+  //   delete CHAIN_CONFIG[chain];
+  //   console.log(
+  //     `Deleted chain configuration for ${chain} and moved it to DEPRECATED_CHAIN_CONFIG.`
+  //   );
+  // }
 
   // Update Chain Config
   updateChainConfig(

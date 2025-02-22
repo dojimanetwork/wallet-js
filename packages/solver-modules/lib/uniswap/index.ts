@@ -1,4 +1,6 @@
-export * from "./client";
-export * from "./config";
-export * from "./tokens";
-export * from "./types";
+import { Client } from "./client";
+import { CHAIN_CONFIG } from "./config";
+import { TOKENS } from "./tokens";
+import { Config, SwapParams, Token, ChainName } from "./types";
+
+export { Client, CHAIN_CONFIG, TOKENS, Config, ChainName, Token, SwapParams };
