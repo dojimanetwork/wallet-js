@@ -1,0 +1,43 @@
+{
+  "name": "@dojima-wallet/solver-modules",
+  "version": "0.0.1",
+  "description": "Modules of different protocols for solvers",
+  "keywords": [
+    "dojima",
+    "cross-chain",
+    "solver",
+    "protocol"
+  ],
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/lib/index.d.ts",
+  "author": "yerramreddyuday <uday.prasad@dojima.network>",
+  "homepage": "https://github.com/dojimanetwork/wallet-js#readme",
+  "license": "ISC",
+  "directories": {
+    "dist": "dist",
+    "src": "lib"
+  },
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dojimanetwork/wallet-js.git"
+  },
+  "scripts": {
+    "build_rm:ylck": "rm -rf dist/ node_modules/ yarn.lock && yarn && webpack --config ../../webpack/webpack.config.js",
+    "build_rm:nm": "rm -rf dist/ node_modules/ && yarn && webpack --config ../../webpack/webpack.config.js",
+    "build": "webpack --config ../../webpack/webpack.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/dojimanetwork/wallet-js/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "ethers": "^6.9.2"
+  }
+}
