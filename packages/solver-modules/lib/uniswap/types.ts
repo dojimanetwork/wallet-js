@@ -3,11 +3,13 @@ export type ChainName =
   | "baseSepolia"
   | "arbitrumSepolia"
   | "optimismSepolia"
-  | "polygonMumbai"
+  // | "polygonMumbai"
   | "bscTestnet"
   | "avalancheCChain";
 
-export type Token = {
+export type TokenSymbol = "ETH" | "USDC" | "WETH" | "EURC" | "DAI" | "LINK";
+
+export type TokensType = {
   chainId: number;
   address: string;
   decimals: number;

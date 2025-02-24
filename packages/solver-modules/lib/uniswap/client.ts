@@ -7,7 +7,7 @@ import WETH_ABI from "./abis/weth.json";
 import { CHAIN_CONFIG } from "./config";
 import { TOKENS } from "./tokens";
 import { ERC20_ABI } from "./basic-abis";
-import { Config, SwapParams, Token } from "./types";
+import { Config, SwapParams, TokenSymbol, TokensType } from "./types";
 
 export class Client {
   private provider: ethers.JsonRpcProvider;
@@ -67,7 +67,7 @@ export class Client {
     return swapRouterContract;
   }
   async approveToken(
-    tokenIn: Token,
+    tokenIn: TokensType,
     tokenABI: any,
     amountIn: number,
     wallet: ethers.Wallet,
@@ -92,17 +92,20 @@ export class Client {
   }
 
   async getPoolInfo(
-    tokenIn: Token,
-    tokenOut: Token
+    tokenIn: TokenSymbol,
+    tokenOut: TokenSymbol
   ): Promise<{
     poolContract: ethers.Contract;
     token0: any;
     token1: any;
     fee: any;
   }> {
+    const tokenData = this.getTokens();
+    const tokenInData = tokenData.find((token) => token.symbol === tokenIn);
+    const tokenOutData = tokenData.find((token) => token.symbol === tokenOut);
     const poolAddress = await this.getPoolFactoryContract().getPool(
-      tokenIn.address,
-      tokenOut.address,
+      tokenInData.address,
+      tokenOutData.address,
       3000
     );
     console.log(poolAddress);
@@ -122,14 +125,17 @@ export class Client {
   }
 
   async quoteSwap(
-    tokenIn: Token,
-    tokenOut: Token,
+    tokenIn: TokenSymbol,
+    tokenOut: TokenSymbol,
     amountIn: number,
     gasFee?: number
   ): Promise<string> {
+    const tokenData = this.getTokens();
+    const tokenInData = tokenData.find((token) => token.symbol === tokenIn);
+    const tokenOutData = tokenData.find((token) => token.symbol === tokenOut);
     const amountInWei = ethers.parseUnits(
       amountIn.toString(),
-      tokenIn.decimals
+      tokenInData.decimals
     );
     // Get Pool Info
     const {
@@ -139,15 +145,18 @@ export class Client {
     // console.log(tokenIn, tokenOut);
     const quotedAmountOut =
       await this.getQuoterContract().quoteExactInputSingle.staticCall({
-        tokenIn: tokenIn.address,
-        tokenOut: tokenOut.address,
+        tokenIn: tokenInData.address,
+        tokenOut: tokenOutData.address,
         fee: gasFee ? gasFee : fee,
         recipient: this.signer.address,
         deadline: Math.floor(new Date().getTime() / 1000 + 60 * 10),
         amountIn: amountInWei,
         sqrtPriceLimitX96: 0,
       });
-    const amountOut = ethers.formatUnits(quotedAmountOut[0], tokenOut.decimals);
+    const amountOut = ethers.formatUnits(
+      quotedAmountOut[0],
+      tokenOutData.decimals
+    );
     return amountOut;
   }
 
@@ -170,8 +179,8 @@ export class Client {
   // Main Function
 
   async swap(
-    tokenInSymbol: string,
-    tokenOutSymbol: string,
+    tokenIn: TokenSymbol,
+    tokenOut: TokenSymbol,
     amountIn: number
   ): Promise<{
     txHash: string;
@@ -180,8 +189,8 @@ export class Client {
   }> {
     const chainConfig = this.getConfig();
     const tokenData = this.getTokens();
-    const tokenIn = tokenData.find((token) => token.symbol === tokenInSymbol);
-    const tokenOut = tokenData.find((token) => token.symbol === tokenOutSymbol);
+    const tokenInData = tokenData.find((token) => token.symbol === tokenIn);
+    const tokenOutData = tokenData.find((token) => token.symbol === tokenOut);
     // console.log(tokenIn, tokenOut);
 
     if (!tokenIn || !tokenOut) {
@@ -190,11 +199,11 @@ export class Client {
 
     const amountInWei = ethers.parseUnits(
       amountIn.toString(),
-      tokenIn.decimals
+      tokenInData.decimals
     );
 
     // Check Balance based on token type
-    if (tokenIn.symbol === "ETH") {
+    if (tokenInData.symbol === "ETH") {
       // Check native ETH balance
       const balance = await this.getNativeBalance();
       if (parseFloat(balance) < amountIn) {
@@ -204,17 +213,17 @@ export class Client {
       }
     } else {
       // Check ERC20 token balance
-      const balance = await this.getTokenBalance(tokenIn.symbol);
+      const balance = await this.getTokenBalance(tokenInData.symbol);
       if (parseFloat(balance) < amountIn) {
         throw new Error(
-          `Insufficient ${tokenIn.symbol} balance. Required: ${amountIn} ${tokenIn.symbol}, Available: ${balance} ${tokenIn.symbol}`
+          `Insufficient ${tokenInData.symbol} balance. Required: ${amountIn} ${tokenInData.symbol}, Available: ${balance} ${tokenInData.symbol}`
         );
       }
 
       // Approve Token for ERC20
-      console.log(`Approving ${amountIn} ${tokenIn.symbol} for swap...`);
+      console.log(`Approving ${amountIn} ${tokenInData.symbol} for swap...`);
       await this.approveToken(
-        tokenIn,
+        tokenInData,
         ERC20_ABI,
         amountIn,
         this.signer,
@@ -230,16 +239,19 @@ export class Client {
 
     // Quote Swap
     const quotedAmountOut = await this.quoteSwap(tokenIn, tokenOut, amountIn);
-    console.log(`Quoted Amount Out: ${quotedAmountOut} ${tokenOut.symbol}`);
+    console.log(`Quoted Amount Out: ${quotedAmountOut} ${tokenOutData.symbol}`);
 
     // Execute Swap
     const params: SwapParams = {
-      tokenIn: tokenIn.address,
-      tokenOut: tokenOut.address,
+      tokenIn: tokenInData.address,
+      tokenOut: tokenOutData.address,
       fee: fee,
       recipient: this.signer.address,
       amountIn: amountInWei,
-      amountOutMinimum: ethers.parseUnits(quotedAmountOut, tokenOut.decimals),
+      amountOutMinimum: ethers.parseUnits(
+        quotedAmountOut,
+        tokenOutData.decimals
+      ),
       sqrtPriceLimitX96: 0,
     };
     const txHash = await this.executeSwap(params, chainConfig.explorerUrl);
