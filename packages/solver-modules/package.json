@@ -1,6 +1,6 @@
 {
   "name": "@dojima-wallet/solver-modules",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Modules of different protocols for solvers",
   "keywords": [
     "dojima",
@@ -41,7 +41,9 @@
     "@aave/contract-helpers": "^1.32.1",
     "@aave/math-utils": "^1.32.1",
     "@bgd-labs/aave-address-book": "^4.10.0",
+    "@lidofinance/lido-ethereum-sdk": "^4.2.0",
     "dayjs": "^1.11.13",
-    "ethers": "^6.9.2"
+    "ethers": "^6.9.2",
+    "viem": "^2.22"
   }
 }
