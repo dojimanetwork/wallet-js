@@ -10,7 +10,7 @@ import {
   // ERC20_2612Service
 } from "@aave/contract-helpers";
 import { formatReserves, formatUserSummary } from "@aave/math-utils";
-import { ethers } from "ethers";
+import { ethers } from "ethers5";
 import dayjs from "dayjs";
 import * as markets from "@bgd-labs/aave-address-book";
 // import {
@@ -20,7 +20,7 @@ import * as markets from "@bgd-labs/aave-address-book";
 // } from "../types";
 
 export class AaveV3Client {
-  private provider: ethers.JsonRpcProvider;
+  private provider: ethers.providers.JsonRpcProvider;
   private signer: ethers.Wallet;
   private chain: string;
   // private erc20Service: ERC20Service;
@@ -28,7 +28,7 @@ export class AaveV3Client {
 
   constructor(privateKey: string, chain: string) {
     this.chain = chain;
-    this.provider = new ethers.JsonRpcProvider(this.getRpcUrl());
+    this.provider = new ethers.providers.JsonRpcProvider(this.getRpcUrl());
     this.signer = new ethers.Wallet(privateKey, this.provider);
 
     // // Initialize ERC20 services
@@ -335,7 +335,7 @@ export class AaveV3Client {
 
         const tx = await this.signer.sendTransaction({
           ...txData,
-          value: txData.value ? txData.value : undefined,
+          value: txData.value ? ethers.BigNumber.from(txData.value) : undefined,
         });
 
         lastTxHash = tx.hash;
@@ -381,7 +381,7 @@ export class AaveV3Client {
 
         const tx = await this.signer.sendTransaction({
           ...txData,
-          value: txData.value ? txData.value : undefined,
+          value: txData.value ? ethers.BigNumber.from(txData.value) : undefined,
         });
 
         lastTxHash = tx.hash;
@@ -432,7 +432,7 @@ export class AaveV3Client {
 
         const tx = await this.signer.sendTransaction({
           ...txData,
-          value: txData.value ? txData.value : undefined,
+          value: txData.value ? ethers.BigNumber.from(txData.value) : undefined,
         });
 
         lastTxHash = tx.hash;
@@ -480,7 +480,7 @@ export class AaveV3Client {
 
         const tx = await this.signer.sendTransaction({
           ...txData,
-          value: txData.value ? txData.value : undefined,
+          value: txData.value ? ethers.BigNumber.from(txData.value) : undefined,
         });
 
         lastTxHash = tx.hash;
@@ -526,7 +526,7 @@ export class AaveV3Client {
 
         const tx = await this.signer.sendTransaction({
           ...txData,
-          value: txData.value ? txData.value : undefined,
+          value: txData.value ? ethers.BigNumber.from(txData.value) : undefined,
         });
 
         lastTxHash = tx.hash;
