@@ -301,6 +301,59 @@ export class Client {
     // console.log(`Updated chain configuration for ${chain}.`);
   }
 
+  /**
+   * Wrap ETH to WETH
+   * @param amountInETH Amount of ETH to wrap
+   * @returns Transaction hash and explorer URL
+   */
+  async wrapETHToWETH(
+    amountInETH: number
+  ): Promise<{ txHash: string; explorerUrl: string }> {
+    const chainConfig = this.getConfig();
+    const tokenData = this.getTokens();
+
+    // Get WETH token
+    const weth = tokenData.find((token) => token.symbol === "WETH");
+    if (!weth) {
+      throw new Error("WETH not found on the current chain.");
+    }
+
+    // Check ETH balance
+    const ethBalance = await this.getTokenBalance("ETH");
+    if (parseFloat(ethBalance) < amountInETH) {
+      throw new Error(
+        `Insufficient ETH balance. Required: ${amountInETH} ETH, Available: ${ethBalance} ETH`
+      );
+    }
+
+    // Create WETH contract instance
+    const wethContract = new ethers.Contract(
+      weth.address,
+      WETH_ABI,
+      this.signer
+    );
+
+    try {
+      // Wrap ETH to WETH
+      const wrapTx = await wethContract.deposit({
+        value: ethers.parseUnits(amountInETH.toString(), weth.decimals),
+      });
+      await wrapTx.wait();
+
+      return {
+        txHash: wrapTx.hash,
+        explorerUrl: `${chainConfig.explorerUrl}/${wrapTx.hash}`,
+      };
+    } catch (error) {
+      console.error("Error wrapping ETH:", error);
+      throw new Error(
+        `Failed to wrap ETH: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+    }
+  }
+
   async unwrapWETHToETH(
     amountInWETH: number
   ): Promise<{ txHash: string; explorerUrl: string }> {
@@ -360,11 +413,53 @@ export class Client {
   }
 
   /**
+   * Get balance of a token (native or ERC20)
+   * @param tokenSymbol Token symbol (e.g., 'ETH', 'WETH', 'USDT')
+   * @param address Optional address (defaults to signer's address)
+   * @returns Balance in token decimals
+   */
+  async getTokenBalance(
+    tokenSymbol: string,
+    address?: string
+  ): Promise<string> {
+    try {
+      const targetAddress = address || this.signer.address;
+
+      // Handle native token (ETH)
+      if (tokenSymbol === "ETH") {
+        const balance = await this.provider.getBalance(targetAddress);
+        return ethers.formatEther(balance);
+      }
+
+      // Handle ERC20 tokens
+      const token = this.getTokens().find((t) => t.symbol === tokenSymbol);
+      if (!token) {
+        throw new Error(`Token ${tokenSymbol} not found on ${this.chain}`);
+      }
+
+      const tokenContract = new ethers.Contract(
+        token.address,
+        ERC20_ABI,
+        this.provider
+      );
+      const balance = await tokenContract.balanceOf(targetAddress);
+      return ethers.formatUnits(balance, token.decimals);
+    } catch (error) {
+      console.error(`Error fetching ${tokenSymbol} balance:`, error);
+      throw new Error(
+        `Failed to get ${tokenSymbol} balance: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+    }
+  }
+
+  /**
    * Get native token (ETH) balance for an address
    * @param address Optional address (defaults to signer's address)
    * @returns Balance in ETH
    */
-  async getNativeBalance(address?: string): Promise<string> {
+  private async getNativeBalance(address?: string): Promise<string> {
     try {
       const targetAddress = address || this.signer.address;
       const balance = await this.provider.getBalance(targetAddress);
@@ -385,7 +480,7 @@ export class Client {
    * @param address Optional address (defaults to signer's address)
    * @returns Balance in token decimals
    */
-  async getTokenBalance(
+  protected async getErcTokenBalance(
     tokenSymbol: string,
     address?: string
   ): Promise<string> {

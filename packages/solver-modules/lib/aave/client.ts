@@ -1255,15 +1255,11 @@ export class AaveV3Client {
   }
 
   /**
-   * Unwrap WETH into ETH. Emits the UnwrapWeth event when the transaction is prompted.
-   * @param options Parameters for unwrapping WETH
-   * @returns Promise that resolves when the unwrap is complete
+   * Wrap ETH into WETH. Emits the WrapEth event when the transaction is prompted.
+   * @param options Parameters for wrapping ETH
+   * @returns Promise that resolves when the wrap is complete
    */
-  public async wrapETH({
-    amountInEth,
-  }: {
-    amountInEth: BigNumberish;
-  }): Promise<void> {
+  public async wrapETH(amountInEth: BigNumberish) {
     try {
       const wethContract = await this.getWethContract();
       const tx = await wethContract.deposit({
@@ -1271,6 +1267,7 @@ export class AaveV3Client {
         gasLimit: 100000,
       });
       await tx.wait();
+      return tx;
     } catch (error) {
       console.error(`Error in wraping ETH`, error);
       throw error;
