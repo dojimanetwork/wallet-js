@@ -3,16 +3,16 @@
 
 
 "@aave/contract-helpers@^1.32.1":
-  version "1.32.1"
-  resolved "https://registry.npmjs.org/@aave/contract-helpers/-/contract-helpers-1.32.1.tgz#ad3e216118f282f450b7ab160bd270930ccf5fa4"
-  integrity sha512-iYkopRnzbfnW7Pxa/qNmqVJVSCWKqF14FNK9SKpmLAkndH8P0UZqSkIdcnvW/ekNx6cyGIc506gKc00j5OnegQ==
+  version "1.33.1"
+  resolved "https://registry.npmjs.org/@aave/contract-helpers/-/contract-helpers-1.33.1.tgz#2156c179e802c40c137381d337c5f93ebee1abeb"
+  integrity sha512-Zu/zwJiX3k2xBRAlNfmIJMIo19YWVJAL2uRPHbvCVxOUgzlhVyglIF98FgcZ+4aLwcjvSAw10wnIzGgJcPTNVw==
   dependencies:
     isomorphic-unfetch "^3.1.0"
 
 "@aave/math-utils@^1.32.1":
-  version "1.32.1"
-  resolved "https://registry.npmjs.org/@aave/math-utils/-/math-utils-1.32.1.tgz#9cd4bb9343f2fabb078b6ca61b5845c7044fe643"
-  integrity sha512-uLjwGNEOilWWguW7CX6Dwsk9uP4aT9HmOCzXpHqDrPbR2oGSLV8BlvHWx/8wzY9Cdt5Jr4ofP0vm/Xs4lrgDNg==
+  version "1.33.1"
+  resolved "https://registry.npmjs.org/@aave/math-utils/-/math-utils-1.33.1.tgz#1dddf06e48cca13251db94e2f24afb0aa1b270ed"
+  integrity sha512-+e7ThIRLxyrcLB507T3khdE6DqKn2vTR5hfnQd1rHetEzLObA6bKDElX7YEtGmuSzBwDTP4inpK2VtgiQAqIWQ==
 
 "@adraffy/ens-normalize@1.10.1":
   version "1.10.1"
@@ -25,9 +25,9 @@
   integrity sha512-/3DDPKHqqIqxUULp8yP4zODUY1i+2xvVWsv8A79xGWdCAG+8sb0hRh0Rk2QyOJUnnbyPUAZYcpBuRe3nS2OIUg==
 
 "@bgd-labs/aave-address-book@^4.10.0":
-  version "4.15.1"
-  resolved "https://registry.npmjs.org/@bgd-labs/aave-address-book/-/aave-address-book-4.15.1.tgz#6a4804be31b03e1904e8d7a7f150c9b7658a8b02"
-  integrity sha512-fHhrrR1bOsIGgZwoenBQjD0chEhLBqxpId8GND1Z/s59SSezZg2yWgVtvRN4xyCGEaGmeYpdPgRclMVWzNb5og==
+  version "4.17.2"
+  resolved "https://registry.npmjs.org/@bgd-labs/aave-address-book/-/aave-address-book-4.17.2.tgz#976823b4c825aeda33bd9375705260aef857c88c"
+  integrity sha512-UVVCaLlLBA5VHl+qip/9qH8yZnNyIvyeRd4nHgKAluNbjeyRPzqESqToGmWSvtWOYK2kUtOrWCu0z9ncq6t6IA==
 
 "@ethersproject/abi@5.4.0":
   version "5.4.0"
@@ -664,6 +664,14 @@
   resolved "https://registry.npmjs.org/@noble/hashes/-/hashes-1.7.1.tgz#5738f6d765710921e7a751e00c20ae091ed8db0f"
   integrity sha512-B8XBPsn4vT/KJAGqDzbwztd+6Yte3P4V7iafm24bxgDe/mlRuK6xmWPuCNrKt2vDafZ8MfJLlchDG/vYafQEjQ==
 
+"@opensea/seaport-js@^4.0.0":
+  version "4.0.4"
+  resolved "https://registry.npmjs.org/@opensea/seaport-js/-/seaport-js-4.0.4.tgz#8ca43bfb43bd7fcd6d34fa6235204ea8721335e9"
+  integrity sha512-pOBgU+y1H9Bh463ZdgFshFBxnBQvEaGfoOJFDHbkvZTNLSqIOyuDmICFTQJEiPjYsS6tMQTbw2oJBtcVLFUT2g==
+  dependencies:
+    ethers "^6.9.0"
+    merkletreejs "^0.4.0"
+
 "@scure/base@~1.2.2", "@scure/base@~1.2.4":
   version "1.2.4"
   resolved "https://registry.npmjs.org/@scure/base/-/base-1.2.4.tgz#002eb571a35d69bdb4c214d0995dff76a8dcd2a9"
@@ -728,12 +736,22 @@ brorand@^1.1.0:
   resolved "https://registry.npmjs.org/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
   integrity sha512-cKV8tMCEpQs4hK/ik71d6LrPOnpkpGBR0wzxqr68g2m/LB2GxVYQroAjMJZRVM1Y4BCjCKc3vAamxSzOY2RP+w==
 
+buffer-reverse@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/buffer-reverse/-/buffer-reverse-1.0.1.tgz#49283c8efa6f901bc01fa3304d06027971ae2f60"
+  integrity sha512-M87YIUBsZ6N924W57vDwT/aOu8hw7ZgdByz6ijksLjmHJELBASmYTTlNHRgjE+pTsT9oJXGaDSgqqwfdHotDUg==
+
 cross-fetch@^3.1.5:
   version "3.2.0"
   resolved "https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.2.0.tgz#34e9192f53bc757d6614304d9e5e6fb4edb782e3"
   integrity sha512-Q+xVJLoGOeIMXZmbUK4HYk+69cQH6LudR0Vu/pRm2YlU/hDV9CiS0gKUMaWY5f2NeUH9C1nV3bsTlCo0FsTV1Q==
   dependencies:
     node-fetch "^2.7.0"
+
+crypto-js@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/crypto-js/-/crypto-js-4.2.0.tgz#4d931639ecdfd12ff80e8186dba6af2c2e856631"
+  integrity sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==
 
 dayjs@^1.11.13:
   version "1.11.13"
@@ -802,7 +820,7 @@ elliptic@6.6.1:
     "@ethersproject/web" "5.4.0"
     "@ethersproject/wordlists" "5.4.0"
 
-ethers@^6.9.2:
+ethers@^6.9.0, ethers@^6.9.2:
   version "6.13.5"
   resolved "https://registry.npmjs.org/ethers/-/ethers-6.13.5.tgz#8c1d6ac988ac08abc3c1d8fabbd4b8b602851ac4"
   integrity sha512-+knKNieu5EKRThQJWwqaJ10a6HE9sSehGeqWN65//wE7j47ZpFhKAnHB/JJFibwwg61I/koxaPsXbXpD/skNOQ==
@@ -878,6 +896,15 @@ js-sha3@0.8.0:
   resolved "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz#b9b7a5da73afad7dedd0f8c463954cbde6818840"
   integrity sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==
 
+merkletreejs@^0.4.0:
+  version "0.4.1"
+  resolved "https://registry.npmjs.org/merkletreejs/-/merkletreejs-0.4.1.tgz#a77a0c3d16adec71a09ef7e5b7e055dde29d30e1"
+  integrity sha512-W2VSHeGTdAnWtedee+pgGn7SHvncMdINnMeHAaXrfarSaMNLff/pm7RCr/QXYxN6XzJFgJZY+28ejO0lAosW4A==
+  dependencies:
+    buffer-reverse "^1.0.1"
+    crypto-js "^4.2.0"
+    treeify "^1.1.0"
+
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
@@ -894,6 +921,14 @@ node-fetch@^2.6.1, node-fetch@^2.7.0:
   integrity sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==
   dependencies:
     whatwg-url "^5.0.0"
+
+opensea-js@^7.1.16:
+  version "7.1.18"
+  resolved "https://registry.npmjs.org/opensea-js/-/opensea-js-7.1.18.tgz#484397a6c3903e033d5f5e943ca59ca2e5dc7535"
+  integrity sha512-cFSwroGwRkb8/FHsNjIwL2qvdve39CKMU6IUKmx+zDfsgVwKQ+7SHEj5YfKEspji5kUPpnfBlNLCAIbRS+pssA==
+  dependencies:
+    "@opensea/seaport-js" "^4.0.0"
+    ethers "^6.9.0"
 
 ox@0.6.9:
   version "0.6.9"
@@ -918,6 +953,11 @@ tr46@~0.0.3:
   resolved "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
 
+treeify@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/treeify/-/treeify-1.1.0.tgz#4e31c6a463accd0943879f30667c4fdaff411bb8"
+  integrity sha512-1m4RA7xVAJrSGrrXGs0L3YTwyvBs2S8PbRHaLZAkFw7JR8oIFwYtysxlBZhYIa7xSyiYJKZ3iGrrk55cGA3i9A==
+
 tslib@2.7.0:
   version "2.7.0"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.7.0.tgz#d9b40c5c40ab59e8738f297df3087bf1a2690c01"
@@ -934,9 +974,9 @@ unfetch@^4.2.0:
   integrity sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==
 
 viem@^2.22:
-  version "2.23.9"
-  resolved "https://registry.npmjs.org/viem/-/viem-2.23.9.tgz#b28a77aa0f0c7ab1db0cb82eed95e6dbf7a19397"
-  integrity sha512-y8VLPfKukrstZKTerS9bm45ajZ22wUyStF+VquK3I2OovWLOyXSbQmJWei8syMFhp1uwhxh1tb0fAdx0WSRZWg==
+  version "2.26.0"
+  resolved "https://registry.npmjs.org/viem/-/viem-2.26.0.tgz#e46aa05212875d4f306449b3bd594e97303abdde"
+  integrity sha512-Osht20EySRAcfMhCGAJaWuaREXM7y9vDloLvUTXuAfFq7JNGM5+o1wsE4LXw1KpRBrBliIAJjM+c2wMtMEvlCQ==
   dependencies:
     "@noble/curves" "1.8.1"
     "@noble/hashes" "1.7.1"

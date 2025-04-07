@@ -108,7 +108,7 @@ export class Client {
       tokenOutData.address,
       3000
     );
-    console.log(poolAddress);
+    // console.log(poolAddress);
     const poolContract = new ethers.Contract(
       poolAddress,
       POOL_ABI,
@@ -169,10 +169,10 @@ export class Client {
         params
       );
     const receipt = await this.signer.sendTransaction(tx);
-    console.log(`-------------------------------`);
-    console.log(`Receipt: https://sepolia.etherscan.io/tx/${receipt.hash}`);
-    console.log(`-------------------------------`);
-    console.log(`Swap executed: ${explorerUrl}/${receipt.hash}`);
+    // console.log(`-------------------------------`);
+    // console.log(`Receipt: https://sepolia.etherscan.io/tx/${receipt.hash}`);
+    // console.log(`-------------------------------`);
+    // console.log(`Swap executed: ${explorerUrl}/${receipt.hash}`);
     return receipt.hash;
   }
 
@@ -221,7 +221,7 @@ export class Client {
       }
 
       // Approve Token for ERC20
-      console.log(`Approving ${amountIn} ${tokenInData.symbol} for swap...`);
+      // console.log(`Approving ${amountIn} ${tokenInData.symbol} for swap...`);
       await this.approveToken(
         tokenInData,
         ERC20_ABI,
@@ -239,7 +239,7 @@ export class Client {
 
     // Quote Swap
     const quotedAmountOut = await this.quoteSwap(tokenIn, tokenOut, amountIn);
-    console.log(`Quoted Amount Out: ${quotedAmountOut} ${tokenOutData.symbol}`);
+    // console.log(`Quoted Amount Out: ${quotedAmountOut} ${tokenOutData.symbol}`);
 
     // Execute Swap
     const params: SwapParams = {
@@ -271,7 +271,7 @@ export class Client {
       throw new Error(`Chain configuration for ${newChain} already exists.`);
     }
     CHAIN_CONFIG[newChain] = config;
-    console.log(`Added chain configuration for ${newChain}.`);
+    // console.log(`Added chain configuration for ${newChain}.`);
   }
 
   // // Delete Chain Config
@@ -298,7 +298,7 @@ export class Client {
     }
     // Update the config with new fields
     CHAIN_CONFIG[chain] = { ...CHAIN_CONFIG[chain], ...updatedFields };
-    console.log(`Updated chain configuration for ${chain}.`);
+    // console.log(`Updated chain configuration for ${chain}.`);
   }
 
   async unwrapWETHToETH(
@@ -309,7 +309,7 @@ export class Client {
 
     // Get WETH token
     const weth = tokenData.find((token) => token.symbol === "WETH");
-    console.log("Weth token :", weth);
+    // console.log("Weth token :", weth);
     if (!weth) {
       throw new Error("WETH not found on the current chain.");
     }
@@ -327,8 +327,8 @@ export class Client {
       amountInWETH.toString(),
       weth.decimals
     );
-    console.log("Weth balance :", wethBalance);
-    console.log("Amount in wei :", amountInWei);
+    // console.log("Weth balance :", wethBalance);
+    // console.log("Amount in wei :", amountInWei);
     if (wethBalance < amountInWei) {
       throw new Error(
         `Insufficient WETH balance. Required: ${amountInWETH} WETH, Available: ${ethers.formatUnits(
@@ -343,7 +343,7 @@ export class Client {
       const unwrapTx = await wethContract.withdraw(amountInWei);
       await unwrapTx.wait();
 
-      console.log(`Unwrapped ${amountInWETH} WETH to ETH.`);
+      // console.log(`Unwrapped ${amountInWETH} WETH to ETH.`);
 
       return {
         txHash: unwrapTx.hash,
