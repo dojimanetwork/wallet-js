@@ -10,14 +10,14 @@ import { ERC20_ABI } from "./basic-abis";
 import { Config, SwapParams, TokenSymbol, TokensType } from "./types";
 
 export class Client {
-  private provider: ethers.JsonRpcProvider;
+  private provider: ethers.providers.JsonRpcProvider;
   private signer: ethers.Wallet;
   private chain: string;
 
   constructor(privateKey: string, chain: string) {
     this.chain = chain;
     const config = this.getConfig();
-    this.provider = new ethers.JsonRpcProvider(config.rpcUrl);
+    this.provider = new ethers.providers.JsonRpcProvider(config.rpcUrl);
     this.signer = new ethers.Wallet(privateKey, this.provider);
   }
 
@@ -25,7 +25,7 @@ export class Client {
     return CHAIN_CONFIG[this.chain as keyof typeof CHAIN_CONFIG];
   }
 
-  getProvider(): ethers.JsonRpcProvider {
+  getProvider(): ethers.providers.JsonRpcProvider {
     return this.provider;
   }
 
@@ -78,7 +78,7 @@ export class Client {
       tokenABI,
       wallet
     );
-    const amountInWei = ethers.parseUnits(
+    const amountInWei = ethers.utils.parseUnits(
       amountIn.toString(),
       tokenIn.decimals
     );
@@ -133,7 +133,7 @@ export class Client {
     const tokenData = this.getTokens();
     const tokenInData = tokenData.find((token) => token.symbol === tokenIn);
     const tokenOutData = tokenData.find((token) => token.symbol === tokenOut);
-    const amountInWei = ethers.parseUnits(
+    const amountInWei = ethers.utils.parseUnits(
       amountIn.toString(),
       tokenInData.decimals
     );
@@ -153,7 +153,7 @@ export class Client {
         amountIn: amountInWei,
         sqrtPriceLimitX96: 0,
       });
-    const amountOut = ethers.formatUnits(
+    const amountOut = ethers.utils.formatUnits(
       quotedAmountOut[0],
       tokenOutData.decimals
     );
@@ -197,7 +197,7 @@ export class Client {
       throw new Error("Invalid token selection.");
     }
 
-    const amountInWei = ethers.parseUnits(
+    const amountInWei = ethers.utils.parseUnits(
       amountIn.toString(),
       tokenInData.decimals
     );
@@ -248,7 +248,7 @@ export class Client {
       fee: fee,
       recipient: this.signer.address,
       amountIn: amountInWei,
-      amountOutMinimum: ethers.parseUnits(
+      amountOutMinimum: ethers.utils.parseUnits(
         quotedAmountOut,
         tokenOutData.decimals
       ),
@@ -336,7 +336,7 @@ export class Client {
     try {
       // Wrap ETH to WETH
       const wrapTx = await wethContract.deposit({
-        value: ethers.parseUnits(amountInETH.toString(), weth.decimals),
+        value: ethers.utils.parseUnits(amountInETH.toString(), weth.decimals),
       });
       await wrapTx.wait();
 
@@ -376,7 +376,7 @@ export class Client {
 
     // Check WETH balance
     const wethBalance = await wethContract.balanceOf(this.signer.address);
-    const amountInWei = ethers.parseUnits(
+    const amountInWei = ethers.utils.parseUnits(
       amountInWETH.toString(),
       weth.decimals
     );
@@ -384,7 +384,7 @@ export class Client {
     // console.log("Amount in wei :", amountInWei);
     if (wethBalance < amountInWei) {
       throw new Error(
-        `Insufficient WETH balance. Required: ${amountInWETH} WETH, Available: ${ethers.formatUnits(
+        `Insufficient WETH balance. Required: ${amountInWETH} WETH, Available: ${ethers.utils.formatUnits(
           wethBalance,
           weth.decimals
         )} WETH`
@@ -428,7 +428,7 @@ export class Client {
       // Handle native token (ETH)
       if (tokenSymbol === "ETH") {
         const balance = await this.provider.getBalance(targetAddress);
-        return ethers.formatEther(balance);
+        return ethers.utils.formatEther(balance);
       }
 
       // Handle ERC20 tokens
@@ -443,7 +443,7 @@ export class Client {
         this.provider
       );
       const balance = await tokenContract.balanceOf(targetAddress);
-      return ethers.formatUnits(balance, token.decimals);
+      return ethers.utils.formatUnits(balance, token.decimals);
     } catch (error) {
       console.error(`Error fetching ${tokenSymbol} balance:`, error);
       throw new Error(
@@ -463,7 +463,7 @@ export class Client {
     try {
       const targetAddress = address || this.signer.address;
       const balance = await this.provider.getBalance(targetAddress);
-      return ethers.formatEther(balance);
+      return ethers.utils.formatEther(balance);
     } catch (error) {
       console.error("Error fetching native balance:", error);
       throw new Error(
@@ -497,7 +497,7 @@ export class Client {
         this.provider
       );
       const balance = await tokenContract.balanceOf(targetAddress);
-      return ethers.formatUnits(balance, token.decimals);
+      return ethers.utils.formatUnits(balance, token.decimals);
     } catch (error) {
       console.error("Error fetching token balance:", error);
       throw new Error(

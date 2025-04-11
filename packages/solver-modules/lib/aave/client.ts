@@ -10,7 +10,7 @@ import {
   ERC20_2612Service,
 } from "@aave/contract-helpers";
 import { formatReserves, formatUserSummary } from "@aave/math-utils";
-import { ethers, BigNumberish } from "ethers5";
+import { ethers, BigNumberish } from "ethers";
 import dayjs from "dayjs";
 import * as markets from "@bgd-labs/aave-address-book";
 // import {

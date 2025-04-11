@@ -27,7 +27,7 @@ import { ethers } from "ethers";
 
 export class LidoClient {
   private sdk: LidoSDK;
-  private provider: ethers.JsonRpcProvider;
+  private provider: ethers.providers.JsonRpcProvider;
   private signer: ethers.Wallet;
   private chain: string;
   private rpcUrl: string;
@@ -35,7 +35,7 @@ export class LidoClient {
   constructor(privateKey: string, chain: string) {
     this.chain = chain;
     this.rpcUrl = this.getRpcUrl();
-    this.provider = new ethers.JsonRpcProvider(this.rpcUrl);
+    this.provider = new ethers.providers.JsonRpcProvider(this.rpcUrl);
     this.signer = new ethers.Wallet(privateKey, this.provider);
 
     // const rpcProvider = createPublicClient({

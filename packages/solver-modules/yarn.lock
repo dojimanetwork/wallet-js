@@ -25,9 +25,9 @@
   integrity sha512-/3DDPKHqqIqxUULp8yP4zODUY1i+2xvVWsv8A79xGWdCAG+8sb0hRh0Rk2QyOJUnnbyPUAZYcpBuRe3nS2OIUg==
 
 "@bgd-labs/aave-address-book@^4.10.0":
-  version "4.17.2"
-  resolved "https://registry.npmjs.org/@bgd-labs/aave-address-book/-/aave-address-book-4.17.2.tgz#976823b4c825aeda33bd9375705260aef857c88c"
-  integrity sha512-UVVCaLlLBA5VHl+qip/9qH8yZnNyIvyeRd4nHgKAluNbjeyRPzqESqToGmWSvtWOYK2kUtOrWCu0z9ncq6t6IA==
+  version "4.18.0"
+  resolved "https://registry.npmjs.org/@bgd-labs/aave-address-book/-/aave-address-book-4.18.0.tgz#df111053d8ad3238c5213f64019b7ef36c16387e"
+  integrity sha512-FJ1i3fc2Lz0D9nKerHOLIPFxevaMO8axwTEFhRwsL81AncqtFJoYIeATp5pNGKL2+8GXw/4Y/FXrlQd8bHNI4w==
 
 "@ethersproject/abi@5.4.0":
   version "5.4.0"
@@ -632,9 +632,9 @@
   integrity sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==
 
 "@lidofinance/lido-ethereum-sdk@^4.2.0":
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/@lidofinance/lido-ethereum-sdk/-/lido-ethereum-sdk-4.3.0.tgz#bcdad6ead5c31b36c1990c14286495977bef54b3"
-  integrity sha512-jsxFxMtjQ2tePY/A/UYWa2uqPEQwl+hJRCk4aYpGxef6M9yLpnpf4S/S6SGyBrA+4cL2R0COad6C0UMxf1DaSA==
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/@lidofinance/lido-ethereum-sdk/-/lido-ethereum-sdk-4.4.0.tgz#7b015dad29610c03d191ebe9631ad6ee9497b96c"
+  integrity sha512-Kw4Yr+UWUlkQVrJCyUvAyXP77A4puwdgMgQ3/LkiOYkhZEl+Zzx29rjBGKGc3AcnRz3MbnNIqatBSm9PFSKkRg==
   dependencies:
     "@ethersproject/bytes" "^5.7.0"
     graphql "^16.8.1"
@@ -784,7 +784,7 @@ elliptic@6.6.1:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-"ethers5@npm:ethers@5.4.0":
+ethers@5.4.0:
   version "5.4.0"
   resolved "https://registry.npmjs.org/ethers/-/ethers-5.4.0.tgz#e9fe4b39350bcce5edd410c70bd57ba328ecf474"
   integrity sha512-hqN1x0CV8VMpQ25WnNEjaMqtB3nA4DRAb2FSmmNaUbD1dF6kWbHs8YaXbVvD37FCg3GTEyc4rV9Pxafk1ByHKw==
@@ -820,7 +820,7 @@ elliptic@6.6.1:
     "@ethersproject/web" "5.4.0"
     "@ethersproject/wordlists" "5.4.0"
 
-ethers@^6.9.0, ethers@^6.9.2:
+ethers@^6.9.0:
   version "6.13.5"
   resolved "https://registry.npmjs.org/ethers/-/ethers-6.13.5.tgz#8c1d6ac988ac08abc3c1d8fabbd4b8b602851ac4"
   integrity sha512-+knKNieu5EKRThQJWwqaJ10a6HE9sSehGeqWN65//wE7j47ZpFhKAnHB/JJFibwwg61I/koxaPsXbXpD/skNOQ==
@@ -974,9 +974,9 @@ unfetch@^4.2.0:
   integrity sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==
 
 viem@^2.22:
-  version "2.26.0"
-  resolved "https://registry.npmjs.org/viem/-/viem-2.26.0.tgz#e46aa05212875d4f306449b3bd594e97303abdde"
-  integrity sha512-Osht20EySRAcfMhCGAJaWuaREXM7y9vDloLvUTXuAfFq7JNGM5+o1wsE4LXw1KpRBrBliIAJjM+c2wMtMEvlCQ==
+  version "2.26.3"
+  resolved "https://registry.npmjs.org/viem/-/viem-2.26.3.tgz#54a76cf458a3010ffae54b80c72b8f5b715cb67f"
+  integrity sha512-rGIIdDsxbs101C0gorWkuPqtMfRy2+lmO8S25fkzVe1KPQw0CQ8u6JMFHrLwdJS9Lr9xwpgmPh6LfvpOjpo3xQ==
   dependencies:
     "@noble/curves" "1.8.1"
     "@noble/hashes" "1.7.1"

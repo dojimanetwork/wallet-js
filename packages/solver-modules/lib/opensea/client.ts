@@ -9,7 +9,7 @@ import {
   Order,
   AssetWithTokenStandard,
 } from "opensea-js";
-import { BigNumberish, ethers, Overrides } from "ethers5";
+import { BigNumberish, ethers, Overrides } from "ethers";
 // Import BigNumberish from seaport-js to match OpenSea's types
 // import { BigNumberish } from '@opensea/seaport-js/node_modules/ethers/lib/utils';
 

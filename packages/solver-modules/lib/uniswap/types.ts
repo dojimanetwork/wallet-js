@@ -1,3 +1,5 @@
+import { BigNumber } from "ethers";
+
 export type ChainName =
   | "sepolia"
   | "baseSepolia"
@@ -25,8 +27,8 @@ export type SwapParams = {
   tokenOut: string;
   fee: number;
   recipient: string;
-  amountIn: bigint;
-  amountOutMinimum: bigint;
+  amountIn: BigNumber;
+  amountOutMinimum: BigNumber;
   sqrtPriceLimitX96: number;
 };
 
