@@ -82,13 +82,20 @@ export class Client {
       amountIn.toString(),
       tokenIn.decimals
     );
+    // const approveTx = await tokenContract.approve(
+    //   swapRouterAddress,
+    //   amountInWei
+    // );
+    // await approveTx.wait();
+    // console.log(`Approved ${amountIn} tokens for swapping.`);
+    // return approveTx.hash;
     const approveTx = await tokenContract.approve(
       swapRouterAddress,
       amountInWei
     );
-    await approveTx.wait();
-    console.log(`Approved ${amountIn} tokens for swapping.`);
-    return approveTx.hash;
+    const receipt = await approveTx.wait();
+    // console.log(`Approved ${amountIn} tokens for swapping.`);
+    return receipt.transactionHash;
   }
 
   async getPoolInfo(
@@ -144,7 +151,7 @@ export class Client {
     } = await this.getPoolInfo(tokenIn, tokenOut);
     // console.log(tokenIn, tokenOut);
     const quotedAmountOut =
-      await this.getQuoterContract().quoteExactInputSingle.staticCall({
+      await this.getQuoterContract().callStatic.quoteExactInputSingle({
         tokenIn: tokenInData.address,
         tokenOut: tokenOutData.address,
         fee: gasFee ? gasFee : fee,
@@ -165,7 +172,7 @@ export class Client {
     explorerUrl: string
   ): Promise<string> {
     const tx =
-      await this.getSwapRouterContract().exactInputSingle.populateTransaction(
+      await this.getSwapRouterContract().populateTransaction.exactInputSingle(
         params
       );
     const receipt = await this.signer.sendTransaction(tx);
@@ -393,13 +400,16 @@ export class Client {
 
     try {
       // Unwrap WETH to ETH
+      // const unwrapTx = await wethContract.withdraw(amountInWei);
+      // await unwrapTx.wait();
       const unwrapTx = await wethContract.withdraw(amountInWei);
-      await unwrapTx.wait();
+      const receipt = await unwrapTx.wait();
 
       // console.log(`Unwrapped ${amountInWETH} WETH to ETH.`);
 
       return {
-        txHash: unwrapTx.hash,
+        // txHash: receipt.hash,
+        txHash: receipt.transactionHash,
         explorerUrl: `${chainConfig.explorerUrl}/${unwrapTx.hash}`,
       };
     } catch (error) {
@@ -443,7 +453,8 @@ export class Client {
         this.provider
       );
       const balance = await tokenContract.balanceOf(targetAddress);
-      return ethers.utils.formatUnits(balance, token.decimals);
+      // return ethers.utils.formatUnits(balance, token.decimals);
+      return ethers.utils.formatUnits(balance.toString(), token.decimals);
     } catch (error) {
       console.error(`Error fetching ${tokenSymbol} balance:`, error);
       throw new Error(
@@ -463,7 +474,8 @@ export class Client {
     try {
       const targetAddress = address || this.signer.address;
       const balance = await this.provider.getBalance(targetAddress);
-      return ethers.utils.formatEther(balance);
+      // return ethers.utils.formatEther(balance);
+      return ethers.utils.formatEther(balance.toString());
     } catch (error) {
       console.error("Error fetching native balance:", error);
       throw new Error(

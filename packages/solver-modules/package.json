@@ -1,6 +1,6 @@
 {
   "name": "@dojima-wallet/solver-modules",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Modules of different protocols for solvers",
   "keywords": [
     "dojima",
