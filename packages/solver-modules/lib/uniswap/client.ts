@@ -7,7 +7,7 @@ import WETH_ABI from "./abis/weth.json";
 import { CHAIN_CONFIG } from "./config";
 import { TOKENS } from "./tokens";
 import { ERC20_ABI } from "./basic-abis";
-import { Config, SwapParams, TokenSymbol, TokensType } from "./types";
+import { Config, SwapParams, TokensType } from "./types";
 
 export class Client {
   private provider: ethers.providers.JsonRpcProvider;
@@ -66,7 +66,7 @@ export class Client {
     );
     return swapRouterContract;
   }
-  async approveToken(
+  protected async approveToken(
     tokenIn: TokensType,
     tokenABI: any,
     amountIn: number,
@@ -92,8 +92,8 @@ export class Client {
   }
 
   async getPoolInfo(
-    tokenIn: TokenSymbol,
-    tokenOut: TokenSymbol
+    tokenIn: string,
+    tokenOut: string
   ): Promise<{
     poolContract: ethers.Contract;
     token0: any;
@@ -125,8 +125,8 @@ export class Client {
   }
 
   async quoteSwap(
-    tokenIn: TokenSymbol,
-    tokenOut: TokenSymbol,
+    tokenIn: string,
+    tokenOut: string,
     amountIn: number,
     gasFee?: number
   ): Promise<string> {
@@ -160,7 +160,7 @@ export class Client {
     return amountOut;
   }
 
-  private async executeSwap(
+  protected async executeSwap(
     params: SwapParams,
     explorerUrl: string
   ): Promise<string> {
@@ -179,8 +179,8 @@ export class Client {
   // Main Function
 
   async swap(
-    tokenIn: TokenSymbol,
-    tokenOut: TokenSymbol,
+    tokenIn: string,
+    tokenOut: string,
     amountIn: number
   ): Promise<{
     txHash: string;
@@ -263,7 +263,7 @@ export class Client {
   }
 
   // Add New Chain Config
-  addChainConfig(
+  protected addChainConfig(
     newChain: string,
     config: (typeof CHAIN_CONFIG)[keyof typeof CHAIN_CONFIG]
   ) {
@@ -289,7 +289,7 @@ export class Client {
   // }
 
   // Update Chain Config
-  updateChainConfig(
+  protected updateChainConfig(
     chain: string,
     updatedFields: Partial<(typeof CHAIN_CONFIG)[keyof typeof CHAIN_CONFIG]>
   ) {
@@ -459,7 +459,7 @@ export class Client {
    * @param address Optional address (defaults to signer's address)
    * @returns Balance in ETH
    */
-  private async getNativeBalance(address?: string): Promise<string> {
+  protected async getNativeBalance(address?: string): Promise<string> {
     try {
       const targetAddress = address || this.signer.address;
       const balance = await this.provider.getBalance(targetAddress);

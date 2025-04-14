@@ -920,30 +920,82 @@ export class OpenSeaClient {
    * @param options.recipientAddress Optional address to receive the NFT (defaults to accountAddress)
    * @returns Transaction hash of the purchase
    */
-  public async buyNFT({
-    order,
-    accountAddress,
-    recipientAddress,
-  }: {
-    order: OrderV2 | Order;
-    accountAddress: string;
-    recipientAddress?: string;
-  }): Promise<string> {
+  public async buyNFT(
+    collectionSlug: string,
+    identifier: string,
+    accountAddress: string,
+    recipientAddress?: string
+  ): Promise<string> {
     try {
-      // Fulfill the listing order
+      // First get the best listing
+      const response = await fetch(
+        `https://testnets-api.opensea.io/api/v2/listings/collection/${collectionSlug}/nfts/${identifier}/best`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "X-API-KEY": process.env.OPENSEA_API_KEY || "",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const bestListing = await response.json();
+
+      if (!bestListing || !bestListing.protocol_data) {
+        throw new Error("No valid listing found for this NFT");
+      }
+
+      // Construct the order object in the format expected by the SDK
+      const order = {
+        protocol_address: bestListing.protocol_address,
+        protocol_data: bestListing.protocol_data,
+        order_hash: bestListing.order_hash,
+        price: bestListing.price,
+        chain: this.chain,
+      };
+
+      // Then fulfill the order
       const txHash = await this.fulfillOrder({
         order,
         accountAddress,
         recipientAddress: recipientAddress || accountAddress,
       });
 
-      //   console.log(`✅ Successfully purchased NFT. Transaction hash: ${txHash}`);
+      // console.log(`✅ Successfully purchased NFT. Transaction hash: ${txHash}`);
       return txHash;
     } catch (error) {
-      console.error("❌ NFT purchase failed:", error);
+      // console.error('❌ NFT purchase failed:', error);
       throw error;
     }
   }
+  // public async buyNFT({
+  //   order,
+  //   accountAddress,
+  //   recipientAddress,
+  // }: {
+  //   order: OrderV2 | Order;
+  //   accountAddress: string;
+  //   recipientAddress?: string;
+  // }): Promise<string> {
+  //   try {
+  //     // Fulfill the listing order
+  //     const txHash = await this.fulfillOrder({
+  //       order,
+  //       accountAddress,
+  //       recipientAddress: recipientAddress || accountAddress,
+  //     });
+
+  //     //   console.log(`✅ Successfully purchased NFT. Transaction hash: ${txHash}`);
+  //     return txHash;
+  //   } catch (error) {
+  //     // console.error("❌ NFT purchase failed:", error);
+  //     throw error;
+  //   }
+  // }
 
   /**
    * Get the best listing for an NFT
