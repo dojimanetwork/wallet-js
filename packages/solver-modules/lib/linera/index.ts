@@ -4,15 +4,15 @@ import axios from "axios";
 import { sampleByteArrayFile } from "./byteArray";
 
 export {
-  listEthNft,
+  // listEthNft,
   getNftMetaDataUrl,
   createAndListNFT,
   listGenericNft,
   getNextNftId,
 };
 
-async function getNftMarketPlaceContract(url: string, privateKey: string) {
-  const provider = new ethers.providers.JsonRpcProvider(url);
+async function getNftMarketPlaceContract(nftUrl: string, privateKey: string) {
+  const provider = new ethers.providers.JsonRpcProvider(nftUrl);
   const signer = new ethers.Wallet(privateKey, provider);
 
   const contract = new ethers.Contract(
@@ -23,13 +23,13 @@ async function getNftMarketPlaceContract(url: string, privateKey: string) {
   return contract;
 }
 
-async function listEthNft(
-  url: string,
+export async function listEthNft(
+  nftUrl: string,
   privateKey: string,
   tokenId: string,
   price: string
 ): Promise<string> {
-  const contract = await getNftMarketPlaceContract(url, privateKey);
+  const contract = await getNftMarketPlaceContract(nftUrl, privateKey);
 
   const nftPrice = ethers.utils.parseUnits(price, "ether");
   const listingPrice = (await contract.getListPrice()).toString();
@@ -41,7 +41,9 @@ async function listEthNft(
 }
 
 async function getNftMetaDataUrl(nftUrl: string) {
-  const apiUrl = `${nftUrl && nftUrl.endsWith("")}/publish_image`;
+  const apiUrl = `${
+    nftUrl.endsWith("/") ? nftUrl.slice(0, -1) : nftUrl
+  }/publish_image`;
   const blobResponseApi = await axios.post(
     apiUrl,
     {
@@ -64,12 +66,12 @@ async function getNftMetaDataUrl(nftUrl: string) {
 }
 
 async function createAndListNFT(
-  url: string,
+  nftUrl: string,
   privateKey: string,
   price: string,
   metadataURL: string
 ) {
-  const contract = await getNftMarketPlaceContract(url, privateKey);
+  const contract = await getNftMarketPlaceContract(nftUrl, privateKey);
 
   try {
     const nftPrice = ethers.utils.parseUnits(price, "ether");
