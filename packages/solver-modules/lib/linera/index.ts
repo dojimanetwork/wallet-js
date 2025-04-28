@@ -11,8 +11,8 @@ export {
   getNextNftId,
 };
 
-async function getNftMarketPlaceContract(nftUrl: string, privateKey: string) {
-  const provider = new ethers.providers.JsonRpcProvider(nftUrl);
+async function getNftMarketPlaceContract(rpcUrl: string, privateKey: string) {
+  const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
   const signer = new ethers.Wallet(privateKey, provider);
 
   const contract = new ethers.Contract(
@@ -24,12 +24,12 @@ async function getNftMarketPlaceContract(nftUrl: string, privateKey: string) {
 }
 
 export async function listEthNft(
-  nftUrl: string,
+  rpcUrl: string,
   privateKey: string,
   tokenId: string,
   price: string
 ): Promise<string> {
-  const contract = await getNftMarketPlaceContract(nftUrl, privateKey);
+  const contract = await getNftMarketPlaceContract(rpcUrl, privateKey);
 
   const nftPrice = ethers.utils.parseUnits(price, "ether");
   const listingPrice = (await contract.getListPrice()).toString();
@@ -61,17 +61,19 @@ async function getNftMetaDataUrl(nftUrl: string) {
   if (blobResponseApi.status === 200) {
     return blobResponseApi.data.blobHash as string;
   } else {
-    throw new Error("Failed to fetch NFT metadata URL");
+    throw new Error(
+      `Failed to fetch NFT metadata URL: ${blobResponseApi.data}`
+    );
   }
 }
 
 async function createAndListNFT(
-  nftUrl: string,
+  rpcUrl: string,
   privateKey: string,
   price: string,
   metadataURL: string
 ) {
-  const contract = await getNftMarketPlaceContract(nftUrl, privateKey);
+  const contract = await getNftMarketPlaceContract(rpcUrl, privateKey);
 
   try {
     const nftPrice = ethers.utils.parseUnits(price, "ether");
@@ -88,7 +90,7 @@ async function createAndListNFT(
     // console.log("Successfully listed your NFT!");
   } catch (e) {
     // console.error("Error listing NFT:", e);
-    throw new Error("Error listing NFT");
+    throw new Error(`Error listing NFT : ${e}`);
   }
 }
 
@@ -97,8 +99,8 @@ async function getNextNftId(nftUrl: string): Promise<number> {
     const response = await axios.get(`${nftUrl}/next_nft_id`);
     return response.data?.data?.currentId;
   } catch (error) {
-    console.error("Error fetching next NFT ID:", error);
-    throw new Error("Error fetching next NFT ID");
+    // console.error("Error fetching next NFT ID:", error);
+    throw new Error(`Error fetching next NFT ID : ${error}`);
   }
 }
 
@@ -142,11 +144,11 @@ async function listGenericNft(
     if (responseApi.status === 200) {
       return responseApi.data.blobHash;
     } else {
-      console.error("Failed to list NFT:", responseApi.data);
-      throw new Error("Failed to list NFT");
+      // console.error("Failed to list NFT:", responseApi.data);
+      throw new Error(`Failed to list NFT : ${responseApi.data}`);
     }
   } catch (error) {
-    console.error("Error listing NFT:", error);
-    throw new Error("Error listing NFT");
+    // console.error("Error listing NFT:", error);
+    throw new Error(`Error listing NFT : ${error}`);
   }
 }
