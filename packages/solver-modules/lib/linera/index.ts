@@ -9,6 +9,8 @@ export {
   createAndListNFT,
   listGenericNft,
   getNextNftId,
+  createCrowdFundingApp,
+  setChainAddressForCrowdFundingApp,
 };
 
 async function getNftMarketPlaceContract(rpcUrl: string, privateKey: string) {
@@ -150,5 +152,94 @@ async function listGenericNft(
   } catch (error) {
     // console.error("Error listing NFT:", error);
     throw new Error(`Error listing NFT : ${error}`);
+  }
+}
+
+async function createCrowdFundingApp(
+  crowdFundingUrl: string,
+  title: string,
+  description: string,
+  twitterId: string,
+  blobHash: string
+): Promise<{ status: string; message: string; data: string }> {
+  // Prepare final form data
+  const formData = {
+    args: {
+      deadline: 4102473600000000,
+      target: "1000000",
+    },
+    twitterId: twitterId,
+    description: description,
+    title: title,
+    profileScreenshot: blobHash,
+  };
+
+  // Send API request using Axios
+  try {
+    const apiUrl = `${crowdFundingUrl}/crowd_app/new`;
+    const responseApi = await axios.post(apiUrl, formData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    // console.log(responseApi);
+    if (responseApi.status === 200) {
+      return responseApi.data;
+    } else {
+      // console.error("Failed to create app:", responseApi.data);
+      throw new Error(`Failed to create app : ${responseApi.data}`);
+    }
+  } catch (error) {
+    // console.error("Error creating app:", error);
+    throw new Error(`Error creating app : ${error}`);
+  }
+}
+
+async function setChainAddressForCrowdFundingApp(
+  crowdFundingUrl: string,
+  twitterId: string,
+  ethaddress: string,
+  soladdress: string
+): Promise<{
+  status: string;
+  message: string;
+  successful: any;
+  errors: any;
+  total_added: number;
+}> {
+  // Prepare chainAddressData
+  const chainAddressData = [
+    {
+      chain: "ethereum",
+      address: ethaddress,
+      twitter_id: twitterId,
+    },
+    {
+      chain: "solana",
+      address: soladdress,
+      twitter_id: twitterId,
+    },
+  ];
+
+  // Send API request using Axios
+  try {
+    const addressUrl = `${crowdFundingUrl}/add_chain_address`;
+    const addressResponseApi = await axios.post(addressUrl, chainAddressData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    // console.log(addressResponseApi);
+    if (addressResponseApi.status === 200) {
+      return addressResponseApi.data;
+    } else {
+      // console.error("Failed to add address to app:", responseApi.data);
+      throw new Error(
+        `Failed to add address to app : ${addressResponseApi.data}`
+      );
+    }
+  } catch (error) {
+    // console.error("Error adding address to app:", error);
+    throw new Error(`Error adding address to app : ${error}`);
   }
 }
